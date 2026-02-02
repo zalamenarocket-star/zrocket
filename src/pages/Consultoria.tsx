@@ -4,7 +4,7 @@ import { Layout } from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import { Section } from "@/components/Section";
 
-const WHATSAPP_LINK = "https://wa.me/5511969192223";
+const WHATSAPP_LINK = "https://wa.me/5511969192223?text=Olá!%20Gostaria%20de%20solicitar%20um%20diagnóstico%20de%20consultoria.";
 
 const steps = [
   {
@@ -42,7 +42,7 @@ export default function Consultoria() {
         <div className="absolute top-20 right-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl" />
         
         <div className="section-container relative z-10">
-          <div className="max-w-3xl">
+          <div className="max-w-3xl mx-auto lg:mx-0">
             <motion.span
               className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium mb-8"
               initial={{ opacity: 0, y: 20 }}

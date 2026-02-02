@@ -6,8 +6,9 @@ import { Button } from "@/components/ui/button";
 import { Section, SectionHeader } from "@/components/Section";
 import { SolutionCard } from "@/components/SolutionCard";
 import heroBg from "@/assets/hero-bg.jpg";
+import marketingImg from "@/assets/marketing-analytics.jpg";
 
-const WHATSAPP_LINK = "https://wa.me/5511969192223";
+const WHATSAPP_LINK = "https://wa.me/5511969192223?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20os%20serviços%20da%20Z%20Rocket.";
 
 const solutions = [
   {
@@ -62,7 +63,7 @@ export default function Index() {
 
         {/* Content */}
         <div className="section-container relative z-10 py-20">
-          <div className="max-w-4xl">
+          <div className="max-w-4xl mx-auto lg:mx-0">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -116,7 +117,7 @@ export default function Index() {
 
           {/* Stats */}
           <motion.div
-            className="grid grid-cols-3 gap-8 max-w-2xl mt-20"
+            className="grid grid-cols-3 gap-8 max-w-2xl mt-20 mx-auto lg:mx-0"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5 }}
@@ -166,28 +167,36 @@ export default function Index() {
           </motion.div>
 
           <motion.div
-            className="grid grid-cols-2 gap-4"
+            className="relative"
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            {[
-              { icon: Target, label: "Foco em Conversão" },
-              { icon: TrendingUp, label: "Crescimento Escalável" },
-              { icon: BarChart3, label: "Resultados Mensuráveis" },
-              { icon: Rocket, label: "Performance Real" },
-            ].map((item, index) => (
-              <div
-                key={index}
-                className="premium-card p-6 flex flex-col items-center text-center"
-              >
-                <div className="w-12 h-12 rounded-xl bg-gradient-brand flex items-center justify-center mb-4">
-                  <item.icon size={24} className="text-primary-foreground" />
+            <div className="relative rounded-2xl overflow-hidden">
+              <img 
+                src={marketingImg} 
+                alt="Marketing Digital Analytics" 
+                className="w-full h-auto rounded-2xl"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent" />
+            </div>
+            <div className="absolute -bottom-6 -right-6 grid grid-cols-2 gap-3">
+              {[
+                { icon: Target, label: "Foco em Conversão" },
+                { icon: TrendingUp, label: "Crescimento Escalável" },
+              ].map((item, index) => (
+                <div
+                  key={index}
+                  className="premium-card p-4 flex flex-col items-center text-center"
+                >
+                  <div className="w-10 h-10 rounded-lg bg-gradient-brand flex items-center justify-center mb-2">
+                    <item.icon size={20} className="text-primary-foreground" />
+                  </div>
+                  <span className="text-sm font-medium text-foreground">{item.label}</span>
                 </div>
-                <span className="font-medium text-foreground">{item.label}</span>
-              </div>
-            ))}
+              ))}
+            </div>
           </motion.div>
         </div>
       </Section>

@@ -14,7 +14,7 @@ const footerLinks = {
   ],
 };
 
-const WHATSAPP_LINK = "https://wa.me/5511969192223";
+const WHATSAPP_LINK = "https://wa.me/5511969192223?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20os%20serviços%20da%20Z%20Rocket.";
 
 export function Footer() {
   return (

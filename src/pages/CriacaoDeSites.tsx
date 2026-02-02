@@ -2,9 +2,10 @@ import { motion } from "framer-motion";
 import { ArrowRight, Globe, Check, Zap, Search, Shield, Smartphone } from "lucide-react";
 import { Layout } from "@/components/Layout";
 import { Button } from "@/components/ui/button";
-import { Section, SectionHeader } from "@/components/Section";
+import { Section } from "@/components/Section";
+import webDesignImg from "@/assets/web-design-mockup.jpg";
 
-const WHATSAPP_LINK = "https://wa.me/5511969192223";
+const WHATSAPP_LINK = "https://wa.me/5511969192223?text=Olá!%20Gostaria%20de%20solicitar%20um%20orçamento%20para%20criação%20de%20site.";
 
 const benefits = [
   { icon: Zap, text: "Sites rápidos e otimizados" },
@@ -31,49 +32,66 @@ export default function CriacaoDeSites() {
         <div className="absolute top-20 right-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl" />
         
         <div className="section-container relative z-10">
-          <div className="max-w-3xl">
-            <motion.span
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium mb-8"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-            >
-              <Globe size={16} />
-              Criação de Sites
-            </motion.span>
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <motion.span
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium mb-8"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+              >
+                <Globe size={16} />
+                Criação de Sites
+              </motion.span>
 
-            <motion.h1
-              className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-6"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-            >
-              Sites profissionais focados em{" "}
-              <span className="text-gradient">conversão e resultados.</span>
-            </motion.h1>
+              <motion.h1
+                className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-6"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+              >
+                Sites profissionais focados em{" "}
+                <span className="text-gradient">conversão e resultados.</span>
+              </motion.h1>
 
-            <motion.p
-              className="text-lg md:text-xl text-muted-foreground mb-10"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
-              Criamos sites modernos, rápidos e estratégicos, pensados para transformar 
-              visitantes em contatos e vendas. Cada projeto é desenvolvido com foco em 
-              performance, SEO, experiência do usuário e credibilidade da marca.
-            </motion.p>
+              <motion.p
+                className="text-lg md:text-xl text-muted-foreground mb-10"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+              >
+                Criamos sites modernos, rápidos e estratégicos, pensados para transformar 
+                visitantes em contatos e vendas. Cada projeto é desenvolvido com foco em 
+                performance, SEO, experiência do usuário e credibilidade da marca.
+              </motion.p>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+              >
+                <Button asChild variant="cta" size="xl">
+                  <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer">
+                    Solicitar orçamento pelo WhatsApp
+                    <ArrowRight size={20} />
+                  </a>
+                </Button>
+              </motion.div>
+            </div>
 
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
+              className="relative hidden lg:block"
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
             >
-              <Button asChild variant="cta" size="xl">
-                <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer">
-                  Solicitar orçamento pelo WhatsApp
-                  <ArrowRight size={20} />
-                </a>
-              </Button>
+              <div className="rounded-2xl overflow-hidden shadow-2xl">
+                <img 
+                  src={webDesignImg} 
+                  alt="Web Design Mockup" 
+                  className="w-full h-auto"
+                />
+              </div>
             </motion.div>
           </div>
         </div>
