@@ -3,8 +3,9 @@ import { ArrowRight, MessageSquare, Bot, Users, Clock, Zap, CheckCircle } from "
 import { Layout } from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import { Section } from "@/components/Section";
+import automationImg from "@/assets/automation-chat.jpg";
 
-const WHATSAPP_LINK = "https://wa.me/5511969192223";
+const WHATSAPP_LINK = "https://wa.me/5511969192223?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20automação%20de%20WhatsApp.";
 
 const benefits = [
   {
@@ -47,48 +48,65 @@ export default function AutomacaoWhatsApp() {
         <div className="absolute top-20 right-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl" />
         
         <div className="section-container relative z-10">
-          <div className="max-w-3xl">
-            <motion.span
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium mb-8"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-            >
-              <MessageSquare size={16} />
-              Automação de WhatsApp
-            </motion.span>
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <motion.span
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium mb-8"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+              >
+                <MessageSquare size={16} />
+                Automação de WhatsApp
+              </motion.span>
 
-            <motion.h1
-              className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-6"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-            >
-              Automação de WhatsApp para{" "}
-              <span className="text-gradient">vender mais e atender melhor.</span>
-            </motion.h1>
+              <motion.h1
+                className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-6"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+              >
+                Automação de WhatsApp para{" "}
+                <span className="text-gradient">vender mais e atender melhor.</span>
+              </motion.h1>
 
-            <motion.p
-              className="text-lg md:text-xl text-muted-foreground mb-10"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
-              Estruturamos automações inteligentes para organizar atendimentos, qualificar 
-              leads e acelerar o processo de vendas, sem perder o contato humano quando necessário.
-            </motion.p>
+              <motion.p
+                className="text-lg md:text-xl text-muted-foreground mb-10"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+              >
+                Estruturamos automações inteligentes para organizar atendimentos, qualificar 
+                leads e acelerar o processo de vendas, sem perder o contato humano quando necessário.
+              </motion.p>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+              >
+                <Button asChild variant="cta" size="xl">
+                  <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer">
+                    Quero automatizar meu atendimento
+                    <ArrowRight size={20} />
+                  </a>
+                </Button>
+              </motion.div>
+            </div>
 
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
+              className="relative hidden lg:block"
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
             >
-              <Button asChild variant="cta" size="xl">
-                <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer">
-                  Quero automatizar meu atendimento
-                  <ArrowRight size={20} />
-                </a>
-              </Button>
+              <div className="rounded-2xl overflow-hidden shadow-2xl">
+                <img 
+                  src={automationImg} 
+                  alt="Automação de Mensagens" 
+                  className="w-full h-auto"
+                />
+              </div>
             </motion.div>
           </div>
         </div>

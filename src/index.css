@@ -71,10 +71,96 @@
     --sidebar-ring: 210 100% 50%;
   }
 
+  .light {
+    --background: 0 0% 100%;
+    --foreground: 220 15% 10%;
+
+    --card: 0 0% 98%;
+    --card-foreground: 220 15% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 15% 10%;
+
+    --primary: 210 100% 50%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 200 90% 55%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 220 10% 94%;
+    --muted-foreground: 220 10% 45%;
+
+    --accent: 210 100% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 10% 88%;
+    --input: 220 10% 92%;
+    --ring: 210 100% 50%;
+
+    /* Custom brand colors for light mode */
+    --brand-blue-start: 200 90% 50%;
+    --brand-blue-end: 210 100% 45%;
+    --brand-glow: 210 100% 50%;
+
+    /* Gradient definitions for light mode */
+    --gradient-brand: linear-gradient(135deg, hsl(200, 90%, 50%) 0%, hsl(210, 100%, 45%) 100%);
+    --gradient-hero: linear-gradient(180deg, hsl(0, 0%, 100%) 0%, hsl(220, 10%, 96%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(0, 0%, 99%) 0%, hsl(220, 10%, 96%) 100%);
+    --gradient-text: linear-gradient(90deg, hsl(200, 90%, 45%) 0%, hsl(210, 100%, 40%) 100%);
+
+    /* Shadows for light mode */
+    --shadow-glow: 0 0 60px -15px hsl(210, 100%, 50% / 0.3);
+    --shadow-card: 0 8px 32px -8px rgba(0, 0, 0, 0.1);
+    --shadow-card-hover: 0 16px 48px -12px hsl(210, 100%, 50% / 0.15);
+  }
+
   .dark {
-    /* Same as root - site is dark by default */
     --background: 220 15% 5%;
     --foreground: 210 20% 98%;
+
+    --card: 220 15% 8%;
+    --card-foreground: 210 20% 98%;
+
+    --popover: 220 15% 8%;
+    --popover-foreground: 210 20% 98%;
+
+    --primary: 210 100% 50%;
+    --primary-foreground: 210 20% 98%;
+
+    --secondary: 200 90% 60%;
+    --secondary-foreground: 220 15% 5%;
+
+    --muted: 220 15% 12%;
+    --muted-foreground: 215 15% 60%;
+
+    --accent: 210 100% 55%;
+    --accent-foreground: 210 20% 98%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 20% 98%;
+
+    --border: 220 15% 18%;
+    --input: 220 15% 15%;
+    --ring: 210 100% 50%;
+
+    /* Custom brand colors */
+    --brand-blue-start: 200 90% 60%;
+    --brand-blue-end: 210 100% 50%;
+    --brand-glow: 210 100% 50%;
+
+    /* Gradient definitions */
+    --gradient-brand: linear-gradient(135deg, hsl(200, 90%, 60%) 0%, hsl(210, 100%, 50%) 100%);
+    --gradient-hero: linear-gradient(180deg, hsl(220, 15%, 5%) 0%, hsl(220, 20%, 8%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(220, 15%, 10%) 0%, hsl(220, 15%, 6%) 100%);
+    --gradient-text: linear-gradient(90deg, hsl(200, 90%, 65%) 0%, hsl(210, 100%, 55%) 100%);
+
+    /* Shadows */
+    --shadow-glow: 0 0 60px -15px hsl(210, 100%, 50%);
+    --shadow-card: 0 8px 32px -8px rgba(0, 0, 0, 0.5);
+    --shadow-card-hover: 0 16px 48px -12px hsl(210, 100%, 50% / 0.25);
   }
 }
 
@@ -160,7 +246,7 @@
 
   /* Section container */
   .section-container {
-    @apply container mx-auto px-4 md:px-6 lg:px-8;
+    @apply container mx-auto px-6 md:px-10 lg:px-16 xl:px-20 max-w-7xl;
   }
 
   /* Floating animation for WhatsApp button */
