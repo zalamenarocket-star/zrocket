@@ -308,6 +308,10 @@
     background-size: 60px 60px;
   }
 
+  .light .grid-pattern {
+    background-image: none;
+  }
+
   /* Link underline animation */
   .link-underline {
     @apply relative;

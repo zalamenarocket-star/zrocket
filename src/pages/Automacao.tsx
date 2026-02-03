@@ -1,11 +1,12 @@
 import { motion } from "framer-motion";
-import { ArrowRight, MessageSquare, Bot, Users, Clock, Zap, CheckCircle } from "lucide-react";
+import { ArrowRight, MessageSquare, Bot, Users, Clock, Zap, CheckCircle, Instagram } from "lucide-react";
 import { Layout } from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import { Section } from "@/components/Section";
 import automationImg from "@/assets/automation-chat.jpg";
+import customerServiceImg from "@/assets/customer-service.jpg";
 
-const WHATSAPP_LINK = "https://wa.me/5511969192223?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20automação%20de%20WhatsApp.";
+const WHATSAPP_LINK = "https://wa.me/5511969192223?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20automação.";
 
 const benefits = [
   {
@@ -39,7 +40,7 @@ const features = [
   "Suporte e treinamento inclusos",
 ];
 
-export default function AutomacaoWhatsApp() {
+export default function Automacao() {
   return (
     <Layout>
       {/* Hero */}
@@ -57,7 +58,7 @@ export default function AutomacaoWhatsApp() {
                 transition={{ duration: 0.6 }}
               >
                 <MessageSquare size={16} />
-                Automação de WhatsApp
+                Automação
               </motion.span>
 
               <motion.h1
@@ -66,19 +67,36 @@ export default function AutomacaoWhatsApp() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.1 }}
               >
-                Automação de WhatsApp para{" "}
+                Automação para{" "}
                 <span className="text-gradient">vender mais e atender melhor.</span>
               </motion.h1>
 
               <motion.p
-                className="text-lg md:text-xl text-muted-foreground mb-10"
+                className="text-lg md:text-xl text-muted-foreground mb-6"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
               >
-                Estruturamos automações inteligentes para organizar atendimentos, qualificar 
-                leads e acelerar o processo de vendas, sem perder o contato humano quando necessário.
+                Estruturamos automações inteligentes para WhatsApp e Instagram, 
+                organizando atendimentos, qualificando leads e acelerando o processo 
+                de vendas — sem perder o contato humano quando necessário.
               </motion.p>
+
+              <motion.div
+                className="flex flex-wrap gap-3 mb-10"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.25 }}
+              >
+                <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#25D366]/10 border border-[#25D366]/20 text-[#25D366] text-sm font-medium">
+                  <MessageSquare size={14} />
+                  WhatsApp
+                </span>
+                <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#E4405F]/10 border border-[#E4405F]/20 text-[#E4405F] text-sm font-medium">
+                  <Instagram size={14} />
+                  Instagram
+                </span>
+              </motion.div>
 
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -102,8 +120,8 @@ export default function AutomacaoWhatsApp() {
             >
               <div className="rounded-2xl overflow-hidden shadow-2xl">
                 <img 
-                  src={automationImg} 
-                  alt="Automação de Mensagens" 
+                  src={customerServiceImg} 
+                  alt="Atendimento automatizado" 
                   className="w-full h-auto"
                 />
               </div>
@@ -166,28 +184,19 @@ export default function AutomacaoWhatsApp() {
           </motion.div>
 
           <motion.div
-            className="premium-card p-8 text-center"
+            className="relative"
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <div className="w-20 h-20 rounded-full bg-gradient-brand flex items-center justify-center mx-auto mb-6">
-              <MessageSquare size={40} className="text-primary-foreground" />
+            <div className="rounded-2xl overflow-hidden shadow-2xl">
+              <img 
+                src={automationImg} 
+                alt="Automação de Mensagens" 
+                className="w-full h-auto"
+              />
             </div>
-            <h3 className="font-display text-2xl font-bold text-foreground mb-4">
-              Escale seu atendimento
-            </h3>
-            <p className="text-muted-foreground mb-6">
-              Atenda mais clientes sem aumentar sua equipe. Automatize o básico e 
-              foque no que realmente importa: fechar vendas.
-            </p>
-            <Button asChild variant="cta" size="lg">
-              <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer">
-                Falar no WhatsApp
-                <ArrowRight size={18} />
-              </a>
-            </Button>
           </motion.div>
         </div>
       </Section>
@@ -202,10 +211,10 @@ export default function AutomacaoWhatsApp() {
             transition={{ duration: 0.6 }}
           >
             <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-6">
-              Pronto para <span className="text-gradient">automatizar</span> seu WhatsApp?
+              Pronto para <span className="text-gradient">automatizar</span> seu atendimento?
             </h2>
             <p className="text-muted-foreground mb-8">
-              Entre em contato e descubra como podemos transformar seu atendimento.
+              Entre em contato e descubra como podemos transformar seu atendimento no WhatsApp e Instagram.
             </p>
             <Button asChild variant="cta" size="xl">
               <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer">
