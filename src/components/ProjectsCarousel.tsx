@@ -42,7 +42,7 @@ export function ProjectsCarousel({ projects }: ProjectsCarouselProps) {
       >
         <CarouselContent className="-ml-2 md:-ml-4">
           {projects.map((project) => (
-            <CarouselItem key={project.id} className="pl-2 md:pl-4 md:basis-1/2">
+            <CarouselItem key={project.id} className="pl-2 md:pl-4 basis-full md:basis-1/2 lg:basis-1/2">
               {project.link ? (
                 <a
                   href={project.link}
@@ -50,7 +50,7 @@ export function ProjectsCarousel({ projects }: ProjectsCarouselProps) {
                   rel="noopener noreferrer"
                   className="block group"
                 >
-                  <div className="relative aspect-video bg-muted rounded-lg overflow-hidden">
+              <div className="relative aspect-[16/10] bg-muted rounded-xl overflow-hidden min-h-[280px]">
                     {project.image ? (
                       <img
                         src={project.image}
@@ -71,7 +71,7 @@ export function ProjectsCarousel({ projects }: ProjectsCarouselProps) {
                   </div>
                 </a>
               ) : (
-                <div className="relative aspect-video bg-muted rounded-lg overflow-hidden">
+              <div className="relative aspect-[16/10] bg-muted rounded-xl overflow-hidden min-h-[280px]">
                   {project.image ? (
                     <img
                       src={project.image}

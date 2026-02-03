@@ -2,8 +2,10 @@ import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-import logo from "@/assets/logo-zrocket.png";
+import logoDark from "@/assets/logo-zrocket.png";
+import logoLight from "@/assets/logo-zrocket-light.png";
 import { ThemeToggle } from "./ThemeToggle";
+import { useTheme } from "@/hooks/use-theme";
 
 const solutionsItems = [
   { label: "Criação de Sites", href: "/criacao-de-sites" },
@@ -23,6 +25,9 @@ export function Header() {
   const [solutionsOpen, setSolutionsOpen] = useState(false);
   const [mobileSolutionsOpen, setMobileSolutionsOpen] = useState(false);
   const location = useLocation();
+  const { theme } = useTheme();
+
+  const logo = theme === "light" ? logoLight : logoDark;
 
   const isSolutionActive = solutionsItems.some((item) => location.pathname === item.href);
 
