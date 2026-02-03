@@ -6,7 +6,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "@/hooks/use-theme";
 import Index from "./pages/Index";
 import CriacaoDeSites from "./pages/CriacaoDeSites";
-import AutomacaoWhatsApp from "./pages/AutomacaoWhatsApp";
+import Automacao from "./pages/Automacao";
 import TrafegoPago from "./pages/TrafegoPago";
 import Consultoria from "./pages/Consultoria";
 import Contato from "./pages/Contato";
@@ -24,7 +24,7 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/criacao-de-sites" element={<CriacaoDeSites />} />
-            <Route path="/automacao-whatsapp" element={<AutomacaoWhatsApp />} />
+            <Route path="/automacao" element={<Automacao />} />
             <Route path="/trafego-pago" element={<TrafegoPago />} />
             <Route path="/consultoria" element={<Consultoria />} />
             <Route path="/contato" element={<Contato />} />

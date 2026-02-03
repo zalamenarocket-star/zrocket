@@ -3,9 +3,18 @@ import { ArrowRight, Globe, Check, Zap, Search, Shield, Smartphone } from "lucid
 import { Layout } from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import { Section } from "@/components/Section";
+import { ProjectsCarousel } from "@/components/ProjectsCarousel";
 import webDesignImg from "@/assets/web-design-mockup.jpg";
 
 const WHATSAPP_LINK = "https://wa.me/5511969192223?text=Olá!%20Gostaria%20de%20solicitar%20um%20orçamento%20para%20criação%20de%20site.";
+
+// Configure seus projetos aqui - adicione imagem e link para cada projeto
+const projects = [
+  { id: 1, title: "Projeto 1", description: "Descrição do projeto", image: null, link: null },
+  { id: 2, title: "Projeto 2", description: "Descrição do projeto", image: null, link: null },
+  { id: 3, title: "Projeto 3", description: "Descrição do projeto", image: null, link: null },
+  { id: 4, title: "Projeto 4", description: "Descrição do projeto", image: null, link: null },
+];
 
 const benefits = [
   { icon: Zap, text: "Sites rápidos e otimizados" },
@@ -153,31 +162,7 @@ export default function CriacaoDeSites() {
             </ul>
           </motion.div>
 
-          <motion.div
-            className="premium-card p-8"
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <h3 className="font-display text-2xl font-bold text-foreground mb-4">
-              Últimos Projetos
-            </h3>
-            <p className="text-muted-foreground mb-6">
-              Em breve, nossos projetos mais recentes estarão disponíveis aqui. 
-              Entre em contato para conhecer nosso portfólio completo.
-            </p>
-            <div className="grid grid-cols-2 gap-4">
-              {[1, 2, 3, 4].map((i) => (
-                <div
-                  key={i}
-                  className="aspect-video bg-muted rounded-lg flex items-center justify-center"
-                >
-                  <span className="text-muted-foreground text-sm">Em breve</span>
-                </div>
-              ))}
-            </div>
-          </motion.div>
+          <ProjectsCarousel projects={projects} />
         </div>
       </Section>
 

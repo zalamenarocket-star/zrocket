@@ -7,6 +7,7 @@ import { Section, SectionHeader } from "@/components/Section";
 import { SolutionCard } from "@/components/SolutionCard";
 import heroBg from "@/assets/hero-bg.jpg";
 import marketingImg from "@/assets/marketing-analytics.jpg";
+import teamImg from "@/assets/team-collaboration.jpg";
 
 const WHATSAPP_LINK = "https://wa.me/5511969192223?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20os%20serviços%20da%20Z%20Rocket.";
 
@@ -19,9 +20,9 @@ const solutions = [
   },
   {
     icon: <MessageSquare size={28} className="text-primary-foreground" />,
-    title: "Automação de WhatsApp",
-    description: "Atendimento automático, qualificação de leads e organização comercial para escalar resultados.",
-    href: "/automacao-whatsapp",
+    title: "Automação",
+    description: "Automação inteligente para WhatsApp e Instagram, organizando atendimentos e acelerando vendas.",
+    href: "/automacao",
   },
   {
     icon: <BarChart3 size={28} className="text-primary-foreground" />,
@@ -148,7 +149,7 @@ export default function Index() {
               Nossa Abordagem
             </span>
             <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
-              Não fazemos <span className="text-gradient">marketing genérico.</span>
+              Estratégias que se transformam em <span className="text-gradient">resultados.</span>
             </h2>
             <p className="text-lg text-muted-foreground mb-6">
               Estruturamos estratégias personalizadas, alinhadas ao seu negócio, com foco 
@@ -235,10 +236,10 @@ export default function Index() {
         <div className="absolute top-0 right-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-secondary/10 rounded-full blur-3xl" />
         
-        <div className="relative z-10 text-center max-w-3xl mx-auto">
+        <div className="relative z-10 grid lg:grid-cols-2 gap-12 items-center">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
@@ -256,6 +257,22 @@ export default function Index() {
                 <ArrowRight size={20} />
               </a>
             </Button>
+          </motion.div>
+
+          <motion.div
+            className="relative hidden lg:block"
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <div className="rounded-2xl overflow-hidden shadow-2xl">
+              <img 
+                src={teamImg} 
+                alt="Equipe de marketing colaborando" 
+                className="w-full h-auto rounded-2xl"
+              />
+            </div>
           </motion.div>
         </div>
       </Section>
