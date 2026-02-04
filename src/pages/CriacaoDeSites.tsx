@@ -8,14 +8,17 @@ import webDesignImg from "@/assets/web-design-mockup.jpg";
 import stdEngenhariaImg from "@/assets/projects/stdengenharia.png";
 import mohamedHassanImg from "@/assets/projects/mohamedhassan.png";
 import griloPneusImg from "@/assets/projects/grilopneus.png";
+import newServicesImg from "@/assets/projects/newservices.png";
 
 const WHATSAPP_LINK = "https://wa.me/5511969192223?text=Olá!%20Gostaria%20de%20solicitar%20um%20orçamento%20para%20criação%20de%20site.";
 
 // Configure seus projetos aqui - adicione imagem e link para cada projeto
 const projects = [
   { id: 1, title: "STD Engenharia", description: "Site institucional para empresa de engenharia e inspeções técnicas", image: stdEngenhariaImg, link: "https://stdengenharia.com.br/" },
-  { id: 2, title: "Mohamed Hassan Advocacia", description: "Site institucional para escritório de advocacia", image: mohamedHassanImg, link: "https://mohamedhassan.com.br/" },
-  { id: 3, title: "Grilo Pneus", description: "Site para loja de rodas e pneus multimarcas", image: griloPneusImg, link: "https://grilopneus.com.br/" },
+  { id: 2, title: "Roda Viva", description: "E-commerce de autopeças e acessórios automotivos", image: null, link: "https://rodaviva.com.br/" },
+  { id: 3, title: "Mohamed Hassan Advocacia", description: "Site institucional para escritório de advocacia", image: mohamedHassanImg, link: "https://mohamedhassan.com.br/" },
+  { id: 4, title: "Grilo Pneus", description: "Site para loja de rodas e pneus multimarcas", image: griloPneusImg, link: "https://grilopneus.com.br/" },
+  { id: 5, title: "New Services Condomínios", description: "Site para empresa de automação de portões e segurança", image: newServicesImg, link: "https://newservices.com.br/" },
 ];
 
 const benefits = [
