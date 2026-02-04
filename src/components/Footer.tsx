@@ -1,5 +1,9 @@
 import { Link } from "react-router-dom";
-import logo from "@/assets/logo-zrocket.png";
+import { useTheme } from "@/hooks/use-theme";
+import logoDark from "@/assets/logo-zrocket.png";
+import logoLight from "@/assets/logo-zrocket-light.png";
+import kommoBadgeDark from "@/assets/kommo-badge-dark.png";
+import kommoBadgeLight from "@/assets/kommo-badge-light.png";
 
 const footerLinks = {
   solutions: [
@@ -17,6 +21,10 @@ const footerLinks = {
 const WHATSAPP_LINK = "https://wa.me/5511969192223?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20os%20serviços%20da%20Z%20Rocket.";
 
 export function Footer() {
+  const { theme } = useTheme();
+  const logo = theme === "dark" ? logoDark : logoLight;
+  const kommoBadge = theme === "dark" ? kommoBadgeDark : kommoBadgeLight;
+
   return (
     <footer className="bg-card border-t border-border">
       <div className="section-container py-16">
@@ -83,6 +91,14 @@ export function Footer() {
           <p className="text-muted-foreground text-sm">
             © {new Date().getFullYear()} Z Rocket Marketing Digital. Todos os direitos reservados.
           </p>
+          <a
+            href="https://www.kommo.com/br/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="transition-opacity hover:opacity-80"
+          >
+            <img src={kommoBadge} alt="Kommo Partner" className="h-10 w-auto" />
+          </a>
         </div>
       </div>
     </footer>
