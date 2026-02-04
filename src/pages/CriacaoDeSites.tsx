@@ -14,9 +14,8 @@ const WHATSAPP_LINK = "https://wa.me/5511969192223?text=Olá!%20Gostaria%20de%20
 // Configure seus projetos aqui - adicione imagem e link para cada projeto
 const projects = [
   { id: 1, title: "STD Engenharia", description: "Site institucional para empresa de engenharia e inspeções técnicas", image: stdEngenhariaImg, link: "https://stdengenharia.com.br/" },
-  { id: 2, title: "Roda Viva", description: "E-commerce de autopeças e acessórios automotivos", image: null, link: "https://rodaviva.com.br/" },
-  { id: 3, title: "Mohamed Hassan Advocacia", description: "Site institucional para escritório de advocacia", image: mohamedHassanImg, link: "https://mohamedhassan.com.br/" },
-  { id: 4, title: "Grilo Pneus", description: "Site para loja de rodas e pneus multimarcas", image: griloPneusImg, link: "https://grilopneus.com.br/" },
+  { id: 2, title: "Mohamed Hassan Advocacia", description: "Site institucional para escritório de advocacia", image: mohamedHassanImg, link: "https://mohamedhassan.com.br/" },
+  { id: 3, title: "Grilo Pneus", description: "Site para loja de rodas e pneus multimarcas", image: griloPneusImg, link: "https://grilopneus.com.br/" },
 ];
 
 const benefits = [
