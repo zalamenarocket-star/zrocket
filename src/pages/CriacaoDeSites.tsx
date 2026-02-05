@@ -40,7 +40,7 @@ export default function CriacaoDeSites() {
   return (
     <Layout>
       {/* Hero */}
-      <section className="relative py-16 md:py-24 lg:py-32 overflow-hidden">
+      <section className="relative py-12 md:py-24 lg:py-32 overflow-hidden">
         <div className="absolute inset-0 grid-pattern opacity-20" />
         <div className="absolute top-20 right-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl" />
         
@@ -48,17 +48,17 @@ export default function CriacaoDeSites() {
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-start">
             <div className="lg:sticky lg:top-24">
               <motion.span
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium mb-6"
+                className="inline-flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs md:text-sm font-medium mb-4 md:mb-6"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
               >
-                <Globe size={16} />
+                <Globe size={14} className="md:w-4 md:h-4" />
                 Criação de Sites
               </motion.span>
 
               <motion.h1
-                className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-4 md:mb-6"
+                className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-foreground leading-tight mb-4"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.1 }}
@@ -68,7 +68,7 @@ export default function CriacaoDeSites() {
               </motion.h1>
 
               <motion.p
-                className="text-base md:text-lg lg:text-xl text-muted-foreground mb-8"
+                className="text-sm md:text-base lg:text-lg xl:text-xl text-muted-foreground mb-6 md:mb-8"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
@@ -83,16 +83,16 @@ export default function CriacaoDeSites() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.3 }}
               >
-                <Button asChild variant="cta" size="xl">
+                <Button asChild variant="cta" size="lg" className="w-full sm:w-auto text-sm md:text-base">
                   <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer">
                     Solicitar orçamento pelo WhatsApp
-                    <ArrowRight size={20} />
+                    <ArrowRight size={18} className="md:w-5 md:h-5" />
                   </a>
                 </Button>
               </motion.div>
             </div>
 
-            <div className="mt-8 lg:mt-0">
+            <div className="mt-6 lg:mt-0">
               <ProjectsCarousel projects={projects} />
             </div>
           </div>
