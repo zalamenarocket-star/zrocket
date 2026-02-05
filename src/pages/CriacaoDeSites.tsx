@@ -40,15 +40,15 @@ export default function CriacaoDeSites() {
   return (
     <Layout>
       {/* Hero */}
-      <section className="relative py-20 md:py-32 overflow-hidden">
+      <section className="relative py-16 md:py-24 lg:py-32 overflow-hidden">
         <div className="absolute inset-0 grid-pattern opacity-20" />
         <div className="absolute top-20 right-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl" />
         
         <div className="section-container relative z-10">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-start">
+            <div className="lg:sticky lg:top-24">
               <motion.span
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium mb-8"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium mb-6"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
@@ -58,7 +58,7 @@ export default function CriacaoDeSites() {
               </motion.span>
 
               <motion.h1
-                className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-6"
+                className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-4 md:mb-6"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.1 }}
@@ -68,7 +68,7 @@ export default function CriacaoDeSites() {
               </motion.h1>
 
               <motion.p
-                className="text-lg md:text-xl text-muted-foreground mb-10"
+                className="text-base md:text-lg lg:text-xl text-muted-foreground mb-8"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
@@ -92,7 +92,9 @@ export default function CriacaoDeSites() {
               </motion.div>
             </div>
 
-            <ProjectsCarousel projects={projects} />
+            <div className="mt-8 lg:mt-0">
+              <ProjectsCarousel projects={projects} />
+            </div>
           </div>
         </div>
       </section>
