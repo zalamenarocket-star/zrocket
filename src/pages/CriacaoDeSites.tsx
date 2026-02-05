@@ -4,7 +4,7 @@ import { Layout } from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import { Section } from "@/components/Section";
 import { ProjectsCarousel } from "@/components/ProjectsCarousel";
-import webDesignImg from "@/assets/web-design-mockup.jpg";
+import webDesignShowcaseImg from "@/assets/web-design-showcase.jpg";
 import stdEngenhariaImg from "@/assets/projects/stdengenharia.png";
 import mohamedHassanImg from "@/assets/projects/mohamedhassan.png";
 import griloPneusImg from "@/assets/projects/grilopneus.png";
@@ -15,10 +15,9 @@ const WHATSAPP_LINK = "https://wa.me/5511969192223?text=Olá!%20Gostaria%20de%20
 // Configure seus projetos aqui - adicione imagem e link para cada projeto
 const projects = [
   { id: 1, title: "STD Engenharia", description: "Site institucional para empresa de engenharia e inspeções técnicas", image: stdEngenhariaImg, link: "https://stdengenharia.com.br/" },
-  { id: 2, title: "Roda Viva", description: "E-commerce de autopeças e acessórios automotivos", image: null, link: "https://rodaviva.com.br/" },
-  { id: 3, title: "Mohamed Hassan Advocacia", description: "Site institucional para escritório de advocacia", image: mohamedHassanImg, link: "https://mohamedhassan.com.br/" },
-  { id: 4, title: "Grilo Pneus", description: "Site para loja de rodas e pneus multimarcas", image: griloPneusImg, link: "https://grilopneus.com.br/" },
-  { id: 5, title: "New Services Condomínios", description: "Site para empresa de automação de portões e segurança", image: newServicesImg, link: "https://newservices.com.br/" },
+  { id: 2, title: "Mohamed Hassan Advocacia", description: "Site institucional para escritório de advocacia", image: mohamedHassanImg, link: "https://mohamedhassan.com.br/" },
+  { id: 3, title: "Grilo Pneus", description: "Site para loja de rodas e pneus multimarcas", image: griloPneusImg, link: "https://grilopneus.com.br/" },
+  { id: 4, title: "New Services Condomínios", description: "Site para empresa de automação de portões e segurança", image: newServicesImg, link: "https://newservices.com.br/" },
 ];
 
 const benefits = [
@@ -93,20 +92,7 @@ export default function CriacaoDeSites() {
               </motion.div>
             </div>
 
-            <motion.div
-              className="relative hidden lg:block"
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
-              <div className="rounded-2xl overflow-hidden shadow-2xl">
-                <img 
-                  src={webDesignImg} 
-                  alt="Web Design Mockup" 
-                  className="w-full h-auto"
-                />
-              </div>
-            </motion.div>
+            <ProjectsCarousel projects={projects} />
           </div>
         </div>
       </section>
@@ -167,7 +153,19 @@ export default function CriacaoDeSites() {
             </ul>
           </motion.div>
 
-          <ProjectsCarousel projects={projects} />
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="rounded-2xl overflow-hidden shadow-2xl"
+          >
+            <img 
+              src={webDesignShowcaseImg} 
+              alt="Web Design Showcase" 
+              className="w-full h-auto"
+            />
+          </motion.div>
         </div>
       </Section>
 

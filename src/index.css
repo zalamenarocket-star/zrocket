@@ -72,49 +72,49 @@
   }
 
   .light {
-    --background: 0 0% 100%;
-    --foreground: 220 15% 10%;
+    --background: 220 20% 97%;
+    --foreground: 220 20% 15%;
 
-    --card: 0 0% 98%;
-    --card-foreground: 220 15% 10%;
+    --card: 220 15% 92%;
+    --card-foreground: 220 20% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 220 15% 10%;
+    --popover-foreground: 220 20% 15%;
 
-    --primary: 210 100% 50%;
+    --primary: 210 100% 45%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 200 90% 55%;
+    --secondary: 200 90% 50%;
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 220 10% 94%;
-    --muted-foreground: 220 10% 45%;
+    --muted: 220 15% 88%;
+    --muted-foreground: 220 15% 40%;
 
-    --accent: 210 100% 55%;
+    --accent: 210 100% 50%;
     --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 84% 60%;
+    --destructive: 0 84% 55%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 220 10% 88%;
-    --input: 220 10% 92%;
-    --ring: 210 100% 50%;
+    --border: 220 15% 82%;
+    --input: 220 15% 85%;
+    --ring: 210 100% 45%;
 
     /* Custom brand colors for light mode */
     --brand-blue-start: 200 90% 50%;
-    --brand-blue-end: 210 100% 45%;
-    --brand-glow: 210 100% 50%;
+    --brand-blue-end: 210 100% 40%;
+    --brand-glow: 210 100% 45%;
 
     /* Gradient definitions for light mode */
-    --gradient-brand: linear-gradient(135deg, hsl(200, 90%, 50%) 0%, hsl(210, 100%, 45%) 100%);
-    --gradient-hero: linear-gradient(180deg, hsl(0, 0%, 100%) 0%, hsl(220, 10%, 96%) 100%);
-    --gradient-card: linear-gradient(145deg, hsl(0, 0%, 99%) 0%, hsl(220, 10%, 96%) 100%);
-    --gradient-text: linear-gradient(90deg, hsl(200, 90%, 45%) 0%, hsl(210, 100%, 40%) 100%);
+    --gradient-brand: linear-gradient(135deg, hsl(200, 90%, 50%) 0%, hsl(210, 100%, 40%) 100%);
+    --gradient-hero: linear-gradient(180deg, hsl(220, 20%, 97%) 0%, hsl(220, 20%, 92%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(220, 15%, 94%) 0%, hsl(220, 15%, 88%) 100%);
+    --gradient-text: linear-gradient(90deg, hsl(200, 90%, 45%) 0%, hsl(210, 100%, 35%) 100%);
 
     /* Shadows for light mode */
-    --shadow-glow: 0 0 60px -15px hsl(210, 100%, 50% / 0.3);
-    --shadow-card: 0 8px 32px -8px rgba(0, 0, 0, 0.1);
-    --shadow-card-hover: 0 16px 48px -12px hsl(210, 100%, 50% / 0.15);
+    --shadow-glow: 0 0 60px -15px hsl(210, 100%, 45% / 0.4);
+    --shadow-card: 0 8px 32px -8px rgba(0, 0, 0, 0.12);
+    --shadow-card-hover: 0 16px 48px -12px hsl(210, 100%, 45% / 0.2);
   }
 
   .dark {
