@@ -40,11 +40,11 @@ export default function CriacaoDeSites() {
   return (
     <Layout>
       {/* Hero */}
-      <section className="relative pt-4 pb-12 md:py-24 lg:py-32 overflow-hidden">
+      <section className="relative pt-4 pb-12 md:py-24 lg:py-32 overflow-x-clip">
         <div className="absolute inset-0 grid-pattern opacity-20" />
         <div className="absolute top-20 right-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl" />
         
-        <div className="section-container relative z-10 overflow-hidden">
+        <div className="section-container relative z-10">
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-start">
             <div className="lg:sticky lg:top-24 min-w-0 break-words">
               <motion.span
