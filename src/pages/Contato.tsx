@@ -61,7 +61,7 @@ export default function Contato() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              <Button asChild variant="cta" size="xl">
+              <Button asChild variant="cta" size="lg" className="w-full sm:w-auto">
                 <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer">
                   Falar com um especialista no WhatsApp
                   <ArrowRight size={20} />
@@ -130,7 +130,7 @@ export default function Contato() {
               Estamos prontos para ajudar sua empresa a crescer. Clique no botão abaixo 
               e fale diretamente com um de nossos especialistas.
             </p>
-            <Button asChild variant="cta" size="xl">
+            <Button asChild variant="cta" size="lg" className="w-full sm:w-auto">
               <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer">
                 Iniciar conversa no WhatsApp
                 <ArrowRight size={20} />

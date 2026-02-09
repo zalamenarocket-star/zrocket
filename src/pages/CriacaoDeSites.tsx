@@ -186,7 +186,7 @@ export default function CriacaoDeSites() {
             <p className="text-muted-foreground mb-8">
               Entre em contato e receba um orçamento personalizado para o seu projeto.
             </p>
-            <Button asChild variant="cta" size="xl">
+            <Button asChild variant="cta" size="lg" className="w-full sm:w-auto">
               <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer">
                 Solicitar orçamento pelo WhatsApp
                 <ArrowRight size={20} />
