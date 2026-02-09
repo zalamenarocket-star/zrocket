@@ -102,13 +102,13 @@ export default function Index() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.3 }}
             >
-              <Button asChild variant="cta" size="xl">
+              <Button asChild variant="cta" size="lg" className="w-full sm:w-auto">
                 <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer">
                   Falar com um especialista
                   <ArrowRight size={20} />
                 </a>
               </Button>
-              <Button asChild variant="outline" size="xl">
+              <Button asChild variant="outline" size="lg" className="w-full sm:w-auto">
                 <Link to="/contato">
                   Conhecer soluções
                 </Link>
@@ -251,7 +251,7 @@ export default function Index() {
               Fale agora com um especialista no WhatsApp e descubra como podemos 
               ajudar sua empresa a crescer de forma estruturada e previsível.
             </p>
-            <Button asChild variant="cta" size="xl">
+            <Button asChild variant="cta" size="lg" className="w-full sm:w-auto">
               <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer">
                 Falar com um especialista
                 <ArrowRight size={20} />

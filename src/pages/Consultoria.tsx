@@ -199,7 +199,7 @@ export default function Consultoria() {
             <p className="text-muted-foreground mb-8">
               Agende um diagnóstico gratuito e descubra as oportunidades de crescimento do seu negócio.
             </p>
-            <Button asChild variant="cta" size="xl">
+            <Button asChild variant="cta" size="lg" className="w-full sm:w-auto">
               <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer">
                 Solicitar diagnóstico no WhatsApp
                 <ArrowRight size={20} />

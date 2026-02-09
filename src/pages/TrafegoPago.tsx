@@ -238,7 +238,7 @@ export default function TrafegoPago() {
             <p className="text-muted-foreground mb-8">
               Entre em contato e descubra como gerar mais leads com tráfego pago estratégico.
             </p>
-            <Button asChild variant="cta" size="xl">
+            <Button asChild variant="cta" size="lg" className="w-full sm:w-auto">
               <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer">
                 Quero gerar mais leads pelo WhatsApp
                 <ArrowRight size={20} />

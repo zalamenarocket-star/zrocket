@@ -216,7 +216,7 @@ export default function Automacao() {
             <p className="text-muted-foreground mb-8">
               Entre em contato e descubra como podemos transformar seu atendimento no WhatsApp e Instagram.
             </p>
-            <Button asChild variant="cta" size="xl">
+            <Button asChild variant="cta" size="lg" className="w-full sm:w-auto">
               <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer">
                 Quero automatizar meu atendimento
                 <ArrowRight size={20} />
