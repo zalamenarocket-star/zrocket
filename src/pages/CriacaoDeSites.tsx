@@ -40,13 +40,13 @@ export default function CriacaoDeSites() {
   return (
     <Layout>
       {/* Hero */}
-      <section className="relative pt-4 pb-12 md:py-24 lg:py-32 overflow-hidden">
+      <section className="relative pt-4 pb-12 md:py-24 lg:py-32 overflow-x-hidden">
         <div className="absolute inset-0 grid-pattern opacity-20" />
         <div className="absolute top-20 right-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl" />
         
         <div className="section-container relative z-10">
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-start">
-            <div className="lg:sticky lg:top-24">
+            <div className="lg:sticky lg:top-24 min-w-0">
               <motion.span
                 className="inline-flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs md:text-sm font-medium mb-4 md:mb-6"
                 initial={{ opacity: 0, y: 20 }}
