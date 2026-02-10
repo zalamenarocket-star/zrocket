@@ -3,6 +3,8 @@ import { ArrowRight, MessageSquare, Users, BarChart3, Zap, CheckCircle, Bot, Clo
 import { Layout } from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import { Section } from "@/components/Section";
+import kommoFunnelImg from "@/assets/kommo-funnel.png";
+import kommoInboxImg from "@/assets/kommo-inbox.png";
 
 const WHATSAPP_LINK = "https://wa.me/5511969192223?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20a%20consultoria%20de%20CRM%20Kommo.";
 
@@ -71,58 +73,73 @@ export default function ParceiroKommo() {
       {/* Hero */}
       <section className="relative pt-4 pb-12 md:py-32 overflow-x-clip">
         <div className="absolute inset-0 grid-pattern opacity-20" />
-        <div className="absolute top-20 right-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl" />
+        <div className="absolute top-20 right-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl hidden md:block" />
 
         <div className="section-container relative z-10">
-          <div className="max-w-4xl mx-auto lg:mx-0">
-            <motion.span
-              className="inline-flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs md:text-sm font-medium mb-4 md:mb-8"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-            >
-              <MessageSquare size={14} className="md:w-4 md:h-4" />
-              Parceiro Oficial Kommo
-            </motion.span>
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+            <div className="min-w-0 break-words">
+              <motion.span
+                className="inline-flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs md:text-sm font-medium mb-4 md:mb-8"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+              >
+                <MessageSquare size={14} className="md:w-4 md:h-4" />
+                Partner Kommo
+              </motion.span>
 
-            <motion.h1
-              className="font-display text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-4 md:mb-6"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-            >
-              Consultoria de CRM para{" "}
-              <span className="text-gradient">MPMEs</span>
-            </motion.h1>
+              <motion.h1
+                className="font-display text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-4 md:mb-6"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+              >
+                Consultoria de CRM para{" "}
+                <span className="text-gradient">MPMEs</span>
+              </motion.h1>
 
-            <motion.p
-              className="text-sm md:text-lg lg:text-xl text-muted-foreground mb-6 max-w-2xl"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-            >
-              Como parceiros oficiais da Kommo, ajudamos micro, pequenas e médias empresas 
-              a estruturarem seu processo comercial com o primeiro CRM conversacional do mundo. 
-              Organize atendimentos, automatize vendas e escale seu negócio.
-            </motion.p>
+              <motion.p
+                className="text-sm md:text-lg lg:text-xl text-muted-foreground mb-6 max-w-2xl"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+              >
+                Como parceiros oficiais da Kommo, ajudamos micro, pequenas e médias empresas 
+                a estruturarem seu processo comercial com o primeiro CRM conversacional do mundo. 
+                Organize atendimentos, automatize vendas e escale seu negócio.
+              </motion.p>
+
+              <motion.div
+                className="flex flex-col sm:flex-row gap-4"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+              >
+                <Button asChild variant="cta" size="lg" className="w-full sm:w-auto text-sm md:text-base">
+                  <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer">
+                    Teste grátis por 14 dias
+                    <ArrowRight size={20} />
+                  </a>
+                </Button>
+                <Button asChild variant="outline" size="lg" className="w-full sm:w-auto text-sm md:text-base">
+                  <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer">
+                    Falar com consultor
+                  </a>
+                </Button>
+              </motion.div>
+            </div>
 
             <motion.div
-              className="flex flex-col sm:flex-row gap-4"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
+              initial={{ opacity: 0, x: 30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="rounded-2xl overflow-hidden shadow-2xl min-w-0"
             >
-              <Button asChild variant="cta" size="lg" className="w-full sm:w-auto text-sm md:text-base">
-                <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer">
-                  Teste grátis por 14 dias
-                  <ArrowRight size={20} />
-                </a>
-              </Button>
-              <Button asChild variant="outline" size="lg" className="w-full sm:w-auto text-sm md:text-base">
-                <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer">
-                  Falar com consultor
-                </a>
-              </Button>
+              <img 
+                src={kommoFunnelImg} 
+                alt="Funil de vendas Kommo CRM" 
+                className="w-full h-auto"
+              />
             </motion.div>
           </div>
         </div>
@@ -208,7 +225,15 @@ export default function ParceiroKommo() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
+            className="space-y-6"
           >
+            <div className="rounded-2xl overflow-hidden shadow-2xl">
+              <img 
+                src={kommoInboxImg} 
+                alt="Inbox unificado e modelos WhatsApp Business - Kommo" 
+                className="w-full h-auto"
+              />
+            </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {moreFeatures.map((feat, index) => (
                 <motion.div
