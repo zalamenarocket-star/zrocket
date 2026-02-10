@@ -39,7 +39,7 @@ export default function Consultoria() {
       {/* Hero */}
       <section className="relative pt-4 pb-12 md:py-32 overflow-x-clip">
         <div className="absolute inset-0 grid-pattern opacity-20" />
-        <div className="absolute top-20 right-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl" />
+        <div className="absolute top-20 right-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl hidden md:block" />
         
         <div className="section-container relative z-10">
           <div className="max-w-3xl mx-auto lg:mx-0 min-w-0 break-words">
