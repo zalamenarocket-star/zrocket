@@ -4,6 +4,8 @@ import logoDark from "@/assets/logo-zrocket.png";
 import logoLight from "@/assets/logo-zrocket-light.png";
 import kommoBadgeDark from "@/assets/kommo-badge-dark.png";
 import kommoBadgeLight from "@/assets/kommo-badge-light.png";
+import metaPartner from "@/assets/meta-partner.png";
+import googlePartner from "@/assets/google-partner.png";
 
 const footerLinks = {
   solutions: [
@@ -11,6 +13,7 @@ const footerLinks = {
     { label: "Automação WhatsApp", href: "/automacao-whatsapp" },
     { label: "Tráfego Pago", href: "/trafego-pago" },
     { label: "Consultoria", href: "/consultoria" },
+    { label: "Parceiro Kommo", href: "/parceiro-kommo" },
   ],
   company: [
     { label: "Sobre", href: "/" },
@@ -91,14 +94,18 @@ export function Footer() {
           <p className="text-muted-foreground text-sm">
             © {new Date().getFullYear()} Z Rocket Marketing Digital. Todos os direitos reservados.
           </p>
-          <a
-            href="https://www.kommo.com/br/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="transition-opacity hover:opacity-80"
-          >
-            <img src={kommoBadge} alt="Kommo Partner" className="h-10 w-auto" />
-          </a>
+          <div className="flex items-center gap-4">
+            <a
+              href="https://www.kommo.com/br/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition-opacity hover:opacity-80"
+            >
+              <img src={kommoBadge} alt="Kommo Partner" className="h-10 w-auto" />
+            </a>
+            <img src={metaPartner} alt="Meta Business Partner" className="h-10 w-auto" />
+            <img src={googlePartner} alt="Google Partner" className="h-10 w-auto" />
+          </div>
         </div>
       </div>
     </footer>

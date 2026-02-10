@@ -12,6 +12,7 @@ const solutionsItems = [
   { label: "Automação", href: "/automacao" },
   { label: "Tráfego Pago", href: "/trafego-pago" },
   { label: "Consultoria", href: "/consultoria" },
+  { label: "Parceiro Kommo", href: "/parceiro-kommo" },
 ];
 
 const navItems = [
