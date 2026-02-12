@@ -258,6 +258,102 @@ export default function ParceiroKommo() {
         </div>
       </Section>
 
+      {/* WhatsApp Automation */}
+      <Section>
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <span className="inline-block px-4 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
+              WhatsApp Automático
+            </span>
+            <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-6">
+              Automatize seu <span className="text-gradient">WhatsApp</span> de forma simples
+            </h2>
+            <p className="text-muted-foreground mb-6">
+              Com a Kommo, você transforma o WhatsApp da sua empresa em uma máquina de vendas — 
+              sem precisar de conhecimento técnico. Configure chatbots, respostas automáticas e 
+              fluxos de atendimento em poucos cliques.
+            </p>
+            <ul className="space-y-4">
+              {[
+                "Respostas automáticas para perguntas frequentes",
+                "Chatbot sem código que qualifica leads 24/7",
+                "Envio de mensagens em massa segmentadas",
+                "Templates prontos aprovados pelo WhatsApp Business",
+                "Distribuição automática de leads entre vendedores",
+                "Follow-up automático para leads que não responderam",
+              ].map((item, index) => (
+                <motion.li
+                  key={index}
+                  className="flex items-center gap-3"
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: index * 0.05 }}
+                >
+                  <CheckCircle size={20} className="text-primary shrink-0" />
+                  <span className="text-foreground text-sm md:text-base">{item}</span>
+                </motion.li>
+              ))}
+            </ul>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="space-y-6"
+          >
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {[
+                {
+                  icon: Smartphone,
+                  title: "Múltiplos Números",
+                  description: "Conecte vários números de WhatsApp e gerencie todos em um único painel.",
+                },
+                {
+                  icon: Bot,
+                  title: "Salesbot Sem Código",
+                  description: "Crie bots arrastando e soltando blocos. Sem programação, sem complicação.",
+                },
+                {
+                  icon: Clock,
+                  title: "Atendimento 24/7",
+                  description: "Seu bot responde instantaneamente a qualquer hora, mesmo fora do expediente.",
+                },
+                {
+                  icon: Zap,
+                  title: "Follow-up Automático",
+                  description: "Nunca perca um lead. O sistema reengaja contatos inativos automaticamente.",
+                },
+              ].map((feat, index) => (
+                <motion.div
+                  key={index}
+                  className="premium-card p-5"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                >
+                  <div className="w-10 h-10 rounded-lg bg-gradient-brand flex items-center justify-center mb-3">
+                    <feat.icon size={20} className="text-primary-foreground" />
+                  </div>
+                  <h4 className="font-display text-sm font-semibold text-foreground mb-1">
+                    {feat.title}
+                  </h4>
+                  <p className="text-muted-foreground text-xs">{feat.description}</p>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+      </Section>
+
       {/* Testimonial */}
       <Section className="bg-card">
         <motion.div
