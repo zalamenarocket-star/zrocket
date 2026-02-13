@@ -39,7 +39,7 @@ const solutions = [
 ];
 
 const stats = [
-  { value: "100+", label: "Projetos Entregues" },
+  { value: "500+", label: "Projetos Entregues" },
   { value: "95%", label: "Clientes Satisfeitos" },
   { value: "5x", label: "Retorno Médio em Vendas" },
 ];
