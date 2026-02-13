@@ -85,7 +85,7 @@ export default function TrafegoPago() {
               >
                 <Button asChild variant="cta" size="lg" className="w-full sm:w-auto text-sm md:text-base">
                   <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer">
-                    Quero gerar mais leads pelo WhatsApp
+                    Falar com Especialista em Anúncios
                     <ArrowRight size={20} />
                   </a>
                 </Button>
