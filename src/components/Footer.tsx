@@ -29,13 +29,13 @@ export function Footer() {
   const kommoBadge = theme === "dark" ? kommoBadgeDark : kommoBadgeLight;
 
   return (
-    <footer className="bg-card border-t border-border">
+    <footer className="bg-card border-t border-border" role="contentinfo">
       <div className="section-container py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Brand */}
           <div className="lg:col-span-2">
             <Link to="/" className="inline-block mb-6">
-              <img src={logo} alt="Z Rocket Marketing Digital" className="h-16 w-auto" />
+              <img src={logo} alt="Z Rocket Marketing Digital" className="h-16 w-auto" loading="lazy" decoding="async" width={160} height={64} />
             </Link>
             <p className="text-muted-foreground max-w-md mb-6">
               Marketing digital focado em conversões, vendas e crescimento real. 
@@ -101,10 +101,10 @@ export function Footer() {
               rel="noopener noreferrer"
               className="transition-opacity hover:opacity-80"
             >
-              <img src={kommoBadge} alt="Kommo Partner" className="h-10 w-auto" />
+            <img src={kommoBadge} alt="Kommo Partner" className="h-10 w-auto" loading="lazy" decoding="async" width={120} height={40} />
             </a>
-            <img src={metaPartner} alt="Meta Business Partner" className="h-10 w-auto" />
-            <img src={googlePartner} alt="Google Partner" className="h-10 w-auto" />
+            <img src={metaPartner} alt="Meta Business Partner" className="h-10 w-auto" loading="lazy" decoding="async" width={120} height={40} />
+            <img src={googlePartner} alt="Google Partner" className="h-10 w-auto" loading="lazy" decoding="async" width={120} height={40} />
           </div>
         </div>
       </div>

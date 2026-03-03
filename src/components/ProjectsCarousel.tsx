@@ -57,6 +57,10 @@ export function ProjectsCarousel({ projects }: ProjectsCarouselProps) {
                           src={project.image}
                           alt={project.title}
                           className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                          loading="lazy"
+                          decoding="async"
+                          width={800}
+                          height={500}
                         />
                       ) : (
                         <div className="w-full h-full flex items-center justify-center">
@@ -84,6 +88,10 @@ export function ProjectsCarousel({ projects }: ProjectsCarouselProps) {
                         src={project.image}
                         alt={project.title}
                         className="w-full h-full object-cover"
+                        loading="lazy"
+                        decoding="async"
+                        width={800}
+                        height={500}
                       />
                     ) : (
                       <div className="w-full h-full flex items-center justify-center">

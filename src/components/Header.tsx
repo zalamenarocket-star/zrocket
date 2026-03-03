@@ -33,12 +33,12 @@ export function Header() {
   const isSolutionActive = solutionsItems.some((item) => location.pathname === item.href);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border/50">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border/50" role="banner">
       <div className="section-container">
-        <nav className="flex items-center justify-between h-20">
+        <nav className="flex items-center justify-between h-20" aria-label="Navegação principal">
           {/* Logo */}
           <Link to="/" className="flex items-center -ml-2">
-            <img src={logo} alt="Z Rocket Marketing Digital" className="h-16 md:h-20 w-auto" />
+            <img src={logo} alt="Z Rocket Marketing Digital" className="h-16 md:h-20 w-auto" width={160} height={64} decoding="async" />
           </Link>
 
           {/* Desktop Navigation */}

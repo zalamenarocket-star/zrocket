@@ -55,6 +55,10 @@ export default function Index() {
             src={heroBg}
             alt=""
             className="w-full h-full object-cover opacity-40"
+            fetchPriority="high"
+            decoding="async"
+            width={1920}
+            height={1080}
           />
           <div className="absolute inset-0 bg-gradient-to-b from-background/50 via-background/80 to-background" />
         </div>
@@ -179,6 +183,10 @@ export default function Index() {
                 src={marketingImg} 
                 alt="Marketing Digital Analytics" 
                 className="w-full h-auto rounded-2xl"
+                loading="lazy"
+                decoding="async"
+                width={800}
+                height={533}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent" />
             </div>
@@ -271,6 +279,10 @@ export default function Index() {
                 src={teamImg} 
                 alt="Equipe de marketing colaborando" 
                 className="w-full h-auto rounded-2xl"
+                loading="lazy"
+                decoding="async"
+                width={800}
+                height={533}
               />
             </div>
           </motion.div>
