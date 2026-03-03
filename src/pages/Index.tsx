@@ -5,7 +5,6 @@ import { Layout } from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import { Section, SectionHeader } from "@/components/Section";
 import { SolutionCard } from "@/components/SolutionCard";
-import { GoogleReviews } from "@/components/GoogleReviews";
 import heroBg from "@/assets/hero-bg.jpg";
 import marketingImg from "@/assets/marketing-analytics.jpg";
 import teamImg from "@/assets/team-collaboration.jpg";
@@ -230,9 +229,6 @@ export default function Index() {
           ))}
         </div>
       </Section>
-
-      {/* Google Reviews */}
-      <GoogleReviews />
 
       {/* CTA Section */}
       <Section className="bg-card relative overflow-hidden">
