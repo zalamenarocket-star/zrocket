@@ -1,10 +1,10 @@
-import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowRight, Globe, MessageSquare, BarChart3, Lightbulb, Rocket, Target, TrendingUp } from "lucide-react";
 import { Layout } from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import { Section, SectionHeader } from "@/components/Section";
 import { SolutionCard } from "@/components/SolutionCard";
+import { useInView } from "@/hooks/use-in-view";
 import heroBg from "@/assets/hero-bg.jpg";
 import marketingImg from "@/assets/marketing-analytics.jpg";
 import teamImg from "@/assets/team-collaboration.jpg";
@@ -44,12 +44,24 @@ const stats = [
   { value: "5x", label: "Retorno Médio em Vendas" },
 ];
 
+function AnimateIn({ children, className = "", delay = 0 }: { children: React.ReactNode; className?: string; delay?: number }) {
+  const { ref, inView } = useInView();
+  return (
+    <div
+      ref={ref}
+      className={`transition-all duration-700 ${inView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"} ${className}`}
+      style={{ transitionDelay: `${delay}ms` }}
+    >
+      {children}
+    </div>
+  );
+}
+
 export default function Index() {
   return (
     <Layout>
       {/* Hero Section */}
       <section className="relative min-h-[90vh] flex items-center overflow-hidden">
-        {/* Background */}
         <div className="absolute inset-0 z-0">
           <img
             src={heroBg}
@@ -63,49 +75,30 @@ export default function Index() {
           <div className="absolute inset-0 bg-gradient-to-b from-background/50 via-background/80 to-background" />
         </div>
 
-        {/* Grid Pattern */}
         <div className="absolute inset-0 grid-pattern opacity-30 z-0" />
 
-        {/* Content */}
         <div className="section-container relative z-10 py-20">
           <div className="max-w-4xl mx-auto lg:mx-0">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-            >
+            <div className="animate-[fade-in_0.6s_ease-out_both]">
               <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium mb-8">
                 <Rocket size={16} />
                 Performance Marketing
               </span>
-            </motion.div>
+            </div>
 
-            <motion.h1
-              className="font-display text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-foreground leading-tight mb-6"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.1 }}
+            <h1
+              className="font-display text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-foreground leading-tight mb-6 animate-[fade-in_0.8s_ease-out_0.1s_both]"
             >
               Marketing digital focado em{" "}
               <span className="text-gradient">conversões, vendas</span> e crescimento real.
-            </motion.h1>
+            </h1>
 
-            <motion.p
-              className="text-lg md:text-xl text-muted-foreground max-w-2xl mb-10"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-            >
+            <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mb-10 animate-[fade-in_0.8s_ease-out_0.2s_both]">
               A Z Rocket ajuda empresas a estruturarem e escalarem o marketing digital com 
               estratégias focadas em performance, geração de leads e resultados mensuráveis.
-            </motion.p>
+            </p>
 
-            <motion.div
-              className="flex flex-col sm:flex-row gap-4"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-            >
+            <div className="flex flex-col sm:flex-row gap-4 animate-[fade-in_0.8s_ease-out_0.3s_both]">
               <Button asChild variant="cta" size="lg" className="w-full sm:w-auto">
                 <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer">
                   Falar com um especialista
@@ -117,16 +110,11 @@ export default function Index() {
                   Conhecer soluções
                 </Link>
               </Button>
-            </motion.div>
+            </div>
           </div>
 
           {/* Stats */}
-          <motion.div
-            className="grid grid-cols-3 gap-8 max-w-2xl mt-20 mx-auto lg:mx-0"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-          >
+          <div className="grid grid-cols-3 gap-8 max-w-2xl mt-20 mx-auto lg:mx-0 animate-[fade-in_0.8s_ease-out_0.5s_both]">
             {stats.map((stat, index) => (
               <div key={index} className="text-center">
                 <div className="font-display text-3xl md:text-4xl font-bold text-gradient mb-2">
@@ -135,19 +123,14 @@ export default function Index() {
                 <div className="text-sm text-muted-foreground">{stat.label}</div>
               </div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </section>
 
       {/* Authority Section */}
       <Section className="bg-card">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
+          <AnimateIn>
             <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium mb-6">
               <Target size={16} />
               Nossa Abordagem
@@ -169,15 +152,9 @@ export default function Index() {
                 <ArrowRight size={18} />
               </a>
             </Button>
-          </motion.div>
+          </AnimateIn>
 
-          <motion.div
-            className="relative"
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
+          <AnimateIn delay={200}>
             <div className="relative rounded-2xl overflow-hidden">
               <img 
                 src={marketingImg} 
@@ -206,7 +183,7 @@ export default function Index() {
                 </div>
               ))}
             </div>
-          </motion.div>
+          </AnimateIn>
         </div>
       </Section>
 
@@ -225,32 +202,20 @@ export default function Index() {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {solutions.map((solution, index) => (
-            <motion.div
-              key={solution.title}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-            >
+            <AnimateIn key={solution.title} delay={index * 100}>
               <SolutionCard {...solution} />
-            </motion.div>
+            </AnimateIn>
           ))}
         </div>
       </Section>
 
       {/* CTA Section */}
       <Section className="bg-card relative overflow-hidden">
-        {/* Background decoration */}
         <div className="absolute top-0 right-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-secondary/10 rounded-full blur-3xl" />
         
         <div className="relative z-10 grid lg:grid-cols-2 gap-12 items-center">
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
+          <AnimateIn>
             <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
               Pronto para estruturar seu marketing e{" "}
               <span className="text-gradient">vender mais</span> todos os dias?
@@ -265,15 +230,9 @@ export default function Index() {
                 <ArrowRight size={20} />
               </a>
             </Button>
-          </motion.div>
+          </AnimateIn>
 
-          <motion.div
-            className="relative hidden lg:block"
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
+          <AnimateIn delay={200} className="relative hidden lg:block">
             <div className="rounded-2xl overflow-hidden shadow-2xl">
               <img 
                 src={teamImg} 
@@ -285,7 +244,7 @@ export default function Index() {
                 height={533}
               />
             </div>
-          </motion.div>
+          </AnimateIn>
         </div>
       </Section>
     </Layout>
