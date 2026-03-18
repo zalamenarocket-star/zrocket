@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import logoDark from "@/assets/logo-zrocket.png";
 import logoLight from "@/assets/logo-zrocket-light.png";
@@ -26,10 +26,34 @@ export function Header() {
   const [mobileSolutionsOpen, setMobileSolutionsOpen] = useState(false);
   const location = useLocation();
   const { theme } = useTheme();
+  const closeTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const logo = theme === "light" ? logoLight : logoDark;
 
   const isSolutionActive = solutionsItems.some((item) => location.pathname === item.href);
+
+  const clearSolutionsCloseTimeout = () => {
+    if (!closeTimeoutRef.current) return;
+    clearTimeout(closeTimeoutRef.current);
+    closeTimeoutRef.current = null;
+  };
+
+  const openSolutionsMenu = () => {
+    clearSolutionsCloseTimeout();
+    setSolutionsOpen(true);
+  };
+
+  const closeSolutionsMenu = () => {
+    clearSolutionsCloseTimeout();
+    closeTimeoutRef.current = setTimeout(() => {
+      setSolutionsOpen(false);
+      closeTimeoutRef.current = null;
+    }, 180);
+  };
+
+  useEffect(() => {
+    return () => clearSolutionsCloseTimeout();
+  }, []);
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border/50" role="banner">
@@ -46,8 +70,10 @@ export function Header() {
                 {item.children ? (
                   <div
                     className="relative"
-                    onMouseEnter={() => setSolutionsOpen(true)}
-                    onMouseLeave={() => setSolutionsOpen(false)}
+                    onMouseEnter={openSolutionsMenu}
+                    onMouseLeave={closeSolutionsMenu}
+                    onFocusCapture={openSolutionsMenu}
+                    onBlurCapture={closeSolutionsMenu}
                   >
                     <button
                       className={`link-underline text-sm font-medium transition-colors duration-300 flex items-center gap-1 pb-2 ${
@@ -55,6 +81,7 @@ export function Header() {
                           ? "text-primary"
                           : "text-muted-foreground hover:text-foreground"
                       }`}
+                      aria-expanded={solutionsOpen}
                     >
                       {item.label}
                       <ChevronDown
@@ -66,6 +93,8 @@ export function Header() {
                     </button>
 
                     <div
+                      onMouseEnter={openSolutionsMenu}
+                      onMouseLeave={closeSolutionsMenu}
                       className={`absolute top-full left-0 pt-0 w-56 transition-all duration-200 ${
                         solutionsOpen ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 translate-y-2 pointer-events-none"
                       }`}
