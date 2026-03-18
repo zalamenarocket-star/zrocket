@@ -50,7 +50,7 @@ export function Header() {
                     onMouseLeave={() => setSolutionsOpen(false)}
                   >
                     <button
-                      className={`link-underline text-sm font-medium transition-colors duration-300 flex items-center gap-1 ${
+                      className={`link-underline text-sm font-medium transition-colors duration-300 flex items-center gap-1 pb-2 ${
                         isSolutionActive
                           ? "text-primary"
                           : "text-muted-foreground hover:text-foreground"
@@ -66,23 +66,25 @@ export function Header() {
                     </button>
 
                     <div
-                      className={`absolute top-full left-0 mt-2 w-56 rounded-xl bg-card border border-border shadow-xl overflow-hidden transition-all duration-200 ${
+                      className={`absolute top-full left-0 pt-0 w-56 transition-all duration-200 ${
                         solutionsOpen ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 translate-y-2 pointer-events-none"
                       }`}
                     >
-                      {item.children.map((child) => (
-                        <Link
-                          key={child.href}
-                          to={child.href}
-                          className={`block px-4 py-3 text-sm font-medium transition-colors ${
-                            location.pathname === child.href
-                              ? "bg-primary/10 text-primary"
-                              : "text-muted-foreground hover:bg-muted hover:text-foreground"
-                          }`}
-                        >
-                          {child.label}
-                        </Link>
-                      ))}
+                      <div className="rounded-xl bg-card border border-border shadow-xl overflow-hidden">
+                        {item.children.map((child) => (
+                          <Link
+                            key={child.href}
+                            to={child.href}
+                            className={`block px-4 py-3 text-sm font-medium transition-colors ${
+                              location.pathname === child.href
+                                ? "bg-primary/10 text-primary"
+                                : "text-muted-foreground hover:bg-muted hover:text-foreground"
+                            }`}
+                          >
+                            {child.label}
+                          </Link>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 ) : (
