@@ -95,7 +95,7 @@ export function Header() {
                     <div
                       onMouseEnter={openSolutionsMenu}
                       onMouseLeave={closeSolutionsMenu}
-                      className={`absolute top-full left-0 pt-0 w-56 transition-all duration-200 ${
+                      className={`absolute top-full left-0 pt-2 w-56 transition-all duration-200 ${
                         solutionsOpen ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 translate-y-2 pointer-events-none"
                       }`}
                     >
