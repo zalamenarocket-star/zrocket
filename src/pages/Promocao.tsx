@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { Helmet } from "react-helmet-async";
 import { motion } from "framer-motion";
 import {
   Smartphone,
@@ -81,18 +80,40 @@ const pad = (n: number) => String(n).padStart(2, "0");
 export default function Promocao() {
   const { h, m, s } = useCountdown(48);
 
+  useEffect(() => {
+    const prevTitle = document.title;
+    document.title = "Promoção Maio 2026 — Site + 1 Ano de Hospedagem | Z Rocket";
+
+    const setMeta = (name: string, content: string) => {
+      let el = document.querySelector(`meta[name="${name}"]`) as HTMLMetaElement | null;
+      if (!el) {
+        el = document.createElement("meta");
+        el.setAttribute("name", name);
+        document.head.appendChild(el);
+      }
+      const prev = el.getAttribute("content");
+      el.setAttribute("content", content);
+      return () => {
+        if (prev === null) el?.remove();
+        else el?.setAttribute("content", prev);
+      };
+    };
+
+    const undoDesc = setMeta(
+      "description",
+      "Oferta limitada: site profissional completo + 1 ano de hospedagem por 12x R$49. Economize mais de 75%. Garanta agora!",
+    );
+    const undoRobots = setMeta("robots", "noindex, nofollow");
+
+    return () => {
+      document.title = prevTitle;
+      undoDesc();
+      undoRobots();
+    };
+  }, []);
+
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
-      <Helmet>
-        <title>Promoção Maio 2026 — Site + 1 Ano de Hospedagem | Z Rocket</title>
-        <meta
-          name="description"
-          content="Oferta limitada: site profissional completo + 1 ano de hospedagem por 12x R$49. Economize mais de 75%. Garanta agora!"
-        />
-        <meta name="robots" content="noindex, nofollow" />
-        <link rel="canonical" href="https://zrocket.lovable.app/promocao" />
-      </Helmet>
-
       {/* Sticky urgency bar */}
       <div className="sticky top-0 z-40 bg-gradient-to-r from-primary to-secondary text-primary-foreground py-2 text-center text-xs sm:text-sm font-semibold shadow-lg">
         <span className="inline-flex items-center gap-2 px-4">
