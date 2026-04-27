@@ -156,17 +156,6 @@ export default function Promocao() {
       </div>
 
       <div className="relative z-10">
-        {/* Sticky urgency bar */}
-        <div
-          className="sticky top-0 z-40 py-2.5 text-center text-xs sm:text-sm font-extrabold shadow-2xl"
-          style={{ background: HOT_GRADIENT, color: "#1a0033" }}
-        >
-          <span className="inline-flex items-center gap-2 px-4">
-            <Flame size={16} className="animate-pulse" />
-            🔥 OFERTA EXPIRA EM {pad(h)}:{pad(m)}:{pad(s)} — ÚLTIMAS VAGAS
-          </span>
-        </div>
-
         {/* HERO */}
         <section className="relative px-4 py-12 md:py-20">
           <div className="max-w-5xl mx-auto text-center">
