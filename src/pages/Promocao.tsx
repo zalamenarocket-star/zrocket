@@ -143,15 +143,15 @@ export default function Promocao() {
       <div className="pointer-events-none fixed inset-0 -z-0 overflow-hidden">
         <div
           className="absolute -top-40 -left-40 h-[500px] w-[500px] rounded-full opacity-40 blur-3xl animate-pulse"
-          style={{ background: "radial-gradient(circle, #FF1F8F 0%, transparent 70%)" }}
+          style={{ background: "radial-gradient(circle, #1FA2FF 0%, transparent 70%)" }}
         />
         <div
           className="absolute top-1/3 -right-40 h-[600px] w-[600px] rounded-full opacity-30 blur-3xl"
-          style={{ background: "radial-gradient(circle, #8A2BE2 0%, transparent 70%)" }}
+          style={{ background: "radial-gradient(circle, #0066FF 0%, transparent 70%)" }}
         />
         <div
           className="absolute bottom-0 left-1/3 h-[500px] w-[500px] rounded-full opacity-30 blur-3xl"
-          style={{ background: "radial-gradient(circle, #FF6A00 0%, transparent 70%)" }}
+          style={{ background: "radial-gradient(circle, #FF3D8B 0%, transparent 70%)" }}
         />
       </div>
 
@@ -170,6 +170,22 @@ export default function Promocao() {
         {/* HERO */}
         <section className="relative px-4 py-12 md:py-20">
           <div className="max-w-5xl mx-auto text-center">
+            <motion.div
+              initial={{ opacity: 0, y: -8 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4 }}
+              className="flex justify-center mb-6"
+            >
+              <img
+                src={logoZRocket}
+                alt="Z Rocket Marketing Digital"
+                width={200}
+                height={64}
+                className="h-16 sm:h-20 w-auto"
+                decoding="async"
+              />
+            </motion.div>
+
             <motion.div
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
