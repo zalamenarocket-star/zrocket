@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { WhatsAppFloat } from "@/components/WhatsAppFloat";
+import logoZRocket from "@/assets/logo-zrocket.png";
 import site1 from "@/assets/promo-site-1.jpg";
 import site2 from "@/assets/promo-site-2.jpg";
 import site3 from "@/assets/promo-site-3.jpg";
@@ -93,10 +94,13 @@ const faqs = [
 
 const pad = (n: number) => String(n).padStart(2, "0");
 
-// Vibrant gradient palette (CSS values, intentional bypass of tokens for promo page)
-const HOT_GRADIENT = "linear-gradient(135deg, #FF1F8F 0%, #FF6A00 50%, #FFD200 100%)";
-const NEON_GRADIENT = "linear-gradient(135deg, #8A2BE2 0%, #FF1F8F 50%, #FF6A00 100%)";
-const TEXT_GRADIENT = "linear-gradient(90deg, #FFD200 0%, #FF6A00 40%, #FF1F8F 80%, #8A2BE2 100%)";
+// Z Rocket brand-led palette (azul como base, com acentos vibrantes para impacto promocional)
+// Brand blues: #1FA2FF (light) -> #0066FF (deep)
+const BRAND_GRADIENT = "linear-gradient(135deg, #1FA2FF 0%, #0066FF 100%)";
+const BRAND_GRADIENT_SOFT = "linear-gradient(135deg, #1FA2FF 0%, #0066FF 60%, #6A4BFF 100%)";
+const HOT_GRADIENT = "linear-gradient(135deg, #FF3D8B 0%, #FF6A00 100%)"; // accent CTA
+const TEXT_GRADIENT = "linear-gradient(90deg, #1FA2FF 0%, #0066FF 50%, #FF3D8B 100%)";
+const BG_BASE = "#040b1f"; // dark navy aligned with brand
 
 export default function Promocao() {
   const { h, m, s } = useCountdown(48);
