@@ -228,7 +228,7 @@ export default function Promocao() {
               className="relative mt-10 mx-auto max-w-xl rounded-3xl p-1 shadow-2xl"
               style={{
                 background: BRAND_GRADIENT_SOFT,
-                boxShadow: "0 0 80px -10px #FF1F8F, 0 0 120px -30px #8A2BE2",
+                boxShadow: "0 0 80px -10px #1FA2FF, 0 0 120px -30px #0066FF",
               }}
             >
               <div className="rounded-[22px] p-6 sm:p-8" style={{ background: BG_BASE }}>
@@ -545,7 +545,7 @@ export default function Promocao() {
             className="max-w-4xl mx-auto rounded-3xl p-[3px] shadow-2xl"
             style={{
               background: BRAND_GRADIENT_SOFT,
-              boxShadow: "0 0 100px -20px #FF1F8F",
+              boxShadow: "0 0 100px -20px #0066FF",
             }}
           >
             <div
