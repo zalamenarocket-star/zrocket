@@ -138,7 +138,7 @@ export default function Promocao() {
   }, []);
 
   return (
-    <div className="min-h-screen text-white overflow-x-hidden relative" style={{ background: "#0a0014" }}>
+    <div className="min-h-screen text-white overflow-x-hidden relative" style={{ background: BG_BASE }}>
       {/* Animated colorful blobs background */}
       <div className="pointer-events-none fixed inset-0 -z-0 overflow-hidden">
         <div
@@ -175,7 +175,7 @@ export default function Promocao() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
               className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs sm:text-sm font-extrabold mb-6 shadow-lg"
-              style={{ background: NEON_GRADIENT, color: "white" }}
+              style={{ background: BRAND_GRADIENT_SOFT, color: "white" }}
             >
               <Sparkles size={14} /> CONDIÇÃO ESPECIAL — MAIO 2026
             </motion.div>
@@ -211,11 +211,11 @@ export default function Promocao() {
               transition={{ duration: 0.5, delay: 0.25 }}
               className="relative mt-10 mx-auto max-w-xl rounded-3xl p-1 shadow-2xl"
               style={{
-                background: NEON_GRADIENT,
+                background: BRAND_GRADIENT_SOFT,
                 boxShadow: "0 0 80px -10px #FF1F8F, 0 0 120px -30px #8A2BE2",
               }}
             >
-              <div className="rounded-[22px] p-6 sm:p-8" style={{ background: "#0a0014" }}>
+              <div className="rounded-[22px] p-6 sm:p-8" style={{ background: BG_BASE }}>
                 <div
                   className="absolute -top-4 left-1/2 -translate-x-1/2 rounded-full px-5 py-1.5 text-xs font-extrabold tracking-wider shadow-xl"
                   style={{ background: HOT_GRADIENT, color: "#1a0033" }}
@@ -305,7 +305,7 @@ export default function Promocao() {
             <div className="text-center mb-10">
               <span
                 className="inline-block px-4 py-1.5 rounded-full text-xs font-extrabold uppercase tracking-widest mb-4"
-                style={{ background: NEON_GRADIENT, color: "white" }}
+                style={{ background: BRAND_GRADIENT_SOFT, color: "white" }}
               >
                 Portfólio
               </span>
@@ -332,9 +332,9 @@ export default function Promocao() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: i * 0.05 }}
                   className="group relative rounded-2xl overflow-hidden p-[2px] transition-transform hover:scale-[1.02]"
-                  style={{ background: NEON_GRADIENT }}
+                  style={{ background: BRAND_GRADIENT_SOFT }}
                 >
-                  <div className="rounded-[14px] overflow-hidden" style={{ background: "#0a0014" }}>
+                  <div className="rounded-[14px] overflow-hidden" style={{ background: BG_BASE }}>
                     <div className="relative aspect-[4/3] overflow-hidden">
                       <img
                         src={s.img}
@@ -392,11 +392,11 @@ export default function Promocao() {
                 <div
                   key={b.title}
                   className="rounded-2xl p-[2px] transition-transform hover:scale-[1.03]"
-                  style={{ background: NEON_GRADIENT }}
+                  style={{ background: BRAND_GRADIENT_SOFT }}
                 >
                   <div
                     className="rounded-[14px] p-5 text-center h-full"
-                    style={{ background: "#0a0014" }}
+                    style={{ background: BG_BASE }}
                   >
                     <div
                       className="mx-auto mb-3 flex h-14 w-14 items-center justify-center rounded-2xl text-white shadow-lg"
@@ -417,9 +417,9 @@ export default function Promocao() {
         <section className="px-4 py-14 md:py-20">
           <div
             className="max-w-3xl mx-auto rounded-3xl p-[2px] shadow-2xl"
-            style={{ background: NEON_GRADIENT }}
+            style={{ background: BRAND_GRADIENT_SOFT }}
           >
-            <div className="rounded-[22px] p-6 sm:p-10" style={{ background: "#0a0014" }}>
+            <div className="rounded-[22px] p-6 sm:p-10" style={{ background: BG_BASE }}>
               <h2 className="font-display text-2xl sm:text-3xl font-extrabold text-center text-white">
                 O que está incluso na{" "}
                 <span
@@ -528,13 +528,13 @@ export default function Promocao() {
           <div
             className="max-w-4xl mx-auto rounded-3xl p-[3px] shadow-2xl"
             style={{
-              background: NEON_GRADIENT,
+              background: BRAND_GRADIENT_SOFT,
               boxShadow: "0 0 100px -20px #FF1F8F",
             }}
           >
             <div
               className="rounded-[22px] p-8 sm:p-12 text-center"
-              style={{ background: "#0a0014" }}
+              style={{ background: BG_BASE }}
             >
               <p
                 className="text-xs sm:text-sm font-extrabold uppercase tracking-widest bg-clip-text text-transparent"
