@@ -493,7 +493,7 @@ export default function Promocao() {
                   className="rounded-2xl p-5 border backdrop-blur-sm"
                   style={{
                     background: "rgba(255,255,255,0.03)",
-                    borderColor: "rgba(255,31,143,0.25)",
+                    borderColor: "rgba(31,162,255,0.3)",
                   }}
                 >
                   <div className="flex gap-1 mb-3">
@@ -528,7 +528,7 @@ export default function Promocao() {
                   className="rounded-2xl p-5 border"
                   style={{
                     background: "rgba(255,255,255,0.03)",
-                    borderColor: "rgba(138,43,226,0.3)",
+                    borderColor: "rgba(0,102,255,0.35)",
                   }}
                 >
                   <h3 className="font-bold text-white">{f.q}</h3>
