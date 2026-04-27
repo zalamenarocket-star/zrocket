@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { WhatsAppFloat } from "@/components/WhatsAppFloat";
+import logoZRocket from "@/assets/logo-zrocket.png";
 import site1 from "@/assets/promo-site-1.jpg";
 import site2 from "@/assets/promo-site-2.jpg";
 import site3 from "@/assets/promo-site-3.jpg";
@@ -93,10 +94,13 @@ const faqs = [
 
 const pad = (n: number) => String(n).padStart(2, "0");
 
-// Vibrant gradient palette (CSS values, intentional bypass of tokens for promo page)
-const HOT_GRADIENT = "linear-gradient(135deg, #FF1F8F 0%, #FF6A00 50%, #FFD200 100%)";
-const NEON_GRADIENT = "linear-gradient(135deg, #8A2BE2 0%, #FF1F8F 50%, #FF6A00 100%)";
-const TEXT_GRADIENT = "linear-gradient(90deg, #FFD200 0%, #FF6A00 40%, #FF1F8F 80%, #8A2BE2 100%)";
+// Z Rocket brand-led palette (azul como base, com acentos vibrantes para impacto promocional)
+// Brand blues: #1FA2FF (light) -> #0066FF (deep)
+const BRAND_GRADIENT = "linear-gradient(135deg, #1FA2FF 0%, #0066FF 100%)";
+const BRAND_GRADIENT_SOFT = "linear-gradient(135deg, #1FA2FF 0%, #0066FF 60%, #6A4BFF 100%)";
+const HOT_GRADIENT = "linear-gradient(135deg, #FF3D8B 0%, #FF6A00 100%)"; // accent CTA
+const TEXT_GRADIENT = "linear-gradient(90deg, #1FA2FF 0%, #0066FF 50%, #FF3D8B 100%)";
+const BG_BASE = "#040b1f"; // dark navy aligned with brand
 
 export default function Promocao() {
   const { h, m, s } = useCountdown(48);
@@ -134,20 +138,20 @@ export default function Promocao() {
   }, []);
 
   return (
-    <div className="min-h-screen text-white overflow-x-hidden relative" style={{ background: "#0a0014" }}>
+    <div className="min-h-screen text-white overflow-x-hidden relative" style={{ background: BG_BASE }}>
       {/* Animated colorful blobs background */}
       <div className="pointer-events-none fixed inset-0 -z-0 overflow-hidden">
         <div
           className="absolute -top-40 -left-40 h-[500px] w-[500px] rounded-full opacity-40 blur-3xl animate-pulse"
-          style={{ background: "radial-gradient(circle, #FF1F8F 0%, transparent 70%)" }}
+          style={{ background: "radial-gradient(circle, #1FA2FF 0%, transparent 70%)" }}
         />
         <div
           className="absolute top-1/3 -right-40 h-[600px] w-[600px] rounded-full opacity-30 blur-3xl"
-          style={{ background: "radial-gradient(circle, #8A2BE2 0%, transparent 70%)" }}
+          style={{ background: "radial-gradient(circle, #0066FF 0%, transparent 70%)" }}
         />
         <div
           className="absolute bottom-0 left-1/3 h-[500px] w-[500px] rounded-full opacity-30 blur-3xl"
-          style={{ background: "radial-gradient(circle, #FF6A00 0%, transparent 70%)" }}
+          style={{ background: "radial-gradient(circle, #FF3D8B 0%, transparent 70%)" }}
         />
       </div>
 
@@ -167,11 +171,27 @@ export default function Promocao() {
         <section className="relative px-4 py-12 md:py-20">
           <div className="max-w-5xl mx-auto text-center">
             <motion.div
+              initial={{ opacity: 0, y: -8 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4 }}
+              className="flex justify-center mb-6"
+            >
+              <img
+                src={logoZRocket}
+                alt="Z Rocket Marketing Digital"
+                width={200}
+                height={64}
+                className="h-16 sm:h-20 w-auto"
+                decoding="async"
+              />
+            </motion.div>
+
+            <motion.div
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
               className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs sm:text-sm font-extrabold mb-6 shadow-lg"
-              style={{ background: NEON_GRADIENT, color: "white" }}
+              style={{ background: BRAND_GRADIENT_SOFT, color: "white" }}
             >
               <Sparkles size={14} /> CONDIÇÃO ESPECIAL — MAIO 2026
             </motion.div>
@@ -207,11 +227,11 @@ export default function Promocao() {
               transition={{ duration: 0.5, delay: 0.25 }}
               className="relative mt-10 mx-auto max-w-xl rounded-3xl p-1 shadow-2xl"
               style={{
-                background: NEON_GRADIENT,
-                boxShadow: "0 0 80px -10px #FF1F8F, 0 0 120px -30px #8A2BE2",
+                background: BRAND_GRADIENT_SOFT,
+                boxShadow: "0 0 80px -10px #1FA2FF, 0 0 120px -30px #0066FF",
               }}
             >
-              <div className="rounded-[22px] p-6 sm:p-8" style={{ background: "#0a0014" }}>
+              <div className="rounded-[22px] p-6 sm:p-8" style={{ background: BG_BASE }}>
                 <div
                   className="absolute -top-4 left-1/2 -translate-x-1/2 rounded-full px-5 py-1.5 text-xs font-extrabold tracking-wider shadow-xl"
                   style={{ background: HOT_GRADIENT, color: "#1a0033" }}
@@ -301,7 +321,7 @@ export default function Promocao() {
             <div className="text-center mb-10">
               <span
                 className="inline-block px-4 py-1.5 rounded-full text-xs font-extrabold uppercase tracking-widest mb-4"
-                style={{ background: NEON_GRADIENT, color: "white" }}
+                style={{ background: BRAND_GRADIENT_SOFT, color: "white" }}
               >
                 Portfólio
               </span>
@@ -328,9 +348,9 @@ export default function Promocao() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: i * 0.05 }}
                   className="group relative rounded-2xl overflow-hidden p-[2px] transition-transform hover:scale-[1.02]"
-                  style={{ background: NEON_GRADIENT }}
+                  style={{ background: BRAND_GRADIENT_SOFT }}
                 >
-                  <div className="rounded-[14px] overflow-hidden" style={{ background: "#0a0014" }}>
+                  <div className="rounded-[14px] overflow-hidden" style={{ background: BG_BASE }}>
                     <div className="relative aspect-[4/3] overflow-hidden">
                       <img
                         src={s.img}
@@ -388,11 +408,11 @@ export default function Promocao() {
                 <div
                   key={b.title}
                   className="rounded-2xl p-[2px] transition-transform hover:scale-[1.03]"
-                  style={{ background: NEON_GRADIENT }}
+                  style={{ background: BRAND_GRADIENT_SOFT }}
                 >
                   <div
                     className="rounded-[14px] p-5 text-center h-full"
-                    style={{ background: "#0a0014" }}
+                    style={{ background: BG_BASE }}
                   >
                     <div
                       className="mx-auto mb-3 flex h-14 w-14 items-center justify-center rounded-2xl text-white shadow-lg"
@@ -413,9 +433,9 @@ export default function Promocao() {
         <section className="px-4 py-14 md:py-20">
           <div
             className="max-w-3xl mx-auto rounded-3xl p-[2px] shadow-2xl"
-            style={{ background: NEON_GRADIENT }}
+            style={{ background: BRAND_GRADIENT_SOFT }}
           >
-            <div className="rounded-[22px] p-6 sm:p-10" style={{ background: "#0a0014" }}>
+            <div className="rounded-[22px] p-6 sm:p-10" style={{ background: BG_BASE }}>
               <h2 className="font-display text-2xl sm:text-3xl font-extrabold text-center text-white">
                 O que está incluso na{" "}
                 <span
@@ -473,7 +493,7 @@ export default function Promocao() {
                   className="rounded-2xl p-5 border backdrop-blur-sm"
                   style={{
                     background: "rgba(255,255,255,0.03)",
-                    borderColor: "rgba(255,31,143,0.25)",
+                    borderColor: "rgba(31,162,255,0.3)",
                   }}
                 >
                   <div className="flex gap-1 mb-3">
@@ -508,7 +528,7 @@ export default function Promocao() {
                   className="rounded-2xl p-5 border"
                   style={{
                     background: "rgba(255,255,255,0.03)",
-                    borderColor: "rgba(138,43,226,0.3)",
+                    borderColor: "rgba(0,102,255,0.35)",
                   }}
                 >
                   <h3 className="font-bold text-white">{f.q}</h3>
@@ -524,13 +544,13 @@ export default function Promocao() {
           <div
             className="max-w-4xl mx-auto rounded-3xl p-[3px] shadow-2xl"
             style={{
-              background: NEON_GRADIENT,
-              boxShadow: "0 0 100px -20px #FF1F8F",
+              background: BRAND_GRADIENT_SOFT,
+              boxShadow: "0 0 100px -20px #0066FF",
             }}
           >
             <div
               className="rounded-[22px] p-8 sm:p-12 text-center"
-              style={{ background: "#0a0014" }}
+              style={{ background: BG_BASE }}
             >
               <p
                 className="text-xs sm:text-sm font-extrabold uppercase tracking-widest bg-clip-text text-transparent"
