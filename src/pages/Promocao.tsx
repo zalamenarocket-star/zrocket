@@ -592,6 +592,8 @@ export default function Promocao() {
         {/* RULES */}
         <footer className="px-4 py-8 border-t border-white/10">
           <div className="max-w-3xl mx-auto text-center text-xs text-white/50 space-y-1">
+            <p>* Oferta válida apenas para <strong>site institucional</strong> — não inclui e-commerce / loja virtual.</p>
+            <p>* Entrega <strong>sem suporte técnico</strong> incluso após publicação.</p>
             <p>* Domínio cobrado à parte (registro anual).</p>
             <p>* Prazo de entrega inicia após envio do briefing pelo cliente.</p>
             <p>* Briefing deve ser entregue em até 30 dias corridos, sob risco de cancelamento.</p>
