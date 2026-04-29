@@ -107,7 +107,7 @@ export default function Promocao() {
 
   useEffect(() => {
     const prevTitle = document.title;
-    document.title = "Promoção Maio 2026 — Site + 1 Ano de Hospedagem | Z Rocket";
+    document.title = "Promoção Maio 2026 — Site Institucional Profissional | Z Rocket";
 
     const setMeta = (name: string, content: string) => {
       let el = document.querySelector(`meta[name="${name}"]`) as HTMLMetaElement | null;
@@ -196,7 +196,7 @@ export default function Promocao() {
                 className="bg-clip-text text-transparent"
                 style={{ backgroundImage: TEXT_GRADIENT, WebkitBackgroundClip: "text" }}
               >
-                Site Completo + 1 Ano de Hospedagem
+                Site Institucional Profissional
               </span>
             </motion.h1>
 
@@ -240,11 +240,11 @@ export default function Promocao() {
                     className="bg-clip-text text-transparent"
                     style={{ backgroundImage: TEXT_GRADIENT, WebkitBackgroundClip: "text" }}
                   >
-                    12x R$ 49,00
+                    12x R$ 49,90
                   </span>
                 </p>
                 <p className="mt-2 text-sm sm:text-base text-white/90">
-                  ou <span className="font-bold text-white">R$ 597 à vista</span>
+                  ou <span className="font-bold text-white">R$ 497 no Pix</span>
                 </p>
 
                 <div
@@ -557,7 +557,7 @@ export default function Promocao() {
                   className="font-extrabold bg-clip-text text-transparent"
                   style={{ backgroundImage: TEXT_GRADIENT, WebkitBackgroundClip: "text" }}
                 >
-                  12x de R$ 49,00
+                  12x de R$ 49,90 <span className="text-white/80">ou R$ 497 no Pix</span>
                 </span>
               </p>
               <div className="mt-6 inline-flex items-center gap-2 text-sm text-white/70">
