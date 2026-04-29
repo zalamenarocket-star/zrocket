@@ -13,13 +13,13 @@ import {
   Flame,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import logoZRocket from "@/assets/logo-zrocket.png";
-import site1 from "@/assets/promo-site-1.jpg";
-import site2 from "@/assets/promo-site-2.jpg";
-import site3 from "@/assets/promo-site-3.jpg";
-import site4 from "@/assets/promo-site-4.jpg";
-import site5 from "@/assets/promo-site-5.jpg";
-import site6 from "@/assets/promo-site-6.jpg";
+import logoZRocket from "@/assets/logo-zrocket.webp";
+import site1 from "@/assets/promo-site-1.webp";
+import site2 from "@/assets/promo-site-2.webp";
+import site3 from "@/assets/promo-site-3.webp";
+import site4 from "@/assets/promo-site-4.webp";
+import site5 from "@/assets/promo-site-5.webp";
+import site6 from "@/assets/promo-site-6.webp";
 
 const WHATSAPP_PROMO =
   "https://wa.me/5511969192223?text=" +
