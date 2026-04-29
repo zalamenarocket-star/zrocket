@@ -13,7 +13,7 @@ import {
   Flame,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import logoZRocket from "@/assets/logo-zrocket.png";
+import logoZRocket from "@/assets/logo-zrocket.webp";
 import site1 from "@/assets/promo-site-1.webp";
 import site2 from "@/assets/promo-site-2.webp";
 import site3 from "@/assets/promo-site-3.webp";

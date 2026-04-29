@@ -5,10 +5,10 @@ import { Button } from "@/components/ui/button";
 import { Section } from "@/components/Section";
 import { ProjectsCarousel } from "@/components/ProjectsCarousel";
 import webDesignShowcaseImg from "@/assets/web-design-showcase.webp";
-import stdEngenhariaImg from "@/assets/projects/stdengenharia.png";
-import mohamedHassanImg from "@/assets/projects/mohamedhassan.png";
-import griloPneusImg from "@/assets/projects/grilopneus.png";
-import newServicesImg from "@/assets/projects/newservices.png";
+import stdEngenhariaImg from "@/assets/projects/stdengenharia.webp";
+import mohamedHassanImg from "@/assets/projects/mohamedhassan.webp";
+import griloPneusImg from "@/assets/projects/grilopneus.webp";
+import newServicesImg from "@/assets/projects/newservices.webp";
 
 const WHATSAPP_LINK = "https://wa.me/5511969192223?text=Olá!%20Gostaria%20de%20solicitar%20um%20orçamento%20para%20criação%20de%20site.";
 

@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useTheme } from "@/hooks/use-theme";
-import logoDark from "@/assets/logo-zrocket.png";
-import logoLight from "@/assets/logo-zrocket-light.png";
+import logoDark from "@/assets/logo-zrocket.webp";
+import logoLight from "@/assets/logo-zrocket-light.webp";
 import kommoBadgeDark from "@/assets/kommo-badge-dark.png";
 import kommoBadgeLight from "@/assets/kommo-badge-light.png";
 import metaPartner from "@/assets/meta-partner.png";

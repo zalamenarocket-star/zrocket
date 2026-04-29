@@ -1,8 +1,8 @@
 import { Link, useLocation } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
-import logoDark from "@/assets/logo-zrocket.png";
-import logoLight from "@/assets/logo-zrocket-light.png";
+import logoDark from "@/assets/logo-zrocket.webp";
+import logoLight from "@/assets/logo-zrocket-light.webp";
 import { ThemeToggle } from "./ThemeToggle";
 import { useTheme } from "@/hooks/use-theme";
 

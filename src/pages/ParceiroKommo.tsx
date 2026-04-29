@@ -3,8 +3,8 @@ import { ArrowRight, MessageSquare, Users, BarChart3, Zap, CheckCircle, Bot, Clo
 import { Layout } from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import { Section } from "@/components/Section";
-import kommoFunnelImg from "@/assets/kommo-funnel.png";
-import kommoInboxImg from "@/assets/kommo-inbox.png";
+import kommoFunnelImg from "@/assets/kommo-funnel.webp";
+import kommoInboxImg from "@/assets/kommo-inbox.webp";
 
 const WHATSAPP_LINK = "https://wa.me/5511969192223?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20a%20consultoria%20de%20CRM%20Kommo.";
 
