@@ -13,7 +13,6 @@ import {
   Flame,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { WhatsAppFloat } from "@/components/WhatsAppFloat";
 import logoZRocket from "@/assets/logo-zrocket.png";
 import site1 from "@/assets/promo-site-1.jpg";
 import site2 from "@/assets/promo-site-2.jpg";
@@ -24,7 +23,7 @@ import site6 from "@/assets/promo-site-6.jpg";
 
 const WHATSAPP_PROMO =
   "https://wa.me/5511969192223?text=" +
-  encodeURIComponent("Quero contratar o site na promoção de 12x R$49,90");
+  encodeURIComponent("Eu quero aproveitar a promoção de Maio/2026 do Site");
 
 function useCountdown(hours: number) {
   const [target] = useState(() => {
@@ -157,13 +156,13 @@ export default function Promocao() {
 
       <div className="relative z-10">
         {/* HERO */}
-        <section className="relative px-4 py-12 md:py-20">
+        <section className="relative px-4 py-4 md:py-20">
           <div className="max-w-5xl mx-auto text-center">
             <motion.div
               initial={{ opacity: 0, y: -8 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4 }}
-              className="flex justify-center mb-6"
+              className="hidden md:flex justify-center mb-6"
             >
               <img
                 src={logoZRocket}
@@ -179,7 +178,7 @@ export default function Promocao() {
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs sm:text-sm font-extrabold mb-6 shadow-lg"
+              className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs sm:text-sm font-extrabold mb-3 md:mb-6 shadow-lg"
               style={{ background: BRAND_GRADIENT_SOFT, color: "white" }}
             >
               <Sparkles size={14} /> CONDIÇÃO ESPECIAL — MAIO 2026
@@ -189,14 +188,14 @@ export default function Promocao() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.05 }}
-              className="font-display text-3xl sm:text-5xl md:text-6xl font-extrabold leading-tight tracking-tight text-white"
+              className="font-display text-2xl sm:text-5xl md:text-6xl font-extrabold leading-tight tracking-tight text-white"
             >
-              Promoção de Maio 2026 —{" "}
+              Site Express —{" "}
               <span
                 className="bg-clip-text text-transparent"
                 style={{ backgroundImage: TEXT_GRADIENT, WebkitBackgroundClip: "text" }}
               >
-                Site Institucional Profissional
+                Maio 2026
               </span>
             </motion.h1>
 
@@ -204,7 +203,7 @@ export default function Promocao() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.15 }}
-              className="mt-5 text-base sm:text-lg md:text-xl text-white/80 max-w-2xl mx-auto"
+              className="mt-3 md:mt-5 text-sm sm:text-lg md:text-xl text-white/80 max-w-2xl mx-auto"
             >
               Tenha um site profissional e comece a gerar mais contatos pela internet.
             </motion.p>
@@ -214,7 +213,7 @@ export default function Promocao() {
               initial={{ opacity: 0, scale: 0.96 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: 0.25 }}
-              className="relative mt-10 mx-auto max-w-xl rounded-3xl p-1 shadow-2xl"
+              className="relative mt-5 md:mt-10 mx-auto max-w-xl rounded-3xl p-1 shadow-2xl"
               style={{
                 background: BRAND_GRADIENT_SOFT,
                 boxShadow: "0 0 80px -10px #1FA2FF, 0 0 120px -30px #0066FF",
@@ -582,7 +581,7 @@ export default function Promocao() {
         <footer className="px-4 py-8 border-t border-white/10">
           <div className="max-w-3xl mx-auto text-center text-xs text-white/50 space-y-1">
             <p>* Oferta válida apenas para <strong>site institucional</strong> — não inclui e-commerce / loja virtual.</p>
-            <p>* Entrega <strong>sem suporte técnico</strong> incluso após publicação.</p>
+            <p>* Sem suporte técnico após publicação.</p>
             <p>* Domínio cobrado à parte (registro anual).</p>
             <p>* Prazo de entrega inicia após envio do briefing pelo cliente.</p>
             <p>* Briefing deve ser entregue em até 30 dias corridos, sob risco de cancelamento.</p>
@@ -591,7 +590,6 @@ export default function Promocao() {
         </footer>
       </div>
 
-      <WhatsAppFloat />
     </div>
   );
 }
