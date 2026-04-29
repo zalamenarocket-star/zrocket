@@ -3,8 +3,8 @@ import { ArrowRight, MessageSquare, Bot, Users, Clock, Zap, CheckCircle, Instagr
 import { Layout } from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import { Section } from "@/components/Section";
-import automationImg from "@/assets/automation-chat.jpg";
-import customerServiceImg from "@/assets/customer-service.jpg";
+import automationImg from "@/assets/automation-chat.webp";
+import customerServiceImg from "@/assets/customer-service.webp";
 
 const WHATSAPP_LINK = "https://wa.me/5511969192223?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20automação.";
 

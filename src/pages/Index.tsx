@@ -5,9 +5,9 @@ import { Button } from "@/components/ui/button";
 import { Section, SectionHeader } from "@/components/Section";
 import { SolutionCard } from "@/components/SolutionCard";
 import { useInView } from "@/hooks/use-in-view";
-import heroBg from "@/assets/hero-bg.jpg";
-import marketingImg from "@/assets/marketing-analytics.jpg";
-import teamImg from "@/assets/team-collaboration.jpg";
+import heroBg from "@/assets/hero-bg.webp";
+import marketingImg from "@/assets/marketing-analytics.webp";
+import teamImg from "@/assets/team-collaboration.webp";
 
 const WHATSAPP_LINK = "https://wa.me/5511969192223?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20os%20serviços%20da%20Z%20Rocket.";
 

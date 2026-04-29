@@ -4,7 +4,7 @@ import { Layout } from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import { Section } from "@/components/Section";
 import { ProjectsCarousel } from "@/components/ProjectsCarousel";
-import webDesignShowcaseImg from "@/assets/web-design-showcase.jpg";
+import webDesignShowcaseImg from "@/assets/web-design-showcase.webp";
 import stdEngenhariaImg from "@/assets/projects/stdengenharia.png";
 import mohamedHassanImg from "@/assets/projects/mohamedhassan.png";
 import griloPneusImg from "@/assets/projects/grilopneus.png";

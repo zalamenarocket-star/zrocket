@@ -3,7 +3,7 @@ import { ArrowRight, BarChart3, Target, TrendingUp, DollarSign, PieChart, LineCh
 import { Layout } from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import { Section } from "@/components/Section";
-import marketingImg from "@/assets/marketing-analytics.jpg";
+import marketingImg from "@/assets/marketing-analytics.webp";
 
 const WHATSAPP_LINK = "https://wa.me/5511969192223?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20tráfego%20pago.";
 
