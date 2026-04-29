@@ -304,8 +304,8 @@
   /* Subtle grid pattern background */
   .grid-pattern {
     background-image: 
-      linear-gradient(hsl(220, 15%, 12%) 1px, transparent 1px),
-      linear-gradient(90deg, hsl(220, 15%, 12%) 1px, transparent 1px);
+      linear-gradient(hsl(var(--foreground) / 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--foreground) / 0.04) 1px, transparent 1px);
     background-size: 60px 60px;
   }
 
