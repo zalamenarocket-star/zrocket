@@ -301,15 +301,8 @@
   .stagger-3 { animation-delay: 0.3s; }
   .stagger-4 { animation-delay: 0.4s; }
 
-  /* Subtle grid pattern background */
+  /* Hero overlay disabled to avoid visible grid lines */
   .grid-pattern {
-    background-image: 
-      linear-gradient(hsl(var(--foreground) / 0.04) 1px, transparent 1px),
-      linear-gradient(90deg, hsl(var(--foreground) / 0.04) 1px, transparent 1px);
-    background-size: 60px 60px;
-  }
-
-  .light .grid-pattern {
     background-image: none;
   }
 
