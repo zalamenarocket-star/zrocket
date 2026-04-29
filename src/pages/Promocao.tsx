@@ -24,7 +24,7 @@ import site6 from "@/assets/promo-site-6.jpg";
 
 const WHATSAPP_PROMO =
   "https://wa.me/5511969192223?text=" +
-  encodeURIComponent("Quero contratar o site na promoção de R$49,00");
+  encodeURIComponent("Quero contratar o site na promoção de 12x R$49,90");
 
 function useCountdown(hours: number) {
   const [target] = useState(() => {
@@ -55,25 +55,25 @@ const benefits = [
   { icon: Smartphone, title: "100% Responsivo", desc: "Perfeito em celulares, tablets e desktops" },
   { icon: Palette, title: "Design Profissional", desc: "Visual moderno alinhado à sua marca" },
   { icon: Zap, title: "Alta Velocidade", desc: "Carregamento otimizado para conversão" },
-  { icon: ShieldCheck, title: "Segurança & Estabilidade", desc: "SSL e hospedagem confiável inclusos" },
+  { icon: ShieldCheck, title: "Segurança & Estabilidade", desc: "Site institucional estável e seguro" },
 ];
 
 const includes = [
   "Site completo, do zero, sob medida",
-  "1 ano de hospedagem incluso",
   "Até 5 páginas (plano promocional)",
-  "Certificado SSL + domínio configurado",
-  "Integração com WhatsApp e formulário",
+  "Integração com WhatsApp",
   "Otimização básica de SEO",
+  "Design profissional e responsivo",
+  "Site 100% institucional sob medida",
 ];
 
 const showcase = [
   { img: site1, title: "Restaurantes & Delivery", tag: "Gastronomia" },
   { img: site2, title: "Academias & Fitness", tag: "Saúde" },
-  { img: site3, title: "Moda & E-commerce", tag: "Varejo" },
   { img: site4, title: "Clínicas & Consultórios", tag: "Saúde" },
-  { img: site5, title: "Imobiliárias", tag: "Imóveis" },
   { img: site6, title: "Beleza & Estética", tag: "Beauty" },
+  { img: site3, title: "Profissionais Liberais", tag: "Serviços" },
+  { img: site5, title: "Empresas & Indústrias", tag: "Corporativo" },
 ];
 
 const testimonials = [
@@ -126,7 +126,7 @@ export default function Promocao() {
 
     const undoDesc = setMeta(
       "description",
-      "Oferta limitada: site profissional completo + 1 ano de hospedagem por 12x R$49. Economize mais de 75%. Garanta agora!",
+      "Oferta limitada: site institucional profissional por 12x R$49,90 ou R$497 no Pix. Garanta agora!",
     );
     const undoRobots = setMeta("robots", "noindex, nofollow");
 
