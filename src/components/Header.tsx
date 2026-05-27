@@ -76,7 +76,7 @@ export function Header() {
                     onBlurCapture={closeSolutionsMenu}
                   >
                     <button
-                      className={`link-underline text-sm font-medium transition-colors duration-300 flex items-center gap-1 pb-2 ${
+                      className={`link-underline text-sm font-medium transition-colors duration-300 flex items-center gap-1 ${
                         isSolutionActive
                           ? "text-primary"
                           : "text-muted-foreground hover:text-foreground"
