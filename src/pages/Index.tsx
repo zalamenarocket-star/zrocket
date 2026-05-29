@@ -8,6 +8,12 @@ import { useInView } from "@/hooks/use-in-view";
 import heroBg from "@/assets/hero-bg.webp";
 import marketingImg from "@/assets/marketing-analytics.webp";
 import teamImg from "@/assets/team-collaboration.webp";
+import automationImg from "@/assets/automation-chat.webp";
+import customerImg from "@/assets/customer-service.webp";
+import webDesignImg from "@/assets/web-design-showcase.webp";
+import webMockupImg from "@/assets/web-design-mockup.webp";
+import kommoInboxImg from "@/assets/kommo-inbox.webp";
+import kommoFunnelImg from "@/assets/kommo-funnel.webp";
 
 const WHATSAPP_LINK = "https://wa.me/5511969192223?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20os%20serviços%20da%20Z%20Rocket.";
 
@@ -204,6 +210,45 @@ export default function Index() {
           {solutions.map((solution, index) => (
             <AnimateIn key={solution.title} delay={index * 100}>
               <SolutionCard {...solution} />
+            </AnimateIn>
+          ))}
+        </div>
+      </Section>
+
+      {/* Showcase Section */}
+      <Section className="bg-card">
+        <SectionHeader
+          badge="Nosso Trabalho"
+          title={
+            <>
+              Resultados que <span className="text-gradient">você pode ver</span>
+            </>
+          }
+          description="Sites, automações e campanhas reais que entregamos para empresas de diversos segmentos."
+        />
+
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 auto-rows-[180px] md:auto-rows-[220px]">
+          {[
+            { src: webDesignImg, alt: "Criação de sites profissionais", className: "col-span-2 row-span-2" },
+            { src: automationImg, alt: "Automação de WhatsApp e Instagram", className: "col-span-2 md:col-span-1" },
+            { src: kommoInboxImg, alt: "Inbox unificado Kommo CRM", className: "col-span-2 md:col-span-2" },
+            { src: customerImg, alt: "Atendimento ao cliente integrado", className: "col-span-2 md:col-span-1" },
+            { src: kommoFunnelImg, alt: "Funil de vendas Kommo", className: "col-span-2 md:col-span-2" },
+            { src: webMockupImg, alt: "Mockup de site responsivo", className: "col-span-2 md:col-span-1" },
+          ].map((img, index) => (
+            <AnimateIn
+              key={index}
+              delay={index * 80}
+              className={`relative overflow-hidden rounded-2xl group ${img.className}`}
+            >
+              <img
+                src={img.src}
+                alt={img.alt}
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                loading="lazy"
+                decoding="async"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-transparent to-transparent" />
             </AnimateIn>
           ))}
         </div>
