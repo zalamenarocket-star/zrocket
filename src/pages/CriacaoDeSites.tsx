@@ -9,6 +9,7 @@ import stdEngenhariaImg from "@/assets/projects/stdengenharia.webp";
 import mohamedHassanImg from "@/assets/projects/mohamedhassan.webp";
 import griloPneusImg from "@/assets/projects/grilopneus.webp";
 import newServicesImg from "@/assets/projects/newservices.webp";
+import calfenImg from "@/assets/projects/calfen.webp";
 
 const WHATSAPP_LINK = "https://wa.me/5511969192223?text=Olá!%20Gostaria%20de%20solicitar%20um%20orçamento%20para%20criação%20de%20site.";
 
@@ -18,6 +19,7 @@ const projects = [
   { id: 2, title: "Mohamed Hassan Advocacia", description: "Site institucional para escritório de advocacia", image: mohamedHassanImg, link: "https://mohamedhassan.com.br/" },
   { id: 3, title: "Grilo Pneus", description: "Site para loja de rodas e pneus multimarcas", image: griloPneusImg, link: "https://grilopneus.com.br/" },
   { id: 4, title: "New Services Condomínios", description: "Site para empresa de automação de portões e segurança", image: newServicesImg, link: "https://newservices.com.br/" },
+  { id: 5, title: "Calfen", description: "Site institucional para empresa de engenharia e construção", image: calfenImg, link: "https://calfen.com.br/" },
 ];
 
 const benefits = [
