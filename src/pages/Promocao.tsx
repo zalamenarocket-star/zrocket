@@ -22,7 +22,8 @@ import site5 from "@/assets/promo-site-5.webp";
 import site6 from "@/assets/promo-site-6.webp";
 
 const WHATSAPP_PROMO =
-  "https://wa.me/5511969192223?text=" + encodeURIComponent("Eu quero aproveitar a promoção de Julho/2026 do Site");
+  "https://wa.me/5511969192223?text=" +
+  encodeURIComponent("Eu quero aproveitar a promoção de Maio/2026 do Site");
 
 function useCountdown(hours: number) {
   const [target] = useState(() => {
@@ -271,8 +272,12 @@ export default function Promocao() {
                         borderColor: "rgba(255,31,143,0.4)",
                       }}
                     >
-                      <div className="font-display text-2xl sm:text-3xl font-extrabold text-white">{pad(t.v)}</div>
-                      <div className="text-[10px] sm:text-xs uppercase tracking-wider text-white/60">{t.l}</div>
+                      <div className="font-display text-2xl sm:text-3xl font-extrabold text-white">
+                        {pad(t.v)}
+                      </div>
+                      <div className="text-[10px] sm:text-xs uppercase tracking-wider text-white/60">
+                        {t.l}
+                      </div>
                     </div>
                   ))}
                 </div>
@@ -290,7 +295,9 @@ export default function Promocao() {
                 >
                   <MessageCircle size={22} /> Quero aproveitar a promoção
                 </a>
-                <p className="mt-3 text-xs text-white/60">Atendimento direto pelo WhatsApp — resposta rápida</p>
+                <p className="mt-3 text-xs text-white/60">
+                  Atendimento direto pelo WhatsApp — resposta rápida
+                </p>
               </div>
             </motion.div>
           </div>
@@ -391,7 +398,10 @@ export default function Promocao() {
                   className="rounded-2xl p-[2px] transition-transform hover:scale-[1.03]"
                   style={{ background: BRAND_GRADIENT_SOFT }}
                 >
-                  <div className="rounded-[14px] p-5 text-center h-full" style={{ background: BG_BASE }}>
+                  <div
+                    className="rounded-[14px] p-5 text-center h-full"
+                    style={{ background: BG_BASE }}
+                  >
                     <div
                       className="mx-auto mb-3 flex h-14 w-14 items-center justify-center rounded-2xl text-white shadow-lg"
                       style={{ background: HOT_GRADIENT }}
@@ -409,7 +419,10 @@ export default function Promocao() {
 
         {/* OFFER DETAILS */}
         <section className="px-4 py-14 md:py-20">
-          <div className="max-w-3xl mx-auto rounded-3xl p-[2px] shadow-2xl" style={{ background: BRAND_GRADIENT_SOFT }}>
+          <div
+            className="max-w-3xl mx-auto rounded-3xl p-[2px] shadow-2xl"
+            style={{ background: BRAND_GRADIENT_SOFT }}
+          >
             <div className="rounded-[22px] p-6 sm:p-10" style={{ background: BG_BASE }}>
               <h2 className="font-display text-2xl sm:text-3xl font-extrabold text-center text-white">
                 O que está incluso na{" "}
@@ -523,7 +536,10 @@ export default function Promocao() {
               boxShadow: "0 0 100px -20px #0066FF",
             }}
           >
-            <div className="rounded-[22px] p-8 sm:p-12 text-center" style={{ background: BG_BASE }}>
+            <div
+              className="rounded-[22px] p-8 sm:p-12 text-center"
+              style={{ background: BG_BASE }}
+            >
               <p
                 className="text-xs sm:text-sm font-extrabold uppercase tracking-widest bg-clip-text text-transparent"
                 style={{ backgroundImage: HOT_GRADIENT, WebkitBackgroundClip: "text" }}
@@ -531,7 +547,8 @@ export default function Promocao() {
                 🔥 Última chance
               </p>
               <h2 className="mt-3 font-display text-2xl sm:text-4xl md:text-5xl font-extrabold text-white">
-                Volta para <span className="line-through text-white/40">R$ 2.900</span> após o prazo
+                Volta para{" "}
+                <span className="line-through text-white/40">R$ 2.900</span> após o prazo
               </h2>
               <p className="mt-4 text-base sm:text-lg text-white/80">
                 Garanta agora por{" "}
@@ -563,9 +580,7 @@ export default function Promocao() {
         {/* RULES */}
         <footer className="px-4 py-8 border-t border-white/10">
           <div className="max-w-3xl mx-auto text-center text-xs text-white/50 space-y-1">
-            <p>
-              * Oferta válida apenas para <strong>site institucional</strong> — não inclui e-commerce / loja virtual.
-            </p>
+            <p>* Oferta válida apenas para <strong>site institucional</strong> — não inclui e-commerce / loja virtual.</p>
             <p>* Sem suporte técnico após publicação.</p>
             <p>* Domínio cobrado à parte (registro anual).</p>
             <p>* Prazo de entrega inicia após envio do briefing pelo cliente.</p>
@@ -574,6 +589,7 @@ export default function Promocao() {
           </div>
         </footer>
       </div>
+
     </div>
   );
 }
