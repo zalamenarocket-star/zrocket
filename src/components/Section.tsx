@@ -9,7 +9,7 @@ interface SectionProps {
 
 export function Section({ children, className = "", id }: SectionProps) {
   return (
-    <section id={id} className={`py-20 md:py-28 ${className}`}>
+    <section id={id} className={`content-visibility-auto py-20 md:py-28 ${className}`}>
       <div className="section-container">{children}</div>
     </section>
   );
