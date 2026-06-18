@@ -39,11 +39,16 @@
         j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
         j.async=true;
         j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
-        // Delay GTM loading slightly to prioritize LCP
+        function loadGTM(){
+          if (j.parentNode) return;
+          f.parentNode.insertBefore(j,f);
+        }
+        ['pointerdown','keydown','touchstart'].forEach(function(eventName){
+          window.addEventListener(eventName, loadGTM, { once: true, passive: true });
+        });
         window.addEventListener('load', function() {
-          setTimeout(function() {
-            f.parentNode.insertBefore(j,f);
-          }, 1500);
+          var schedule = window.requestIdleCallback || function(cb){ return setTimeout(cb, 6000); };
+          schedule(loadGTM, { timeout: 6000 });
         });
       })(window,document,'script','dataLayer','GTM-5FTHFHS');
     </script>
