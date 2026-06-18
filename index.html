@@ -1,47 +1,58 @@
 <!doctype html>
 <html lang="pt-BR">
   <head>
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-5FTHFHS');</script>
-    <!-- End Google Tag Manager -->
+    <!-- DNS Prefetch for external resources -->
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://wa.me">
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
     <!-- Fonts: preconnect + swap for performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
-    <!-- TODO: Set the document title to the name of your application -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" /></noscript>
+    
     <title>Z Rocket | Marketing &amp; IT</title>
     <meta name="description" content="Z Rocket - Agência de Marketing Digital e Tecnologia da informação. Criação de sites, Apps, automação, tráfego pago e consultoria.">
     <meta name="author" content="Z Rocket" />
 
-    
-    
     <meta property="og:type" content="website" />
     <meta property="og:image" content="https://storage.googleapis.com/gpt-engineer-file-uploads/yaIK0vAPKZX7Pl5yhKSW0ZPsrsZ2/social-images/social-1772735388749-05_ZROCKET_Logo_Vertical.webp">
-
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@Lovable" />
     <meta name="twitter:image" content="https://storage.googleapis.com/gpt-engineer-file-uploads/yaIK0vAPKZX7Pl5yhKSW0ZPsrsZ2/social-images/social-1772735388749-05_ZROCKET_Logo_Vertical.webp">
     
-  
-  
-  
-  <meta property="og:title" content="Z Rocket | Marketing &amp; IT">
-  <meta name="twitter:title" content="Z Rocket | Marketing &amp; IT">
-  <meta property="og:description" content="Z Rocket - Agência de Marketing Digital e Tecnologia da informação. Criação de sites, Apps, automação, tráfego pago e consultoria.">
-  <meta name="twitter:description" content="Z Rocket - Agência de Marketing Digital e Tecnologia da informação. Criação de sites, Apps, automação, tráfego pago e consultoria.">
-</head>
+    <meta property="og:title" content="Z Rocket | Marketing &amp; IT">
+    <meta name="twitter:title" content="Z Rocket | Marketing &amp; IT">
+    <meta property="og:description" content="Z Rocket - Agência de Marketing Digital e Tecnologia da informação. Criação de sites, Apps, automação, tráfego pago e consultoria.">
+    <meta name="twitter:description" content="Z Rocket - Agência de Marketing Digital e Tecnologia da informação. Criação de sites, Apps, automação, tráfego pago e consultoria.">
 
+    <!-- Optimized GTM loading -->
+    <script>
+      (function(w,d,s,l,i){
+        w[l]=w[l]||[];
+        w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});
+        var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
+        j.async=true;
+        j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+        // Delay GTM loading slightly to prioritize LCP
+        window.addEventListener('load', function() {
+          setTimeout(function() {
+            f.parentNode.insertBefore(j,f);
+          }, 1500);
+        });
+      })(window,document,'script','dataLayer','GTM-5FTHFHS');
+    </script>
+  </head>
   <body>
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5FTHFHS"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
+    
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
