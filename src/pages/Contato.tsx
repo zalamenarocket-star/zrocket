@@ -10,7 +10,7 @@ const contactInfo = [
   {
     icon: Phone,
     label: "WhatsApp",
-    value: "+55 11 96919-2223",
+    value: "🇧🇷 +55 11 96919-2223",
     href: WHATSAPP_LINK,
   },
   {
