@@ -5,8 +5,6 @@ import { Button } from "@/components/ui/button";
 import { Section, SectionHeader } from "@/components/Section";
 import { SolutionCard } from "@/components/SolutionCard";
 import { useInView } from "@/hooks/use-in-view";
-import heroBg1280 from "@/assets/hero-bg-1280.webp";
-import heroBg768 from "@/assets/hero-bg-768.webp";
 import marketingImg from "@/assets/marketing-analytics.webp";
 import teamImg from "@/assets/team-collaboration.webp";
 
@@ -65,15 +63,15 @@ export default function Index() {
       <section className="relative min-h-[90vh] flex items-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <picture className="block w-full h-full">
-            <source srcSet={heroBg768} media="(max-width: 767px)" />
+            <source srcSet="/hero-bg-768.webp" media="(max-width: 767px)" />
             <img
-              src={heroBg1280}
+              src="/hero-bg-1280.webp"
               alt=""
               className="block w-full h-full object-cover opacity-40"
               fetchPriority="high"
               decoding="async"
-              width={1280}
-              height={720}
+              width={1100}
+              height={619}
             />
           </picture>
           <div className="absolute inset-0 bg-gradient-to-b from-background/50 via-background/80 to-background" />
