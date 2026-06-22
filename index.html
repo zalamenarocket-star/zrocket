@@ -9,6 +9,10 @@
 
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Preload hero LCP image (responsive) -->
+    <link rel="preload" as="image" href="/hero-bg-1280.webp" media="(min-width: 768px)" fetchpriority="high" />
+    <link rel="preload" as="image" href="/hero-bg-768.webp" media="(max-width: 767px)" fetchpriority="high" />
     
     <!-- Fonts: preconnect + swap for performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
