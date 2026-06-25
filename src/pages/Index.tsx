@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Globe, MessageSquare, BarChart3, Lightbulb, Rocket, Target, TrendingUp } from "lucide-react";
+import { ArrowRight, Globe, MessageSquare, BarChart3, Lightbulb, Rocket, Target, TrendingUp, Bot, Sparkles, Users, Clock } from "lucide-react";
 import { Layout } from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import { Section, SectionHeader } from "@/components/Section";
@@ -7,6 +7,7 @@ import { SolutionCard } from "@/components/SolutionCard";
 import { useInView } from "@/hooks/use-in-view";
 import marketingImg from "@/assets/marketing-analytics.webp";
 import teamImg from "@/assets/team-collaboration.webp";
+import aiHomeImg from "@/assets/ai-home.webp";
 
 const WHATSAPP_LINK = "https://wa.me/5511969192223?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20os%20serviços%20da%20Z%20Rocket.";
 

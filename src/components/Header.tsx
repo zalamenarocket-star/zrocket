@@ -8,6 +8,7 @@ import { useTheme } from "@/hooks/use-theme";
 
 const solutionsItems = [
   { label: "Criação de Sites", href: "/criacao-de-sites" },
+  { label: "Agentes de IA", href: "/agentes-de-ia" },
   { label: "Automação", href: "/automacao" },
   { label: "Tráfego Pago", href: "/trafego-pago" },
   { label: "Consultoria", href: "/consultoria" },
