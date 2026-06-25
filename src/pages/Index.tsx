@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Globe, MessageSquare, BarChart3, Lightbulb, Rocket, Target, TrendingUp } from "lucide-react";
+import { ArrowRight, Globe, MessageSquare, BarChart3, Lightbulb, Rocket, Target, TrendingUp, Bot, Sparkles, Users, Clock } from "lucide-react";
 import { Layout } from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import { Section, SectionHeader } from "@/components/Section";
@@ -7,6 +7,7 @@ import { SolutionCard } from "@/components/SolutionCard";
 import { useInView } from "@/hooks/use-in-view";
 import marketingImg from "@/assets/marketing-analytics.webp";
 import teamImg from "@/assets/team-collaboration.webp";
+import aiHomeImg from "@/assets/ai-home.webp";
 
 const WHATSAPP_LINK = "https://wa.me/5511969192223?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20os%20serviços%20da%20Z%20Rocket.";
 
@@ -185,6 +186,60 @@ export default function Index() {
                 </div>
               ))}
             </div>
+          </AnimateIn>
+        </div>
+      </Section>
+
+      {/* AI Agents Section */}
+      <Section>
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <AnimateIn>
+            <div className="rounded-2xl overflow-hidden shadow-2xl">
+              <img
+                src={aiHomeImg}
+                alt="Agentes de IA atendendo clientes"
+                className="w-full h-auto"
+                loading="lazy"
+                decoding="async"
+                width={1024}
+                height={768}
+              />
+            </div>
+          </AnimateIn>
+
+          <AnimateIn delay={150}>
+            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium mb-6">
+              <Sparkles size={16} />
+              Inteligência Artificial
+            </span>
+            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
+              Times de <span className="text-gradient">Agentes de IA</span> que operam sua empresa 24/7.
+            </h2>
+            <p className="text-lg text-muted-foreground mb-6">
+              Implantamos agentes corporativos, agentes por setor e times completos
+              de IA que resolvem 100% do fluxo da empresa — atendimento, vendas,
+              suporte, financeiro e back-office integrados aos seus sistemas.
+            </p>
+            <div className="grid sm:grid-cols-3 gap-4 mb-8">
+              {[
+                { icon: Bot, label: "Agentes Corporativos" },
+                { icon: Users, label: "Times de IA" },
+                { icon: Clock, label: "Operação 24/7" },
+              ].map((item) => (
+                <div key={item.label} className="premium-card p-4 flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-lg bg-gradient-brand flex items-center justify-center shrink-0">
+                    <item.icon size={18} className="text-primary-foreground" />
+                  </div>
+                  <span className="text-sm font-medium text-foreground">{item.label}</span>
+                </div>
+              ))}
+            </div>
+            <Button asChild variant="cta" size="lg">
+              <Link to="/agentes-de-ia">
+                Conhecer Agentes de IA
+                <ArrowRight size={18} />
+              </Link>
+            </Button>
           </AnimateIn>
         </div>
       </Section>
