@@ -21,17 +21,80 @@ import {
   Scale,
   Home,
   GraduationCap,
+  Search,
+  Puzzle,
+  Rocket,
+  Lock,
+  Database,
+  Globe,
+  Workflow,
 } from "lucide-react";
 import { Layout } from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import { Section, SectionHeader } from "@/components/Section";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 import heroImg from "@/assets/ai-agents-hero.webp";
 import teamImg from "@/assets/ai-team.webp";
 import workflowImg from "@/assets/ai-workflow.webp";
 import corporateImg from "@/assets/ai-corporate.webp";
 
 const WHATSAPP_LINK =
-  "https://wa.me/5511969192223?text=Olá!%20Quero%20conhecer%20os%20Agentes%20de%20IA%20da%20Z%20Rocket.";
+  "https://wa.me/5511969192223?text=Olá!%20Quero%20uma%20consultoria%20de%20Agentes%20de%20IA%20sob%20medida%20com%20a%20Z%20Rocket.";
+
+const consultingPillars = [
+  {
+    icon: Search,
+    title: "Diagnóstico profundo",
+    description:
+      "Mergulhamos na sua operação, mapeamos processos, gargalos e dados — entendendo o que realmente importa para o seu negócio antes de propor qualquer agente.",
+  },
+  {
+    icon: Puzzle,
+    title: "Solução sob medida",
+    description:
+      "Nada de plataforma genérica. Plugamos os modelos, integrações e fluxos certos para o seu cenário, com a cara, o tom e as regras da sua empresa.",
+  },
+  {
+    icon: Rocket,
+    title: "Implementação chave na mão",
+    description:
+      "Nosso time executa tudo: arquitetura, integrações, treinamento dos agentes, testes e go-live. Você não precisa de equipe técnica nem aprender ferramenta.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Operação assistida",
+    description:
+      "Acompanhamos os agentes em produção, ajustamos prompts, evoluímos integrações e medimos resultado mês a mês. Você só usa — a gente cuida do resto.",
+  },
+];
+
+const faqs = [
+  {
+    q: "Vocês vendem uma plataforma de IA?",
+    a: "Não. Somos uma consultoria de IA. Avaliamos o seu cenário e implementamos a melhor combinação de modelos (GPT, Claude, Gemini), ferramentas e integrações para o seu caso — sem prender você a uma plataforma única.",
+  },
+  {
+    q: "Vou precisar de equipe técnica para usar?",
+    a: "Não. Entregamos os agentes prontos, integrados aos seus canais (WhatsApp, CRM, ERP, e-mail, site) e treinados com a sua base. Sua equipe apenas usa e acompanha os resultados.",
+  },
+  {
+    q: "Quanto tempo leva para colocar um agente em produção?",
+    a: "Projetos típicos vão ao ar entre 3 e 6 semanas, dependendo da complexidade das integrações e da maturidade dos processos atuais.",
+  },
+  {
+    q: "Como fica a segurança dos meus dados?",
+    a: "Trabalhamos com modelos que não treinam com seus dados, conexões criptografadas, controle de acesso por papel e aderência à LGPD. Sua base de conhecimento é sempre privada.",
+  },
+  {
+    q: "Faz sentido para empresas pequenas ou só para grandes?",
+    a: "Faz sentido para qualquer empresa com processos recorrentes — atendimento, vendas, suporte, financeiro. Adaptamos o escopo ao porte e ao momento do seu negócio.",
+  },
+];
 
 const corporateAgents = [
   {
@@ -178,7 +241,7 @@ export default function AgentesDeIA() {
                 transition={{ duration: 0.6 }}
               >
                 <Sparkles size={14} />
-                Agentes de IA
+                Consultoria em Agentes de IA
               </motion.span>
 
               <motion.h1
@@ -187,7 +250,7 @@ export default function AgentesDeIA() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.1 }}
               >
-                Times de <span className="text-gradient">Agentes de IA</span> que resolvem 100% do fluxo da sua empresa.
+                <span className="text-gradient">Agentes de IA sob medida</span> para sua empresa. Você não faz nada — só usa.
               </motion.h1>
 
               <motion.p
@@ -196,9 +259,9 @@ export default function AgentesDeIA() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
               >
-                Estruturamos agentes corporativos, agentes por setor e times completos
-                de IA que executam vendas, atendimento, suporte, financeiro, RH e
-                back-office — integrados aos seus sistemas e operando 24 horas por dia.
+                Não somos uma plataforma. Somos uma consultoria que entende o seu cenário,
+                desenha a estratégia de IA e implementa os agentes certos — integrados
+                aos seus canais e sistemas, prontos para operar do primeiro dia.
               </motion.p>
 
               <motion.div
@@ -209,14 +272,20 @@ export default function AgentesDeIA() {
               >
                 <Button asChild variant="cta" size="lg" className="w-full sm:w-auto">
                   <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer">
-                    Quero meu time de IA
+                    Quero uma consultoria
                     <ArrowRight size={20} />
                   </a>
                 </Button>
                 <Button asChild variant="outline" size="lg" className="w-full sm:w-auto">
-                  <Link to="/contato">Falar com especialista</Link>
+                  <Link to="/contato">Agendar diagnóstico</Link>
                 </Button>
               </motion.div>
+
+              <div className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted-foreground">
+                <span className="inline-flex items-center gap-2"><CheckCircle size={16} className="text-primary" /> Diagnóstico gratuito</span>
+                <span className="inline-flex items-center gap-2"><CheckCircle size={16} className="text-primary" /> Implantação chave na mão</span>
+                <span className="inline-flex items-center gap-2"><CheckCircle size={16} className="text-primary" /> Aderente à LGPD</span>
+              </div>
             </div>
 
             <motion.div
@@ -239,6 +308,33 @@ export default function AgentesDeIA() {
           </div>
         </div>
       </section>
+
+      {/* Pillars - Consultoria */}
+      <Section>
+        <SectionHeader
+          badge="Como atuamos"
+          title={<>Consultoria, não <span className="text-gradient">plataforma</span></>}
+          description="Cada empresa tem um cenário único. Nossa consultoria entende o seu negócio e pluga apenas o que faz sentido para gerar resultado — sem você ter que operar nada."
+        />
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {consultingPillars.map((p, i) => (
+            <motion.div
+              key={p.title}
+              className="premium-card p-6 h-full"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: i * 0.08 }}
+            >
+              <div className="w-14 h-14 rounded-xl bg-gradient-brand flex items-center justify-center mb-4">
+                <p.icon size={28} className="text-primary-foreground" />
+              </div>
+              <h3 className="font-display text-xl font-semibold text-foreground mb-2">{p.title}</h3>
+              <p className="text-muted-foreground text-sm">{p.description}</p>
+            </motion.div>
+          ))}
+        </div>
+      </Section>
 
       {/* What are AI Agents */}
       <Section className="bg-card">
@@ -284,6 +380,63 @@ export default function AgentesDeIA() {
                 height={768}
               />
             </div>
+          </motion.div>
+        </div>
+      </Section>
+
+      {/* Multi-model stack */}
+      <Section>
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium mb-6">
+              <Brain size={16} /> Stack multi-modelo
+            </span>
+            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
+              O melhor modelo para <span className="text-gradient">cada tarefa</span>. Sem você pensar nisso.
+            </h2>
+            <p className="text-lg text-muted-foreground mb-6">
+              Combinamos GPT, Claude, Gemini e modelos open-source na arquitetura
+              do seu projeto. Você não precisa escolher LLM, ajustar prompt nem se
+              preocupar com crédito ou limite. A consultoria orquestra tudo por trás.
+            </p>
+            <ul className="space-y-3">
+              {[
+                "Roteamento inteligente entre modelos por custo e qualidade",
+                "RAG com a base de conhecimento privada da sua empresa",
+                "Integrações nativas com WhatsApp, CRM, ERP e Kommo",
+                "Monitoramento contínuo de qualidade e custos",
+              ].map((item) => (
+                <li key={item} className="flex items-start gap-3">
+                  <CheckCircle size={20} className="text-primary mt-1 shrink-0" />
+                  <span className="text-foreground">{item}</span>
+                </li>
+              ))}
+            </ul>
+          </motion.div>
+          <motion.div
+            className="grid grid-cols-2 gap-4"
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            {[
+              { icon: Brain, label: "LLMs Premium", desc: "GPT, Claude, Gemini" },
+              { icon: Database, label: "Base privada", desc: "RAG sobre seus dados" },
+              { icon: Workflow, label: "Orquestração", desc: "Multi-agente coordenado" },
+              { icon: Globe, label: "Integrações", desc: "API, WhatsApp, CRM, ERP" },
+            ].map((c) => (
+              <div key={c.label} className="premium-card p-5">
+                <c.icon className="text-primary mb-3" size={28} />
+                <div className="font-display font-semibold text-foreground">{c.label}</div>
+                <div className="text-sm text-muted-foreground">{c.desc}</div>
+              </div>
+            ))}
           </motion.div>
         </div>
       </Section>
@@ -525,6 +678,55 @@ export default function AgentesDeIA() {
         </div>
       </Section>
 
+      {/* Security */}
+      <Section className="bg-card">
+        <SectionHeader
+          badge="Segurança e governança"
+          title={<>Privacidade, controle e <span className="text-gradient">aderência à LGPD</span></>}
+          description="Sua operação roda com clareza, controle e segurança em cada etapa."
+        />
+        <div className="grid md:grid-cols-3 gap-6">
+          {[
+            { icon: Lock, title: "Seus dados não treinam modelos", desc: "Conteúdo, conversas e documentos da empresa permanecem privados e fora de qualquer treinamento público." },
+            { icon: ShieldCheck, title: "Acesso controlado", desc: "Permissões por papel, autenticação reforçada e logs auditáveis de cada interação dos agentes." },
+            { icon: Database, title: "Aderência à LGPD", desc: "Arquitetura desenhada para conformidade, com tratamento responsável de dados sensíveis." },
+          ].map((s, i) => (
+            <motion.div
+              key={s.title}
+              className="premium-card p-6"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
+            >
+              <div className="w-12 h-12 rounded-xl bg-gradient-brand flex items-center justify-center mb-4">
+                <s.icon size={24} className="text-primary-foreground" />
+              </div>
+              <h3 className="font-display text-lg font-semibold text-foreground mb-2">{s.title}</h3>
+              <p className="text-muted-foreground text-sm">{s.desc}</p>
+            </motion.div>
+          ))}
+        </div>
+      </Section>
+
+      {/* FAQ */}
+      <Section>
+        <SectionHeader
+          badge="Dúvidas frequentes"
+          title={<>Tudo o que você precisa saber <span className="text-gradient">antes de começar</span></>}
+        />
+        <div className="max-w-3xl mx-auto">
+          <Accordion type="single" collapsible className="space-y-3">
+            {faqs.map((f, i) => (
+              <AccordionItem key={i} value={`item-${i}`} className="premium-card px-5">
+                <AccordionTrigger className="text-left font-display text-base md:text-lg">{f.q}</AccordionTrigger>
+                <AccordionContent className="text-muted-foreground">{f.a}</AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </div>
+      </Section>
+
       {/* CTA */}
       <Section className="bg-card relative overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
@@ -539,15 +741,16 @@ export default function AgentesDeIA() {
           >
             <Bot size={48} className="text-primary mx-auto mb-6" />
             <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
-              Pronto para montar seu <span className="text-gradient">time de IA</span>?
+              Vamos desenhar a <span className="text-gradient">IA da sua empresa</span> juntos?
             </h2>
             <p className="text-lg text-muted-foreground mb-10">
-              Fale com um especialista e descubra quais agentes podem transformar
-              a operação da sua empresa nos próximos 30 dias.
+              Agende um diagnóstico gratuito com nossos consultores. Mostramos quais
+              agentes fazem sentido para o seu cenário e como entregamos tudo pronto
+              para você apenas usar.
             </p>
             <Button asChild variant="cta" size="lg" className="w-full sm:w-auto">
               <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer">
-                Falar com especialista
+                Quero meu diagnóstico gratuito
                 <ArrowRight size={20} />
               </a>
             </Button>
