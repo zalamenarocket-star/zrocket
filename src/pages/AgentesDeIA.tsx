@@ -227,9 +227,34 @@ const steps = [
 export default function AgentesDeIA() {
   return (
     <Layout>
+      {/* Dark-mode background ornamentation: dot grid + mesh glows */}
+      <div className="pointer-events-none fixed inset-0 -z-10 hidden dark:block overflow-hidden">
+        {/* White dot grid */}
+        <div
+          className="absolute inset-0 opacity-[0.10]"
+          style={{
+            backgroundImage:
+              "radial-gradient(rgba(255,255,255,0.9) 1px, transparent 1px)",
+            backgroundSize: "32px 32px",
+          }}
+        />
+        {/* Aurora / mesh glows */}
+        <div className="absolute -top-[10%] -left-[10%] w-[55%] h-[55%] rounded-full blur-[140px] bg-[#0066FF]/15" />
+        <div className="absolute -bottom-[10%] -right-[10%] w-[50%] h-[50%] rounded-full blur-[140px] bg-[#1FA2FF]/10" />
+        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[60%] h-[40%] rounded-full blur-[160px] bg-[#1FA2FF]/[0.06]" />
+        {/* Vignette to keep edges anchored */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "radial-gradient(ellipse at center, transparent 0%, rgba(3,7,18,0.85) 100%)",
+          }}
+        />
+      </div>
+
       {/* Hero */}
       <section className="relative pt-4 pb-12 md:py-32 overflow-x-clip">
-        <div className="absolute top-20 right-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl hidden md:block" />
+        <div className="absolute top-20 right-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl hidden md:block dark:hidden" />
 
         <div className="section-container relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
