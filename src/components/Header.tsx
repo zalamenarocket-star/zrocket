@@ -19,7 +19,6 @@ const navItems = [
   { label: "Início", href: "/" },
   { label: "Soluções", href: "#", children: solutionsItems },
   { label: "Contato", href: "/contato" },
-  { label: "Interno", href: "/interno", icon: Lock },
 ];
 
 export function Header() {
@@ -121,13 +120,12 @@ export function Header() {
                 ) : (
                   <Link
                     to={item.href}
-                    className={`link-underline text-sm font-medium transition-colors duration-300 flex items-center gap-1.5 ${
+                    className={`link-underline text-sm font-medium transition-colors duration-300 ${
                       location.pathname === item.href
                         ? "text-primary"
                         : "text-muted-foreground hover:text-foreground"
                     }`}
                   >
-                    {item.icon && <item.icon size={13} />}
                     {item.label}
                   </Link>
                 )}
@@ -138,11 +136,30 @@ export function Header() {
           {/* Desktop Actions */}
           <div className="hidden lg:flex items-center gap-2">
             <ThemeToggle />
+            <Link
+              to="/interno"
+              title="Área Interna"
+              className={`p-2 rounded-lg transition-colors ${
+                location.pathname === "/interno"
+                  ? "text-primary bg-primary/10"
+                  : "text-muted-foreground hover:text-foreground hover:bg-muted"
+              }`}
+            >
+              <Lock size={16} />
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
           <div className="flex lg:hidden items-center gap-2">
             <ThemeToggle />
+            <Link
+              to="/interno"
+              title="Área Interna"
+              className="p-2 text-muted-foreground hover:text-foreground transition-colors"
+              onClick={() => setIsOpen(false)}
+            >
+              <Lock size={18} />
+            </Link>
             <button
               className="p-2 text-foreground"
               onClick={() => setIsOpen(!isOpen)}
