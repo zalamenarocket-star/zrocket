@@ -11,6 +11,7 @@ const Contato = lazy(() => import("./pages/Contato"));
 const ParceiroKommo = lazy(() => import("./pages/ParceiroKommo"));
 const Promocao = lazy(() => import("./pages/Promocao"));
 const AgentesDeIA = lazy(() => import("./pages/AgentesDeIA"));
+const Interno = lazy(() => import("./pages/Interno"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const App = () => (
@@ -28,6 +29,7 @@ const App = () => (
           <Route path="/agentes-de-ia" element={<AgentesDeIA />} />
           <Route path="/promocao" element={<Promocao />} />
           <Route path="/promo-site" element={<Promocao />} />
+          <Route path="/interno" element={<Interno />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
