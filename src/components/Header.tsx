@@ -1,6 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, Lock } from "lucide-react";
 import logoDark from "@/assets/logo-zrocket.webp";
 import logoLight from "@/assets/logo-zrocket-light.webp";
 import { ThemeToggle } from "./ThemeToggle";
@@ -19,6 +19,7 @@ const navItems = [
   { label: "Início", href: "/" },
   { label: "Soluções", href: "#", children: solutionsItems },
   { label: "Contato", href: "/contato" },
+  { label: "Interno", href: "/interno", icon: Lock },
 ];
 
 export function Header() {
@@ -120,12 +121,13 @@ export function Header() {
                 ) : (
                   <Link
                     to={item.href}
-                    className={`link-underline text-sm font-medium transition-colors duration-300 ${
+                    className={`link-underline text-sm font-medium transition-colors duration-300 flex items-center gap-1.5 ${
                       location.pathname === item.href
                         ? "text-primary"
                         : "text-muted-foreground hover:text-foreground"
                     }`}
                   >
+                    {item.icon && <item.icon size={13} />}
                     {item.label}
                   </Link>
                 )}
