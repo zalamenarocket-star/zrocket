@@ -1,6 +1,7 @@
 import { lazy, Suspense } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "@/hooks/use-theme";
+import { ProtectedRoute } from "@/components/ProtectedRoute";
 import Index from "./pages/Index";
 
 const CriacaoDeSites = lazy(() => import("./pages/CriacaoDeSites"));
@@ -12,6 +13,7 @@ const ParceiroKommo = lazy(() => import("./pages/ParceiroKommo"));
 const Promocao = lazy(() => import("./pages/Promocao"));
 const AgentesDeIA = lazy(() => import("./pages/AgentesDeIA"));
 const Interno = lazy(() => import("./pages/Interno"));
+const InternoLogin = lazy(() => import("./pages/InternoLogin"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const App = () => (
@@ -29,7 +31,8 @@ const App = () => (
           <Route path="/agentes-de-ia" element={<AgentesDeIA />} />
           <Route path="/promocao" element={<Promocao />} />
           <Route path="/promo-site" element={<Promocao />} />
-          <Route path="/interno" element={<Interno />} />
+          <Route path="/interno-login" element={<InternoLogin />} />
+          <Route path="/interno" element={<ProtectedRoute><Interno /></ProtectedRoute>} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
