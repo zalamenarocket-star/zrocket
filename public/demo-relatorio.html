@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Relatório de Performance — Demo | Z Rocket Marketing</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #0a0a0a;
+      color: #ffffff;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, #5ac8fa, #1a34d4);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* HEADER */
+    header {
+      background: #0d0d0d;
+      border-bottom: 1px solid #1a1a1a;
+      padding: 24px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+    }
+
+    .header-meta {
+      text-align: right;
+    }
+
+    .header-meta .label {
+      font-size: 11px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: #8a9bb0;
+    }
+
+    .header-meta .periodo {
+      font-size: 13px;
+      color: #fff;
+      margin-top: 2px;
+    }
+
+    /* HERO */
+    .hero {
+      padding: 56px 40px 40px;
+      border-bottom: 1px solid #141414;
+    }
+
+    .hero .tag {
+      display: inline-block;
+      font-size: 11px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: #5ac8fa;
+      margin-bottom: 12px;
+    }
+
+    .hero h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: clamp(22px, 4vw, 36px);
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 8px;
+    }
+
+    .hero .subtitle {
+      color: #8a9bb0;
+      font-size: 14px;
+    }
+
+    /* MÉTRICAS */
+    .section {
+      padding: 40px 40px;
+      border-bottom: 1px solid #141414;
+    }
+
+    .section-title {
+      font-size: 11px;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: #8a9bb0;
+      margin-bottom: 24px;
+    }
+
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+    }
+
+    .metric-card {
+      background: #141414;
+      border: 1px solid #1e1e1e;
+      border-radius: 4px;
+      padding: 24px;
+    }
+
+    .metric-card .metric-label {
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #8a9bb0;
+      margin-bottom: 10px;
+    }
+
+    .metric-card .metric-value {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 28px;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .metric-card .metric-delta {
+      font-size: 12px;
+      margin-top: 8px;
+      color: #5ac8fa;
+    }
+
+    /* DESTAQUES */
+    .highlights-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .highlights-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      background: #141414;
+      border: 1px solid #1e1e1e;
+      border-radius: 4px;
+      padding: 16px 20px;
+    }
+
+    .highlights-list li .check {
+      width: 20px;
+      height: 20px;
+      border-radius: 2px;
+      background: linear-gradient(135deg, #5ac8fa, #1a34d4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 11px;
+      margin-top: 1px;
+    }
+
+    /* ATENÇÃO */
+    .attention-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .attention-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      border-left: 3px solid #1a34d4;
+      padding: 14px 20px;
+      background: #0f0f14;
+      border-radius: 0 4px 4px 0;
+    }
+
+    /* PRÓXIMOS PASSOS */
+    .steps-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .steps-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .steps-list .step-num {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      width: 32px;
+      height: 32px;
+      border: 1px solid #1a34d4;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: #5ac8fa;
+    }
+
+    .steps-list .step-text {
+      padding-top: 6px;
+      font-size: 14px;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #0d0d0d;
+      border-top: 1px solid #1a1a1a;
+      padding: 32px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    footer .footer-brand {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    footer .footer-info {
+      color: #8a9bb0;
+      font-size: 12px;
+    }
+
+    footer a {
+      color: #5ac8fa;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    @media (max-width: 600px) {
+      header, .hero, .section, footer { padding-left: 20px; padding-right: 20px; }
+      .header-meta { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo">
+      <span class="gradient-text">Z ROCKET</span> MARKETING
+    </div>
+    <div class="header-meta">
+      <div class="label">Relatório de Performance</div>
+      <div class="periodo">Junho 2026</div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="tag">Relatório Mensal</div>
+    <h1>Cliente <span class="gradient-text">Demo</span></h1>
+    <p class="subtitle">Período: 01/06/2026 — 30/06/2026 &nbsp;·&nbsp; Google Ads + Meta Ads</p>
+  </div>
+
+  <!-- MÉTRICAS -->
+  <div class="section">
+    <div class="section-title">Resumo Executivo</div>
+    <div class="metrics-grid">
+      <div class="metric-card">
+        <div class="metric-label">Investimento Total</div>
+        <div class="metric-value gradient-text">R$4.800</div>
+        <div class="metric-delta">↑ 12% vs maio</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">Leads Gerados</div>
+        <div class="metric-value gradient-text">143</div>
+        <div class="metric-delta">↑ 28% vs maio</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">Custo por Lead</div>
+        <div class="metric-value gradient-text">R$33</div>
+        <div class="metric-delta">↓ 12% vs maio</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">Taxa de Conversão</div>
+        <div class="metric-value gradient-text">4,2%</div>
+        <div class="metric-delta">↑ 0,8pp vs maio</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DESTAQUES -->
+  <div class="section">
+    <div class="section-title">Destaques do Período</div>
+    <ul class="highlights-list">
+      <li>
+        <div class="check">✓</div>
+        <span>Campanha Search atingiu ROAS de 4,1x — melhor resultado do trimestre</span>
+      </li>
+      <li>
+        <div class="check">✓</div>
+        <span>Anúncio de vídeo no Meta gerou 38 leads ao CPL de R$22, abaixo da meta de R$35</span>
+      </li>
+      <li>
+        <div class="check">✓</div>
+        <span>CTR médio no Google Ads subiu para 5,8% após ajuste nos títulos dos anúncios</span>
+      </li>
+    </ul>
+  </div>
+
+  <!-- ATENÇÃO -->
+  <div class="section">
+    <div class="section-title">Pontos de Atenção</div>
+    <ul class="attention-list">
+      <li>
+        <span>Campanha de remarketing com frequência alta (6,2x) — necessário ampliar público ou pausar criativos antigos</span>
+      </li>
+      <li>
+        <span>Índice de qualidade de 3 keywords abaixo de 5 — revisar relevância dos anúncios vs. página de destino</span>
+      </li>
+    </ul>
+  </div>
+
+  <!-- PRÓXIMOS PASSOS -->
+  <div class="section">
+    <div class="section-title">Próximos Passos</div>
+    <ul class="steps-list">
+      <li>
+        <div class="step-num">01</div>
+        <div class="step-text">Criar 3 novos criativos para o conjunto de remarketing e pausar os com mais de 60 dias</div>
+      </li>
+      <li>
+        <div class="step-num">02</div>
+        <div class="step-text">Otimizar landing page para aumentar relevância das keywords com baixo QS</div>
+      </li>
+      <li>
+        <div class="step-num">03</div>
+        <div class="step-text">Escalar o anúncio de vídeo que performou abaixo da meta de CPL — aumentar orçamento em 30%</div>
+      </li>
+    </ul>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-brand"><span class="gradient-text">Z ROCKET</span> MARKETING</div>
+    <div class="footer-info">© 2026 Z Rocket Marketing · Todos os direitos reservados</div>
+    <a href="https://wa.me/5511999999999">Falar com Bruno →</a>
+  </footer>
+
+</body>
+</html>
