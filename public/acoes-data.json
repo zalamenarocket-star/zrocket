@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "data": "2026-06-23",
+    "cliente": "STD Engenharia",
+    "tipo": "Google Ads",
+    "descricao": "Criação de 10 anúncios para campanhas NR13 e Vasos de Pressão",
+    "responsavel": "Equipe Z Rocket"
+  },
+  {
+    "id": 2,
+    "data": "2026-06-23",
+    "cliente": "Movimento Change",
+    "tipo": "CRM",
+    "descricao": "Revisão do agente Luluca — 49 itens do script GPS conferidos",
+    "responsavel": "Equipe Z Rocket"
+  },
+  {
+    "id": 3,
+    "data": "2026-06-22",
+    "cliente": "STD Engenharia",
+    "tipo": "Relatório",
+    "descricao": "Diagnóstico de 60 dias das campanhas Google Ads — plano de recriação elaborado",
+    "responsavel": "Equipe Z Rocket"
+  },
+  {
+    "id": 4,
+    "data": "2026-06-22",
+    "cliente": "Movimento Change",
+    "tipo": "WhatsApp",
+    "descricao": "Integração Hotmart → Kommo via n8n configurada e testada",
+    "responsavel": "Equipe Z Rocket"
+  },
+  {
+    "id": 5,
+    "data": "2026-06-21",
+    "cliente": "STD Engenharia",
+    "tipo": "SEO",
+    "descricao": "Auditoria técnica de SEO concluída — 23 oportunidades mapeadas",
+    "responsavel": "Equipe Z Rocket"
+  }
+]
