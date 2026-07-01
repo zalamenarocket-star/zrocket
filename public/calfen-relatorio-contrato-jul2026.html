@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Relatório de Contrato — Calfen Industrial | Z Rocket Marketing</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #f4f6fb;
+    --card: #ffffff;
+    --card2: #f0f3f9;
+    --blue-light: #2fa8e0;
+    --blue-dark: #1a34d4;
+    --text: #16213e;
+    --muted: #6b7385;
+    --border: #e3e7f0;
+    --ok: #2fa8e0;
+    --pending: #d99320;
+    --amber-bg: #fdf3e3;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', -apple-system, 'Segoe UI', sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  /* HEADER */
+  .header {
+    background: var(--card);
+    border-bottom: 1px solid var(--border);
+    padding: 20px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    box-shadow: 0 1px 3px rgba(20,30,60,0.04);
+  }
+  .logo {
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    font-weight: 900;
+    background: linear-gradient(135deg, var(--blue-light), var(--blue-dark));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: 0.05em;
+  }
+  .header-right { text-align: right; }
+  .header-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+  .header-client { font-size: 16px; font-weight: 700; margin-top: 2px; color: var(--text); }
+  .header-date { font-size: 11px; color: var(--muted); margin-top: 2px; }
+
+  /* PAGE TABS */
+  .page-tabs {
+    max-width: 1200px;
+    margin: 24px auto 0;
+    padding: 0 24px;
+    display: flex;
+    gap: 8px;
+  }
+  .page-tab {
+    padding: 12px 22px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    cursor: pointer;
+    color: var(--muted);
+    transition: all 0.15s;
+  }
+  .page-tab.active {
+    color: #ffffff;
+    border-color: var(--blue-dark);
+    background: linear-gradient(135deg, var(--blue-light), var(--blue-dark));
+  }
+  .page-panel { display: none; }
+  .page-panel.active { display: block; }
+
+  .container { max-width: 1200px; margin: 0 auto; padding: 32px 24px; }
+  .section { margin-bottom: 40px; }
+  .section-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.3em;
+    color: var(--blue-dark);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--border);
+  }
+
+  /* RESUMO */
+  .resumo-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 24px;
+    box-shadow: 0 1px 4px rgba(20,30,60,0.04);
+  }
+  .resumo-card p { color: #3a4258; font-size: 13px; margin-bottom: 10px; line-height: 1.7; }
+  .resumo-card p:last-child { margin-bottom: 0; }
+  .resumo-card strong { color: var(--text); }
+
+  /* ESCOPO */
+  .escopo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 12px;
+  }
+  .escopo-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 18px 20px;
+    box-shadow: 0 1px 4px rgba(20,30,60,0.04);
+  }
+  .escopo-card .num {
+    font-family: 'Inter', sans-serif;
+    font-size: 22px;
+    font-weight: 900;
+    color: var(--blue-dark);
+  }
+  .escopo-card .label { font-size: 12px; color: var(--muted); margin-top: 4px; }
+
+  /* STATUS CARDS */
+  .status-grid { display: flex; flex-direction: column; gap: 10px; }
+  .status-item {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    box-shadow: 0 1px 4px rgba(20,30,60,0.04);
+  }
+  .status-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+  .status-dot.done { background: var(--ok); }
+  .status-dot.progress { background: var(--pending); }
+  .status-body { flex: 1; }
+  .status-title { font-size: 13px; font-weight: 700; color: var(--text); }
+  .status-desc { font-size: 12px; color: var(--muted); margin-top: 2px; }
+  .status-badge {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 4px;
+    white-space: nowrap;
+  }
+  .status-badge.done { background: #e5f4fc; color: #1b7fac; border: 1px solid #bfe4f5; }
+  .status-badge.progress { background: var(--amber-bg); color: var(--pending); border: 1px solid #f2ddb1; }
+
+  /* TABLES */
+  .pub-table { width: 100%; border-collapse: collapse; background: var(--card); }
+  .pub-table th {
+    background: var(--card2);
+    padding: 10px 14px;
+    text-align: left;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    border-bottom: 1px solid var(--border);
+  }
+  .pub-table td {
+    padding: 10px 14px;
+    font-size: 12px;
+    border-bottom: 1px solid var(--border);
+    color: #3a4258;
+  }
+  .pub-table tr:last-child td { border-bottom: none; }
+  .pub-table tr:hover td { background: var(--card2); }
+  .pub-table td:first-child { color: var(--text); font-weight: 600; }
+  .table-wrap { overflow-x:auto; border: 1px solid var(--border); border-radius: 8px; box-shadow: 0 1px 4px rgba(20,30,60,0.04); }
+
+  /* PRÓXIMOS PASSOS */
+  .steps-list { display: flex; flex-direction: column; gap: 10px; }
+  .step-item {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 14px 18px;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    box-shadow: 0 1px 4px rgba(20,30,60,0.04);
+  }
+  .step-num {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--blue-dark);
+    flex-shrink: 0;
+  }
+  .step-text { font-size: 13px; color: #3a4258; }
+
+  /* GA4 KPIs */
+  .kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 16px;
+  }
+  .kpi-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 1px 4px rgba(20,30,60,0.04);
+  }
+  .kpi-label { font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; }
+  .kpi-value {
+    font-family: 'Inter', sans-serif;
+    font-size: 28px;
+    font-weight: 900;
+    background: linear-gradient(135deg, var(--blue-light), var(--blue-dark));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .kpi-sub { font-size: 11px; color: var(--muted); margin-top: 4px; }
+
+  /* CHART CARD */
+  .chart-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 24px;
+    box-shadow: 0 1px 4px rgba(20,30,60,0.04);
+  }
+
+  /* BAR CHART (daily trend) */
+  .bars {
+    display: flex;
+    align-items: flex-end;
+    gap: 6px;
+    height: 160px;
+    padding-top: 10px;
+  }
+  .bar-col { flex: 1; display: flex; flex-direction: column; align-items: center; gap: 6px; height: 100%; justify-content: flex-end; }
+  .bar {
+    width: 100%;
+    max-width: 28px;
+    border-radius: 4px 4px 0 0;
+    background: linear-gradient(180deg, var(--blue-light), var(--blue-dark));
+    position: relative;
+  }
+  .bar-val {
+    font-size: 9px;
+    color: var(--muted);
+    font-weight: 700;
+  }
+  .bar-label {
+    font-size: 9px;
+    color: var(--muted);
+    margin-top: 4px;
+    writing-mode: horizontal-tb;
+  }
+
+  /* DONUT */
+  .donut-wrap { display: flex; align-items: center; gap: 28px; flex-wrap: wrap; justify-content: center; }
+  .donut {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .donut-hole {
+    width: 92px;
+    height: 92px;
+    background: var(--card);
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .donut-hole .dh-num { font-family: 'Inter', sans-serif; font-size: 18px; font-weight: 900; color: var(--text); }
+  .donut-hole .dh-label { font-size: 9px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
+  .legend { display: flex; flex-direction: column; gap: 10px; }
+  .legend-item { display: flex; align-items: center; gap: 10px; font-size: 12px; }
+  .legend-dot { width: 12px; height: 12px; border-radius: 3px; flex-shrink: 0; }
+  .legend-name { color: var(--text); font-weight: 600; min-width: 130px; }
+  .legend-val { color: var(--muted); }
+
+  /* HBAR (top pages) */
+  .hbars { display: flex; flex-direction: column; gap: 12px; }
+  .hbar-row { display: grid; grid-template-columns: 160px 1fr 50px; align-items: center; gap: 10px; }
+  .hbar-label { font-size: 12px; color: var(--text); font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .hbar-track { background: var(--card2); border-radius: 4px; height: 16px; overflow: hidden; }
+  .hbar-fill { height: 100%; background: linear-gradient(90deg, var(--blue-light), var(--blue-dark)); border-radius: 4px; }
+  .hbar-value { font-size: 12px; color: var(--muted); font-weight: 700; text-align: right; }
+
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+  .highlight-box {
+    background: var(--amber-bg);
+    border-left: 3px solid var(--pending);
+    border-radius: 0 6px 6px 0;
+    padding: 12px 16px;
+    margin-top: 14px;
+    font-size: 13px;
+    color: #6b4d10;
+  }
+
+  /* FOOTER */
+  .footer {
+    background: var(--card);
+    border-top: 1px solid var(--border);
+    padding: 20px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .footer-brand { font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 700; color: var(--muted); }
+  .footer-info { font-size: 11px; color: var(--muted); }
+
+  @media (max-width: 768px) {
+    .header { padding: 16px 20px; }
+    .container { padding: 20px 16px; }
+    .page-tabs { padding: 0 16px; }
+    .footer { padding: 16px 20px; }
+    .two-col { grid-template-columns: 1fr; }
+    .hbar-row { grid-template-columns: 100px 1fr 40px; }
+    .bar-label { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="logo">Z ROCKET</div>
+  <div class="header-right">
+    <div class="header-title">Relatório de Contrato</div>
+    <div class="header-client">Calfen Industrial</div>
+    <div class="header-date">calfen.com.br · Atualizado em 01/07/2026</div>
+  </div>
+</header>
+
+<div class="page-tabs">
+  <button class="page-tab active" onclick="showPage('contrato', this)">Contrato — O que foi feito</button>
+  <button class="page-tab" onclick="showPage('analytics', this)">Google Analytics</button>
+</div>
+
+<!-- ABA CONTRATO -->
+<div class="page-panel active" id="contrato">
+<main class="container">
+
+  <section class="section">
+    <div class="section-title">Resumo Executivo</div>
+    <div class="resumo-card">
+      <p>Este relatório acompanha as entregas do contrato de conteúdo da <strong>Calfen Industrial</strong> com a Z Rocket Marketing, cobrindo a criação de carrossel semanal para o Instagram e materiais de conteúdo para redes sociais.</p>
+      <p>Até o momento, <strong>9 carrosséis foram publicados</strong> no Instagram (@calfenindustrial) e <strong>6 novos temas estão em produção</strong>, sendo 2 com arte finalizada aguardando publicação e 4 com copy já aprovada pelo cliente, aguardando geração de arte.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-title">Escopo Contratado</div>
+    <div class="escopo-grid">
+      <div class="escopo-card">
+        <div class="num">1×/semana</div>
+        <div class="label">Carrossel para Instagram (tema industrial/produtos)</div>
+      </div>
+      <div class="escopo-card">
+        <div class="num">✓</div>
+        <div class="label">Materiais de conteúdo para redes sociais</div>
+      </div>
+      <div class="escopo-card">
+        <div class="num">9</div>
+        <div class="label">Carrosséis publicados até agora</div>
+      </div>
+      <div class="escopo-card">
+        <div class="num">6</div>
+        <div class="label">Carrosséis em produção no momento</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-title">Publicados no Instagram</div>
+    <div class="table-wrap">
+      <table class="pub-table">
+        <thead>
+          <tr>
+            <th>Tema</th>
+            <th>Tipo</th>
+            <th>Observação</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>24 Anos Construindo Sua História</td><td>Institucional</td><td>Aniversário da empresa</td></tr>
+          <tr><td>Motovibradores VBC</td><td>Produto</td><td>Alta performance para processos industriais</td></tr>
+          <tr><td>Excelência em Soldagem Industrial</td><td>Serviço</td><td>Qualidade, precisão e confiança em cada projeto</td></tr>
+          <tr><td>Peças e Equipamentos Sob Medida</td><td>Serviço</td><td>Projetos desenvolvidos conforme a necessidade</td></tr>
+          <tr><td>Corte de Chapas de Aço a Laser</td><td>Serviço/Processo</td><td>Precisão que corta, tecnologia que transforma</td></tr>
+          <tr><td>Estruturas Metálicas Industriais</td><td>Serviço</td><td>Calfen como referência no setor</td></tr>
+          <tr><td>Calandramento de Chapas de Aço</td><td>Serviço/Processo</td><td>Força, precisão e técnica para curvaturas perfeitas</td></tr>
+          <tr><td>Dutos Refrigerados de Alta Performance</td><td>Produto/Serviço</td><td>Soluções para ambientes de extrema temperatura</td></tr>
+          <tr><td>Post institucional (só logo)</td><td>Branding</td><td>Post de identidade visual / lançamento de marca</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-title">Em Produção Agora</div>
+    <div class="status-grid">
+      <div class="status-item">
+        <span class="status-dot done"></span>
+        <div class="status-body">
+          <div class="status-title">Agronegócio Industrial</div>
+          <div class="status-desc">Copy aprovada + arte finalizada (8 slides). Pronto para publicação.</div>
+        </div>
+        <span class="status-badge done">Arte pronta</span>
+      </div>
+      <div class="status-item">
+        <span class="status-dot done"></span>
+        <div class="status-body">
+          <div class="status-title">Vasos de Pressão</div>
+          <div class="status-desc">Copy aprovada + arte finalizada. Pronto para publicação.</div>
+        </div>
+        <span class="status-badge done">Arte pronta</span>
+      </div>
+      <div class="status-item">
+        <span class="status-dot progress"></span>
+        <div class="status-body">
+          <div class="status-title">Pintura Industrial Anticorrosiva</div>
+          <div class="status-desc">Copy aprovada pelo cliente em 24/06. Aguardando geração de arte.</div>
+        </div>
+        <span class="status-badge progress">Copy aprovada</span>
+      </div>
+      <div class="status-item">
+        <span class="status-dot progress"></span>
+        <div class="status-body">
+          <div class="status-title">Siderurgia: O Setor Mais Exigente</div>
+          <div class="status-desc">Copy aprovada pelo cliente em 24/06. Aguardando geração de arte.</div>
+        </div>
+        <span class="status-badge progress">Copy aprovada</span>
+      </div>
+      <div class="status-item">
+        <span class="status-dot progress"></span>
+        <div class="status-body">
+          <div class="status-title">O Custo Real de um Equipamento que Falha</div>
+          <div class="status-desc">Copy aprovada pelo cliente em 24/06. Aguardando geração de arte.</div>
+        </div>
+        <span class="status-badge progress">Copy aprovada</span>
+      </div>
+      <div class="status-item">
+        <span class="status-dot progress"></span>
+        <div class="status-body">
+          <div class="status-title">O que Grandes Indústrias Exigem de um Fornecedor</div>
+          <div class="status-desc">Copy aprovada pelo cliente em 24/06. Aguardando geração de arte.</div>
+        </div>
+        <span class="status-badge progress">Copy aprovada</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-title">Próximos Passos</div>
+    <div class="steps-list">
+      <div class="step-item"><span class="step-num">01</span><span class="step-text">Publicar os carrosséis de Agronegócio Industrial e Vasos de Pressão (arte já pronta).</span></div>
+      <div class="step-item"><span class="step-num">02</span><span class="step-text">Gerar as artes dos 4 carrosséis com copy já aprovada (Pintura Anticorrosiva, Siderurgia, Custo do Equipamento, Grandes Indústrias).</span></div>
+      <div class="step-item"><span class="step-num">03</span><span class="step-text">Manter cadência semanal de publicação conforme contrato.</span></div>
+    </div>
+  </section>
+
+</main>
+</div>
+
+<!-- ABA GOOGLE ANALYTICS -->
+<div class="page-panel" id="analytics">
+<main class="container">
+
+  <section class="section">
+    <div class="section-title">Visão Geral — Últimos 30 dias</div>
+    <div class="kpi-grid">
+      <div class="kpi-card">
+        <div class="kpi-label">Sessões</div>
+        <div class="kpi-value">190</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Usuários Ativos</div>
+        <div class="kpi-value">138</div>
+        <div class="kpi-sub">136 novos</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Páginas Vistas</div>
+        <div class="kpi-value">342</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Duração Média</div>
+        <div class="kpi-value">2:45</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Engajamento</div>
+        <div class="kpi-value">45,3%</div>
+        <div class="kpi-sub">86 sessões engajadas</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">Rejeição</div>
+        <div class="kpi-value">54,7%</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-title">Evolução Diária de Sessões</div>
+    <div class="chart-card">
+      <div class="bars">
+        <div class="bar-col"><span class="bar-val">1</span><div class="bar" style="height:4%"></div><span class="bar-label">15/06</span></div>
+        <div class="bar-col"><span class="bar-val">17</span><div class="bar" style="height:68%"></div><span class="bar-label">16</span></div>
+        <div class="bar-col"><span class="bar-val">19</span><div class="bar" style="height:76%"></div><span class="bar-label">17</span></div>
+        <div class="bar-col"><span class="bar-val">11</span><div class="bar" style="height:44%"></div><span class="bar-label">18</span></div>
+        <div class="bar-col"><span class="bar-val">10</span><div class="bar" style="height:40%"></div><span class="bar-label">19</span></div>
+        <div class="bar-col"><span class="bar-val">3</span><div class="bar" style="height:12%"></div><span class="bar-label">20</span></div>
+        <div class="bar-col"><span class="bar-val">3</span><div class="bar" style="height:12%"></div><span class="bar-label">21</span></div>
+        <div class="bar-col"><span class="bar-val">20</span><div class="bar" style="height:80%"></div><span class="bar-label">22</span></div>
+        <div class="bar-col"><span class="bar-val">25</span><div class="bar" style="height:100%"></div><span class="bar-label">23</span></div>
+        <div class="bar-col"><span class="bar-val">16</span><div class="bar" style="height:64%"></div><span class="bar-label">24</span></div>
+        <div class="bar-col"><span class="bar-val">13</span><div class="bar" style="height:52%"></div><span class="bar-label">25</span></div>
+        <div class="bar-col"><span class="bar-val">10</span><div class="bar" style="height:40%"></div><span class="bar-label">26</span></div>
+        <div class="bar-col"><span class="bar-val">0</span><div class="bar" style="height:2%"></div><span class="bar-label">27</span></div>
+        <div class="bar-col"><span class="bar-val">3</span><div class="bar" style="height:12%"></div><span class="bar-label">28</span></div>
+        <div class="bar-col"><span class="bar-val">3</span><div class="bar" style="height:12%"></div><span class="bar-label">29</span></div>
+        <div class="bar-col"><span class="bar-val">25</span><div class="bar" style="height:100%"></div><span class="bar-label">30</span></div>
+        <div class="bar-col"><span class="bar-val">12</span><div class="bar" style="height:48%"></div><span class="bar-label">01/07</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-title">Canais &amp; Dispositivos</div>
+    <div class="two-col">
+      <div class="chart-card">
+        <div style="font-size:12px; font-weight:700; color:var(--text); margin-bottom:16px;">Canais de Aquisição</div>
+        <div class="donut-wrap">
+          <div class="donut" style="background: conic-gradient(var(--blue-dark) 0deg 250deg, var(--blue-light) 250deg 339deg, #c9d3e6 339deg 360deg);">
+            <div class="donut-hole"><span class="dh-num">190</span><span class="dh-label">Sessões</span></div>
+          </div>
+          <div class="legend">
+            <div class="legend-item"><span class="legend-dot" style="background:var(--blue-dark)"></span><span class="legend-name">Direct</span><span class="legend-val">132 · 69%</span></div>
+            <div class="legend-item"><span class="legend-dot" style="background:var(--blue-light)"></span><span class="legend-name">Organic Search</span><span class="legend-val">47 · 25%</span></div>
+            <div class="legend-item"><span class="legend-dot" style="background:#c9d3e6"></span><span class="legend-name">Outros</span><span class="legend-val">15 · 8%</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="chart-card">
+        <div style="font-size:12px; font-weight:700; color:var(--text); margin-bottom:16px;">Dispositivos</div>
+        <div class="donut-wrap">
+          <div class="donut" style="background: conic-gradient(var(--blue-dark) 0deg 266deg, var(--blue-light) 266deg 360deg);">
+            <div class="donut-hole"><span class="dh-num">190</span><span class="dh-label">Sessões</span></div>
+          </div>
+          <div class="legend">
+            <div class="legend-item"><span class="legend-dot" style="background:var(--blue-dark)"></span><span class="legend-name">Desktop</span><span class="legend-val">140 · 74%</span></div>
+            <div class="legend-item"><span class="legend-dot" style="background:var(--blue-light)"></span><span class="legend-name">Mobile</span><span class="legend-val">50 · 26%</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-title">Detalhamento por Canal</div>
+    <div class="table-wrap">
+      <table class="pub-table">
+        <thead>
+          <tr>
+            <th>Canal</th>
+            <th>Sessões</th>
+            <th>Usuários</th>
+            <th>Engajamento</th>
+            <th>Duração Média</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Direct</td><td>132 (69%)</td><td>103</td><td>42,4%</td><td>2:44</td></tr>
+          <tr><td>Organic Search</td><td>47 (25%)</td><td>27</td><td>55,3%</td><td>3:08</td></tr>
+          <tr><td>Unassigned</td><td>6 (3%)</td><td>6</td><td>0%</td><td>0:00</td></tr>
+          <tr><td>AI Assistant</td><td>4 (2%)</td><td>4</td><td>50%</td><td>2:30</td></tr>
+          <tr><td>Organic Social</td><td>4 (2%)</td><td>3</td><td>50%</td><td>0:56</td></tr>
+          <tr><td>Referral</td><td>1 (1%)</td><td>1</td><td>0%</td><td>0:05</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-title">Páginas Mais Acessadas</div>
+    <div class="chart-card">
+      <div class="hbars">
+        <div class="hbar-row"><span class="hbar-label">/ (Home)</span><div class="hbar-track"><div class="hbar-fill" style="width:100%"></div></div><span class="hbar-value">210</span></div>
+        <div class="hbar-row"><span class="hbar-label">/contato</span><div class="hbar-track"><div class="hbar-fill" style="width:15.7%"></div></div><span class="hbar-value">33</span></div>
+        <div class="hbar-row"><span class="hbar-label">/portfolio</span><div class="hbar-track"><div class="hbar-fill" style="width:11.4%"></div></div><span class="hbar-value">24</span></div>
+        <div class="hbar-row"><span class="hbar-label">/solucoes/industriais</span><div class="hbar-track"><div class="hbar-fill" style="width:9.5%"></div></div><span class="hbar-value">20</span></div>
+        <div class="hbar-row"><span class="hbar-label">/clientes</span><div class="hbar-track"><div class="hbar-fill" style="width:8.6%"></div></div><span class="hbar-value">18</span></div>
+        <div class="hbar-row"><span class="hbar-label">/segmentos</span><div class="hbar-track"><div class="hbar-fill" style="width:7.1%"></div></div><span class="hbar-value">15</span></div>
+        <div class="hbar-row"><span class="hbar-label">/empresa</span><div class="hbar-track"><div class="hbar-fill" style="width:4.8%"></div></div><span class="hbar-value">10</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-title">Leitura dos Dados</div>
+    <div class="resumo-card">
+      <p><strong>Direct domina o tráfego (69%)</strong> — comum em empresas B2B industriais, reflete busca direta pela marca (digitação da URL, favoritos, cartão de visita) mais do que descoberta orgânica.</p>
+      <p><strong>Organic Search tem o melhor engajamento</strong> (55,3% vs 42,4% do Direct) e a maior duração de sessão (3:08) — indica que quem chega via busca tem interesse mais qualificado.</p>
+      <p><strong>/contato e /portfolio têm taxa de rejeição muito baixa</strong> (6,5% e 4,4%) — sinal de que quem chega nessas páginas está interessado e navega mais, potencial de conversão.</p>
+      <div class="highlight-box"><strong>Ponto de atenção:</strong> nenhuma conversão registrada no período — não há evento de conversão configurado no GA4 (ex: envio de formulário de contato, clique no WhatsApp). Recomendação: configurar rastreamento de conversão para medir geração de leads pelo site.</div>
+    </div>
+  </section>
+
+</main>
+</div>
+
+<footer class="footer">
+  <div class="footer-brand">Z ROCKET MARKETING</div>
+  <div class="footer-info">Relatório de Contrato · Calfen Industrial · Julho 2026</div>
+</footer>
+
+<script>
+  function showPage(id, btn) {
+    document.querySelectorAll('.page-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.page-tab').forEach(t => t.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    btn.classList.add('active');
+  }
+</script>
+
+</body>
+</html>
