@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard Google Ads — STD Engenharia | Z Rocket Marketing</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0a0a0a;
+    --card: #141414;
+    --card2: #1a1a1a;
+    --blue-light: #5ac8fa;
+    --blue-dark: #1a34d4;
+    --text: #ffffff;
+    --muted: #8a9bb0;
+    --border: #222;
+    --critical: #e05555;
+    --warning: #c8921a;
+    --ok: #5ac8fa;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  /* HEADER */
+  .header {
+    background: var(--card);
+    border-bottom: 1px solid var(--border);
+    padding: 20px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .logo {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 18px;
+    font-weight: 900;
+    background: linear-gradient(135deg, var(--blue-light), var(--blue-dark));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: 0.05em;
+  }
+  .header-right { text-align: right; }
+  .header-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+  .header-client { font-size: 16px; font-weight: 700; margin-top: 2px; }
+  .header-date { font-size: 11px; color: var(--muted); margin-top: 2px; }
+
+  /* LAYOUT */
+  .container { max-width: 1200px; margin: 0 auto; padding: 32px 24px; }
+  .section { margin-bottom: 40px; }
+  .section-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.3em;
+    color: var(--muted);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  /* RESUMO — KPI CARDS */
+  .kpi-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  .kpi-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 20px 18px;
+    position: relative;
+    overflow: hidden;
+  }
+  .kpi-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+  }
+  .kpi-card.blue::before  { background: var(--blue-light); }
+  .kpi-card.green::before { background: #4caf7d; }
+  .kpi-card.red::before   { background: var(--critical); }
+  .kpi-card.warn::before  { background: var(--warning); }
+  .kpi-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 10px;
+  }
+  .kpi-value {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 30px;
+    font-weight: 900;
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .kpi-card.blue  .kpi-value { color: var(--blue-light); }
+  .kpi-card.green .kpi-value { color: #4caf7d; }
+  .kpi-card.red   .kpi-value { color: var(--critical); }
+  .kpi-card.warn  .kpi-value { color: var(--warning); }
+  .kpi-sub { font-size: 11px; color: var(--muted); }
+
+  /* RESUMO NARRATIVO */
+  .resumo-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 24px;
+  }
+  .resumo-card p { color: #c5cdd8; font-size: 13px; margin-bottom: 10px; line-height: 1.7; }
+  .resumo-card p:last-child { margin-bottom: 0; }
+  .resumo-card strong { color: var(--text); }
+  .highlight-box {
+    background: rgba(90,200,250,0.06);
+    border-left: 3px solid var(--blue-light);
+    border-radius: 0 4px 4px 0;
+    padding: 12px 16px;
+    margin-top: 14px;
+    font-size: 13px;
+    color: #c5cdd8;
+  }
+
+  /* CAMPANHAS TABLE */
+  .table-wrap {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  table { width: 100%; border-collapse: collapse; }
+  thead th {
+    background: var(--card2);
+    padding: 10px 14px;
+    text-align: left;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    border-bottom: 1px solid var(--border);
+  }
+  thead th:not(:first-child) { text-align: right; }
+  tbody td {
+    padding: 13px 14px;
+    font-size: 13px;
+    border-bottom: 1px solid var(--border);
+  }
+  tbody tr:last-child td { border-bottom: none; }
+  tbody tr:hover td { background: rgba(255,255,255,0.02); }
+  tbody td:not(:first-child) { text-align: right; color: var(--muted); }
+  tbody td:first-child { font-weight: 600; color: var(--text); }
+  .tag {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 2px 7px;
+    border-radius: 2px;
+  }
+  .tag-ativa   { background: rgba(76,175,125,0.15); color: #4caf7d;      border: 1px solid rgba(76,175,125,0.3); }
+  .tag-pausada { background: rgba(138,155,176,0.1); color: var(--muted); border: 1px solid rgba(138,155,176,0.2); }
+  .tag-alerta  { background: rgba(224,85,85,0.12);  color: var(--critical); border: 1px solid rgba(224,85,85,0.3); }
+  .val-ok   { color: #4caf7d !important; font-weight: 700; }
+  .val-warn { color: var(--warning) !important; font-weight: 700; }
+  .val-bad  { color: var(--critical) !important; font-weight: 700; }
+  .val-text { color: var(--text) !important; }
+
+  /* CHARTS */
+  .charts-row { display: grid; grid-template-columns: 2fr 1fr; gap: 16px; }
+  .chart-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 20px;
+  }
+  .chart-title {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 16px;
+  }
+  .chart-wrap { position: relative; height: 200px; }
+
+  /* WASTE */
+  .waste-list { display: flex; flex-direction: column; gap: 10px; }
+  .waste-item {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 14px 18px;
+    display: grid;
+    grid-template-columns: auto 1fr auto auto;
+    gap: 16px;
+    align-items: center;
+  }
+  .waste-code {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--critical);
+  }
+  .waste-term { font-size: 13px; font-weight: 600; }
+  .waste-meta { font-size: 11px; color: var(--muted); margin-top: 2px; }
+  .waste-type {
+    font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em;
+    padding: 2px 7px; border-radius: 2px; white-space: nowrap;
+  }
+  .wt-gen  { background: rgba(200,146,26,0.12); color: var(--warning); border: 1px solid rgba(200,146,26,0.3); }
+  .wt-comp { background: rgba(224,85,85,0.12); color: var(--critical); border: 1px solid rgba(224,85,85,0.3); }
+  .waste-cost {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--critical);
+    white-space: nowrap;
+  }
+
+  /* ACOES PRIORITÁRIAS */
+  .acoes-list { display: flex; flex-direction: column; gap: 12px; }
+  .acao-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 18px 20px;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 16px;
+    align-items: start;
+  }
+  .acao-num {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    padding-top: 2px;
+  }
+  .acao-num.p1 { color: var(--critical); }
+  .acao-num.p2 { color: var(--warning); }
+  .acao-num.p3 { color: var(--blue-light); }
+  .acao-title { font-size: 14px; font-weight: 700; margin-bottom: 4px; }
+  .acao-desc { font-size: 12px; color: var(--muted); line-height: 1.6; }
+  .acao-fix {
+    font-size: 12px;
+    color: #c5cdd8;
+    background: var(--card2);
+    border-radius: 4px;
+    padding: 8px 12px;
+    border-left: 2px solid var(--blue-dark);
+    margin-top: 8px;
+  }
+  .acao-fix strong { color: var(--blue-light); }
+  .badge {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+    padding: 3px 8px; border-radius: 2px; white-space: nowrap;
+  }
+  .badge-urgente { background: rgba(224,85,85,0.12); color: var(--critical); border: 1px solid rgba(224,85,85,0.3); }
+  .badge-rapido  { background: rgba(200,146,26,0.12); color: var(--warning); border: 1px solid rgba(200,146,26,0.3); }
+  .badge-planejar { background: rgba(90,200,250,0.1); color: var(--blue-light); border: 1px solid rgba(90,200,250,0.3); }
+
+  /* PLANO CAMPANHAS */
+  .plan-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .plan-card {
+    background: var(--card);
+    border: 1px solid rgba(90,200,250,0.25);
+    border-radius: 4px;
+    padding: 18px;
+  }
+  .plan-name { font-size: 13px; font-weight: 700; margin-bottom: 4px; }
+  .plan-budget { font-size: 11px; color: var(--blue-light); font-weight: 600; margin-bottom: 14px; }
+  .plan-sub {
+    font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--muted); margin: 10px 0 6px; padding-bottom: 4px; border-bottom: 1px solid var(--border);
+  }
+  .plan-adg {
+    font-size: 12px; color: #c5cdd8; padding: 4px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .plan-adg:last-of-type { border: none; }
+  .kw-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 4px; }
+  .kw {
+    font-size: 10px; padding: 2px 6px; border-radius: 2px;
+    font-family: 'Montserrat', monospace;
+  }
+  .kw-phrase { background: rgba(76,175,125,0.12); color: #4caf7d; border: 1px solid rgba(76,175,125,0.25); }
+  .kw-exact  { background: rgba(90,200,250,0.1); color: var(--blue-light); border: 1px solid rgba(90,200,250,0.25); }
+  .kw-neg    { background: rgba(224,85,85,0.1); color: var(--critical); border: 1px solid rgba(224,85,85,0.25); }
+  .plan-note { font-size: 11px; color: var(--warning); margin-top: 10px; line-height: 1.5; }
+
+  .budget-summary {
+    background: linear-gradient(135deg, rgba(26,52,212,0.15), rgba(90,200,250,0.08));
+    border: 1px solid rgba(90,200,250,0.25);
+    border-radius: 4px;
+    padding: 18px 24px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-top: 14px;
+  }
+  .bs-item { }
+  .bs-label { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 4px; }
+  .bs-value { font-family: 'Orbitron', sans-serif; font-size: 18px; font-weight: 700; color: var(--text); }
+  .bs-value.up { color: #4caf7d; }
+  .bs-value.blue { color: var(--blue-light); }
+
+  footer { text-align: center; padding: 24px; color: #333; font-size: 11px; border-top: 1px solid var(--border); margin-top: 8px; }
+
+  /* TIMELINE DE EVOLUÇÃO */
+  .timeline { display: flex; flex-direction: column; gap: 0; position: relative; }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 90px;
+    top: 0; bottom: 0;
+    width: 1px;
+    background: var(--border);
+  }
+  .tl-entry { display: grid; grid-template-columns: 90px 1fr; gap: 0; position: relative; }
+  .tl-date {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--muted);
+    padding: 20px 16px 20px 0;
+    text-align: right;
+    line-height: 1.4;
+    position: relative;
+  }
+  .tl-date::after {
+    content: '';
+    position: absolute;
+    right: -5px;
+    top: 24px;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--card2);
+    border: 2px solid var(--border);
+  }
+  .tl-entry.current .tl-date::after { background: var(--blue-light); border-color: var(--blue-light); }
+  .tl-entry.positive .tl-date::after { background: #4caf7d; border-color: #4caf7d; }
+  .tl-body {
+    padding: 16px 0 16px 24px;
+    border-bottom: 1px solid var(--border);
+  }
+  .tl-entry:last-child .tl-body { border-bottom: none; }
+  .tl-title { font-size: 13px; font-weight: 700; margin-bottom: 6px; }
+  .tl-entry.current .tl-title { color: var(--blue-light); }
+  .tl-entry.positive .tl-title { color: #4caf7d; }
+  .tl-items { display: flex; flex-direction: column; gap: 4px; }
+  .tl-item { font-size: 12px; color: var(--muted); display: flex; gap: 8px; align-items: baseline; }
+  .tl-item::before { content: '—'; color: #333; flex-shrink: 0; }
+  .tl-item strong { color: #c5cdd8; }
+  .tl-delta {
+    display: inline-flex; gap: 12px; margin-top: 10px; flex-wrap: wrap;
+  }
+  .delta-chip {
+    font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 2px;
+  }
+  .delta-up   { background: rgba(76,175,125,0.12); color: #4caf7d; border: 1px solid rgba(76,175,125,0.3); }
+  .delta-down { background: rgba(224,85,85,0.12); color: var(--critical); border: 1px solid rgba(224,85,85,0.3); }
+  .delta-info { background: rgba(90,200,250,0.08); color: var(--blue-light); border: 1px solid rgba(90,200,250,0.25); }
+  .tl-pending {
+    font-size: 11px; color: #444; font-style: italic; margin-top: 6px;
+  }
+  .tl-placeholder {
+    padding: 20px 24px;
+    background: rgba(90,200,250,0.03);
+    border: 1px dashed #2a2a2a;
+    border-radius: 4px;
+    font-size: 12px;
+    color: #333;
+    margin-left: 24px;
+    margin-top: -8px;
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="logo">Z ROCKET</div>
+  <div class="header-right">
+    <div class="header-title">Google Ads · Relatório de Performance</div>
+    <div class="header-client">STD Engenharia</div>
+    <div class="header-date">Período: 23/04/2026 – 22/06/2026 (60 dias) · Gerado em 22/06/2026</div>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- 0. LINHA DO TEMPO DE EVOLUÇÃO -->
+  <div class="section">
+    <div class="section-title">Linha do Tempo — Evolução da Conta</div>
+    <div class="resumo-card" style="margin-bottom:16px">
+      <p>Esta página é o registro vivo do trabalho em Google Ads da STD Engenharia. Cada entrada documenta o que foi feito, o que mudou nos números e o impacto acumulado ao longo do tempo.</p>
+    </div>
+
+    <div class="timeline">
+
+      <!-- ENTRADA 1 — DIAGNÓSTICO INICIAL -->
+      <div class="tl-entry current">
+        <div class="tl-date">22 JUN 2026</div>
+        <div class="tl-body">
+          <div class="tl-title">Diagnóstico Inicial + Dashboard Criado</div>
+          <div class="tl-items">
+            <div class="tl-item"><strong>API Google Ads conectada</strong> com novo developer token</div>
+            <div class="tl-item">Mapeadas <strong>2 campanhas ativas</strong>: STD Engenharia 22/05 e Vasos e Caldeira All</div>
+            <div class="tl-item">Identificado <strong>Impression Share de apenas 20%</strong> — conta perdendo 80% das buscas disponíveis</div>
+            <div class="tl-item">Identificados <strong>R$314 desperdiçados em 14 dias</strong> em termos sem conversão (nr13, nr 13, tercal, etc.)</div>
+            <div class="tl-item">Campanha <strong>TUBULAÇÕES 06/2026 ativa mas sem impressões</strong> — investigação necessária</div>
+            <div class="tl-item">Desktop converte <strong>83% dos leads</strong>; mobile tem custo/lead 2× maior</div>
+          </div>
+          <div class="tl-delta">
+            <span class="delta-info">Investimento 60d: R$8.463</span>
+            <span class="delta-info">Leads 60d: ~100</span>
+            <span class="delta-info">Custo/lead: R$84</span>
+            <span class="delta-down">IS: 20% (crítico)</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- PRÓXIMAS ENTRADAS — PLACEHOLDER -->
+      <div class="tl-entry">
+        <div class="tl-date">PRÓX.<br>AÇÃO</div>
+        <div class="tl-body">
+          <div class="tl-title" style="color:#333">Aguardando execução das ações prioritárias</div>
+          <div class="tl-items">
+            <div class="tl-item" style="color:#2a2a2a"><strong style="color:#2a2a2a">P1</strong> — Negativar termos sem conversão (nr13, tercal, teste hidrostático…)</div>
+            <div class="tl-item" style="color:#2a2a2a"><strong style="color:#2a2a2a">P2</strong> — Aumentar orçamento diário de R$180 para R$270</div>
+            <div class="tl-item" style="color:#2a2a2a"><strong style="color:#2a2a2a">P3</strong> — Ajuste de lance -25% no mobile</div>
+            <div class="tl-item" style="color:#2a2a2a"><strong style="color:#2a2a2a">P4</strong> — Diagnosticar campanha TUBULAÇÕES (zero impressões)</div>
+          </div>
+          <div class="tl-pending">Quando essas ações forem executadas, uma nova entrada será adicionada aqui com os resultados.</div>
+        </div>
+      </div>
+
+      <div class="tl-placeholder">
+        Futuras atualizações mostrarão aqui: o que mudou, quanto o custo/lead caiu, quantos leads a mais foram gerados e qual foi o impacto de cada ação executada.
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 1. RESUMO EXECUTIVO -->
+  <div class="section">
+    <div class="section-title">Resumo Executivo — 60 Dias</div>
+
+    <div class="kpi-row" style="margin-bottom:14px">
+      <div class="kpi-card blue">
+        <div class="kpi-label">Investido</div>
+        <div class="kpi-value">R$8.463</div>
+        <div class="kpi-sub">R$141/dia em média</div>
+      </div>
+      <div class="kpi-card green">
+        <div class="kpi-label">Conversões</div>
+        <div class="kpi-value">100</div>
+        <div class="kpi-sub">1,67 leads/dia</div>
+      </div>
+      <div class="kpi-card warn">
+        <div class="kpi-label">Custo por Lead</div>
+        <div class="kpi-value">R$84</div>
+        <div class="kpi-sub">meta: abaixo de R$100</div>
+      </div>
+      <div class="kpi-card red">
+        <div class="kpi-label">Impression Share</div>
+        <div class="kpi-value">20%</div>
+        <div class="kpi-sub">80% das buscas não viu o anúncio</div>
+      </div>
+    </div>
+
+    <div class="resumo-card">
+      <p>A conta está gerando resultados — <strong>100 conversões em 60 dias a R$84 cada</strong> é um bom custo para o segmento B2B industrial. O problema principal não é o que está acontecendo, mas o que está sendo perdido: com apenas <strong>20% de Impression Share</strong>, a STD aparece em apenas 1 de cada 5 buscas do público-alvo.</p>
+      <p>Há duas campanhas ativas. A <strong>STD Engenharia 22/05/2026</strong> é a que performa melhor — mais cliques, taxa de conversão maior e custo por lead mais baixo (R$56). A <strong>Vasos e Caldeira All</strong> tem CPC mais alto e está puxando budget para termos que não convertem.</p>
+      <div class="highlight-box">
+        <strong>Prioridade imediata:</strong> cortar os termos genéricos que consomem ~R$22/dia sem gerar lead nenhum. Esse dinheiro, redirecionado, aumenta o volume de leads sem aumentar o orçamento.
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. CAMPANHAS -->
+  <div class="section">
+    <div class="section-title">Campanhas Ativas</div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Campanha</th>
+            <th>Status</th>
+            <th>Impressões</th>
+            <th>Cliques</th>
+            <th>CTR</th>
+            <th>Conversões</th>
+            <th>Taxa Conv.</th>
+            <th>CPC Médio</th>
+            <th>Investido</th>
+            <th>Custo/Lead</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>STD Engenharia 22/05/2026</td>
+            <td><span class="tag tag-ativa">Ativa</span></td>
+            <td class="val-text">8.318</td>
+            <td class="val-text">501</td>
+            <td class="val-ok">6,02%</td>
+            <td class="val-ok">54,7</td>
+            <td class="val-ok">10,9%</td>
+            <td class="val-text">R$6,11</td>
+            <td class="val-text">R$3.063</td>
+            <td class="val-ok">R$56</td>
+          </tr>
+          <tr>
+            <td>Vasos e Caldeira All</td>
+            <td><span class="tag tag-ativa">Ativa</span></td>
+            <td class="val-text">6.443</td>
+            <td class="val-text">303</td>
+            <td class="val-warn">4,70%</td>
+            <td class="val-warn">26,3</td>
+            <td class="val-warn">8,7%</td>
+            <td class="val-bad">R$11,86</td>
+            <td class="val-text">R$3.595</td>
+            <td class="val-bad">R$137</td>
+          </tr>
+          <tr>
+            <td>TUBULAÇÕES 06/2026</td>
+            <td><span class="tag tag-alerta">Sem dados</span></td>
+            <td style="color:#444">—</td>
+            <td style="color:#444">—</td>
+            <td style="color:#444">—</td>
+            <td style="color:#444">—</td>
+            <td style="color:#444">—</td>
+            <td style="color:#444">—</td>
+            <td style="color:#444">R$0</td>
+            <td style="color:#444">—</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="margin-top:14px">
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Campanhas Históricas (Pausadas) — últimos 60 dias</th>
+              <th>Conv.</th>
+              <th>Taxa Conv.</th>
+              <th>CPC Médio</th>
+              <th>Investido</th>
+              <th>Custo/Lead</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>STD Engenharia (original)</td>
+              <td class="val-ok">11,0</td>
+              <td class="val-ok">9,8%</td>
+              <td class="val-text">R$5,16</td>
+              <td class="val-text">R$578</td>
+              <td class="val-ok">R$53</td>
+            </tr>
+            <tr>
+              <td>Vasos e Caldeira</td>
+              <td class="val-warn">7,0</td>
+              <td class="val-warn">7,6%</td>
+              <td class="val-text">R$5,11</td>
+              <td class="val-text">R$470</td>
+              <td class="val-warn">R$67</td>
+            </tr>
+            <tr>
+              <td>Inspeção NR13 (2026)</td>
+              <td class="val-bad">0,99</td>
+              <td class="val-bad">1,8%</td>
+              <td class="val-bad">R$12,72</td>
+              <td class="val-text">R$712</td>
+              <td class="val-bad">R$718</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. GRÁFICOS -->
+  <div class="section">
+    <div class="section-title">Performance Visual</div>
+    <div class="charts-row">
+      <div class="chart-card">
+        <div class="chart-title">Conversões por Semana — 60 dias</div>
+        <div class="chart-wrap"><canvas id="chartSemana"></canvas></div>
+      </div>
+      <div class="chart-card">
+        <div class="chart-title">Desktop vs Mobile — Conversões</div>
+        <div class="chart-wrap"><canvas id="chartDevice"></canvas></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. BUDGET DESPERDIÇADO -->
+  <div class="section">
+    <div class="section-title">Budget Desperdiçado — Termos Sem Conversão</div>
+    <div class="resumo-card" style="margin-bottom:14px">
+      <p>A campanha <strong>Vasos e Caldeira All</strong> está ativando para buscas que não são do nosso público. A lista abaixo mostra os principais termos e quanto foi gasto nos últimos 14 dias — <strong>nenhum gerou lead</strong>.</p>
+    </div>
+    <div class="waste-list">
+      <div class="waste-item">
+        <div class="waste-code">01</div>
+        <div>
+          <div class="waste-term">"nr13" / "nr 13"</div>
+          <div class="waste-meta">948 impressões · 27 cliques · 0 conversões — pessoas buscando informação sobre a norma, não o serviço</div>
+        </div>
+        <span class="waste-type wt-gen">Genérico</span>
+        <div class="waste-cost">R$177,84</div>
+      </div>
+      <div class="waste-item">
+        <div class="waste-code">02</div>
+        <div>
+          <div class="waste-term">"teste hidrostático"</div>
+          <div class="waste-meta">23 impressões · 2 cliques · 0 conversões — pesquisa técnica, não compra</div>
+        </div>
+        <span class="waste-type wt-gen">Irrelevante</span>
+        <div class="waste-cost">R$58,86</div>
+      </div>
+      <div class="waste-item">
+        <div class="waste-code">03</div>
+        <div>
+          <div class="waste-term">"empresas de engenharia industrial"</div>
+          <div class="waste-meta">10 impressões · 2 cliques · 0 conversões — busca muito ampla</div>
+        </div>
+        <span class="waste-type wt-gen">Genérico</span>
+        <div class="waste-cost">R$49,88</div>
+      </div>
+      <div class="waste-item">
+        <div class="waste-code">04</div>
+        <div>
+          <div class="waste-term">"tercal engenharia"</div>
+          <div class="waste-meta">30 impressões · 1 clique · 0 conversões — concorrente direto da STD</div>
+        </div>
+        <span class="waste-type wt-comp">Concorrente</span>
+        <div class="waste-cost">R$27,43</div>
+      </div>
+    </div>
+    <div style="background:rgba(224,85,85,0.07);border:1px solid rgba(224,85,85,0.25);border-radius:4px;padding:12px 18px;margin-top:12px;font-size:13px;color:#c5cdd8">
+      Total desperdiçado nos últimos 14 dias: <strong style="color:var(--critical)">R$314</strong> — equivale a <strong>3–4 leads que poderiam ter sido gerados</strong> com esse mesmo valor bem direcionado.
+    </div>
+  </div>
+
+  <!-- 5. AÇÕES PRIORITÁRIAS -->
+  <div class="section">
+    <div class="section-title">O que Fazer Agora</div>
+    <div class="acoes-list">
+      <div class="acao-card">
+        <div class="acao-num p1">P1</div>
+        <div>
+          <div class="acao-title">Negativar os termos sem conversão</div>
+          <div class="acao-desc">Adicionar como palavras negativas: <em>nr13, nr 13, teste hidrostático, empresas de engenharia industrial, tercal engenharia, cursos, treinamento, emprego, grátis</em>. Isso para de gastar em quem nunca vai virar lead.</div>
+          <div class="acao-fix"><strong>Ação:</strong> Adicionar negativas no nível da campanha Vasos e Caldeira All. Execução: &lt; 10 minutos.</div>
+        </div>
+        <span class="badge badge-urgente">Urgente</span>
+      </div>
+      <div class="acao-card">
+        <div class="acao-num p1">P2</div>
+        <div>
+          <div class="acao-title">Aumentar orçamento diário</div>
+          <div class="acao-desc">Com 20% de Impression Share, as campanhas param de aparecer cedo no dia. Passar de R$180/dia para R$270/dia (STD 22/05: R$100 → R$150 / Vasos: R$110 → R$120) deve gerar mais leads proporcionalmente sem elevar o custo por lead.</div>
+          <div class="acao-fix"><strong>Projeção:</strong> de ~1,7 leads/dia para ~2,5 leads/dia com mesmo custo/lead de R$84.</div>
+        </div>
+        <span class="badge badge-urgente">Urgente</span>
+      </div>
+      <div class="acao-card">
+        <div class="acao-num p2">P3</div>
+        <div>
+          <div class="acao-title">Reduzir lance no mobile em -25%</div>
+          <div class="acao-desc">Desktop converte 83% dos leads mas representa 70% dos cliques. Mobile tem custo por lead quase o dobro. Aplicar ajuste de lance de -25% para mobile redireciona o budget para dispositivos que realmente convertem.</div>
+          <div class="acao-fix"><strong>Ação:</strong> Ajuste de lance por dispositivo nas duas campanhas ativas.</div>
+        </div>
+        <span class="badge badge-rapido">Rápido</span>
+      </div>
+      <div class="acao-card">
+        <div class="acao-num p2">P4</div>
+        <div>
+          <div class="acao-title">Investigar campanha TUBULAÇÕES</div>
+          <div class="acao-desc">Campanha ativa há dias com zero impressões. Pode ser anúncio reprovado, keyword sem volume ou lance abaixo do mínimo. Não vale manter ativa sem diagnóstico — está ocupando atenção sem trazer resultado.</div>
+          <div class="acao-fix"><strong>Ação:</strong> Verificar status dos anúncios e estimar volume das keywords no Planejador.</div>
+        </div>
+        <span class="badge badge-rapido">Rápido</span>
+      </div>
+      <div class="acao-card">
+        <div class="acao-num p3">P5</div>
+        <div>
+          <div class="acao-title">Recriar campanhas com estrutura mais limpa</div>
+          <div class="acao-desc">As campanhas atuais misturam serviços diferentes no mesmo grupo, o que piora o Quality Score e eleva o CPC. A proposta abaixo separa por serviço, com keywords de intenção alta (phrase/exact) e negativas desde o início.</div>
+          <div class="acao-fix"><strong>Ação:</strong> Ver plano de recriação na seção abaixo.</div>
+        </div>
+        <span class="badge badge-planejar">Planejar</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 6. PLANO DE RECRIAÇÃO -->
+  <div class="section">
+    <div class="section-title">Plano de Recriação — Estrutura Proposta</div>
+    <div class="resumo-card" style="margin-bottom:16px">
+      <p>Baseado nos 60 dias de dados, o que funciona é <strong>keyword específica + anúncio alinhado ao serviço</strong>. A campanha STD 22/05 prova isso: R$56/lead com taxa de conversão de 10,9%. A proposta abaixo consolida em 3 campanhas focadas, com negativas definidas desde o início.</p>
+    </div>
+    <div class="plan-grid">
+
+      <div class="plan-card">
+        <div class="plan-name">Campanha 1 — Vasos, Caldeiras e NR13</div>
+        <div class="plan-budget">Budget: R$130/dia · Search · Phrase + Exact</div>
+        <div class="plan-sub">Ad Groups</div>
+        <div class="plan-adg">Inspeção Vasos de Pressão NR13</div>
+        <div class="plan-adg">Inspeção Caldeiras NR13</div>
+        <div class="plan-adg">Laudo NR13 / Consultoria NR13</div>
+        <div class="plan-sub">Keywords</div>
+        <div class="kw-tags">
+          <span class="kw kw-phrase">"inspeção vaso de pressão"</span>
+          <span class="kw kw-phrase">"inspeção caldeira nr13"</span>
+          <span class="kw kw-phrase">"laudo vaso de pressão"</span>
+          <span class="kw kw-phrase">"laudo caldeira"</span>
+          <span class="kw kw-exact">[inspeção nr13]</span>
+          <span class="kw kw-exact">[laudo nr13]</span>
+          <span class="kw kw-exact">[consultoria nr13]</span>
+        </div>
+        <div class="plan-sub">Negativas</div>
+        <div class="kw-tags">
+          <span class="kw kw-neg">-nr13 (genérico)</span>
+          <span class="kw kw-neg">-nr 13 (genérico)</span>
+          <span class="kw kw-neg">-tercal</span>
+          <span class="kw kw-neg">-teste hidrostático</span>
+          <span class="kw kw-neg">-cursos</span>
+          <span class="kw kw-neg">-treinamento</span>
+          <span class="kw kw-neg">-grátis</span>
+        </div>
+      </div>
+
+      <div class="plan-card">
+        <div class="plan-name">Campanha 2 — Serviços Técnicos</div>
+        <div class="plan-budget">Budget: R$100/dia · Search · Phrase + Exact</div>
+        <div class="plan-sub">Ad Groups — confirmados nos dados</div>
+        <div class="plan-adg">Inspeção de Solda <span style="color:#4caf7d;font-size:10px">✓ histórico com conv</span></div>
+        <div class="plan-adg">Ensaios Não Destrutivos (END)</div>
+        <div class="plan-adg">Calibração de Instrumentos</div>
+        <div class="plan-adg">Inspeção de Tanques</div>
+        <div class="plan-sub">Keywords</div>
+        <div class="kw-tags">
+          <span class="kw kw-phrase">"inspetor de solda"</span>
+          <span class="kw kw-phrase">"inspeção de solda"</span>
+          <span class="kw kw-phrase">"ensaios não destrutivos"</span>
+          <span class="kw kw-phrase">"calibração de instrumentos"</span>
+          <span class="kw kw-phrase">"inspeção de tanques"</span>
+          <span class="kw kw-exact">[END engenharia]</span>
+        </div>
+        <div class="plan-sub">Negativas</div>
+        <div class="kw-tags">
+          <span class="kw kw-neg">-curso</span>
+          <span class="kw kw-neg">-treinamento</span>
+          <span class="kw kw-neg">-emprego</span>
+          <span class="kw kw-neg">-vaga</span>
+        </div>
+      </div>
+
+      <div class="plan-card">
+        <div class="plan-name">Campanha 3 — Tubulações</div>
+        <div class="plan-budget">Budget: R$60/dia · Search · Testar com cautela</div>
+        <div class="plan-sub">Ad Groups</div>
+        <div class="plan-adg">Inspeção de Tubulações</div>
+        <div class="plan-adg">Projetos de Tubulação Industrial</div>
+        <div class="plan-sub">Keywords</div>
+        <div class="kw-tags">
+          <span class="kw kw-phrase">"inspeção de tubulação"</span>
+          <span class="kw kw-phrase">"inspeção tubulação industrial"</span>
+          <span class="kw kw-exact">[inspeção de tubulações]</span>
+          <span class="kw kw-exact">[tubulação industrial nr13]</span>
+        </div>
+        <div class="plan-sub">Negativas</div>
+        <div class="kw-tags">
+          <span class="kw kw-neg">-curso</span>
+          <span class="kw kw-neg">-treinamento</span>
+          <span class="kw kw-neg">-desenho técnico</span>
+        </div>
+        <div class="plan-note">Iniciar com budget conservador. Avaliar volume e CPC antes de escalar. Pode ter demanda menor que os outros serviços.</div>
+      </div>
+
+    </div>
+
+    <div class="budget-summary">
+      <div class="bs-item">
+        <div class="bs-label">Orçamento atual</div>
+        <div class="bs-value">R$180/dia</div>
+      </div>
+      <div class="bs-item">
+        <div class="bs-label">Orçamento proposto</div>
+        <div class="bs-value blue">R$290/dia</div>
+      </div>
+      <div class="bs-item">
+        <div class="bs-label">IS projetado</div>
+        <div class="bs-value blue">~45-55%</div>
+      </div>
+      <div class="bs-item">
+        <div class="bs-label">Leads projetados</div>
+        <div class="bs-value up">+60%</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer>Z Rocket Marketing · Google Ads · STD Engenharia · 22/06/2026</footer>
+
+<script>
+Chart.defaults.color = '#8a9bb0';
+Chart.defaults.borderColor = '#222';
+
+// Chart Semanal
+new Chart(document.getElementById('chartSemana'), {
+  type: 'bar',
+  data: {
+    labels: ['Sem 1','Sem 2','Sem 3','Sem 4','Sem 5','Sem 6','Sem 7','Sem 8'],
+    datasets: [
+      {
+        label: 'STD Engenharia 22/05',
+        data: [4, 9, 8, 7, 9, 6, 6, 6],
+        backgroundColor: 'rgba(90,200,250,0.7)',
+        borderRadius: 3
+      },
+      {
+        label: 'Vasos e Caldeira All',
+        data: [4, 3, 4, 3, 3, 3, 3, 4],
+        backgroundColor: 'rgba(200,146,26,0.6)',
+        borderRadius: 3
+      }
+    ]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: {
+      legend: { labels: { font: { size: 11, family: 'Montserrat' }, boxWidth: 12 } }
+    },
+    scales: {
+      x: { stacked: false, grid: { color: '#1a1a1a' }, ticks: { font: { size: 11 } } },
+      y: { grid: { color: '#1a1a1a' }, ticks: { font: { size: 11 } } }
+    }
+  }
+});
+
+// Device Chart
+new Chart(document.getElementById('chartDevice'), {
+  type: 'doughnut',
+  data: {
+    labels: ['Desktop (83%)', 'Mobile (17%)'],
+    datasets: [{
+      data: [83, 17],
+      backgroundColor: ['#5ac8fa', '#c8921a'],
+      borderColor: ['#141414', '#141414'],
+      borderWidth: 3
+    }]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: {
+      legend: {
+        position: 'bottom',
+        labels: { font: { size: 11, family: 'Montserrat' }, boxWidth: 12, padding: 16 }
+      }
+    },
+    cutout: '65%'
+  }
+});
+</script>
+</body>
+</html>
